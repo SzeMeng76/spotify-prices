@@ -110,53 +110,52 @@ def extract_price_from_text(price_text, currency):
         'GBP': r'£',
         'CNY': r'¥|yuan',
         'JPY': r'¥',
-        # 可以根据需要添加更多货币符号
     }
     
     # 获取当前货币的符号，如果没有找到则使用通用模式
     symbol = currency_symbols.get(currency, r'[¥$€£]')
     
-    # 匹配模式：货币符号后跟数字（支持逗号分隔和小数点）
+    # 更精确的匹配模式
     patterns = [
-        rf'{symbol}\s*(\d{{1,3}}(?:,\d{{3}})*(?:\.\d{{2}})?)',  # $6,49 或 $1,234.56
-        rf'{symbol}\s*(\d+(?:\.\d{{2}})?)',  # $6.49
-        rf'(\d{{1,3}}(?:,\d{{3}})*(?:\.\d{{2}})?)\s*{symbol}',  # 6,49$ (后置符号)
-        rf'(\d+(?:\.\d{{2}})?)\s*{symbol}',  # 6.49$ (后置符号)
+        # 匹配 $6,49 格式（欧洲/拉美用逗号作小数点）
+        rf'{symbol}\s*(\d+),(\d{{1,2}})',  # $6,49
+        # 匹配 $6.49 格式（美国用点作小数点）  
+        rf'{symbol}\s*(\d+)\.(\d{{1,2}})',  # $6.49
+        # 匹配 $1,234.56 格式（千位分隔符+小数点）
+        rf'{symbol}\s*(\d{{1,3}}(?:,\d{{3}})+)\.(\d{{1,2}})',  # $1,234.56
+        # 匹配整数
+        rf'{symbol}\s*(\d+)',  # $6
+        # 后置符号格式
+        rf'(\d+),(\d{{1,2}})\s*{symbol}',  # 6,49$
+        rf'(\d+)\.(\d{{1,2}})\s*{symbol}',  # 6.49$
+        rf'(\d+)\s*{symbol}',  # 6$
     ]
     
-    for pattern in patterns:
+    for i, pattern in enumerate(patterns):
         match = re.search(pattern, price_text)
         if match:
-            # 提取数字并移除逗号
-            price_str = match.group(1).replace(',', '')
             try:
-                return float(price_str)
-            except ValueError:
+                if len(match.groups()) == 2:
+                    # 有小数部分
+                    integer_part = match.group(1)
+                    decimal_part = match.group(2)
+                    
+                    # 如果是千位分隔符格式，移除逗号
+                    if ',' in integer_part and i == 2:  # $1,234.56 格式
+                        integer_part = integer_part.replace(',', '')
+                    
+                    price_str = f"{integer_part}.{decimal_part}"
+                    return float(price_str)
+                else:
+                    # 只有整数部分
+                    integer_part = match.group(1)
+                    # 移除千位分隔符（如果有）
+                    integer_part = integer_part.replace(',', '')
+                    return float(integer_part)
+            except (ValueError, AttributeError):
                 continue
     
-    # 如果上面的模式都不匹配，尝试提取任何数字
-    number_match = re.search(r'(\d+(?:[,\.]\d+)*)', price_text)
-    if number_match:
-        price_str = number_match.group(1)
-        # 处理不同的小数点表示法
-        if ',' in price_str and '.' in price_str:
-            # 如果同时有逗号和点，点是小数点
-            price_str = price_str.replace(',', '')
-        elif ',' in price_str:
-            # 只有逗号，可能是小数点（如 6,49）或千位分隔符
-            parts = price_str.split(',')
-            if len(parts) == 2 and len(parts[1]) <= 2:
-                # 很可能是小数点
-                price_str = price_str.replace(',', '.')
-            else:
-                # 很可能是千位分隔符
-                price_str = price_str.replace(',', '')
-        
-        try:
-            return float(price_str)
-        except ValueError:
-            pass
-    
+    print(f"无法从 '{price_text}' 中提取价格")
     return None
     
 def get_current_date():
