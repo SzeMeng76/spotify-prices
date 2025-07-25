@@ -3,7 +3,7 @@ import requests
 import os
 from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 from datetime import datetime  # 添加这一行
-import pytz  # 添加这一行（用于时区处理）
+#import pytz  # 添加这一行（用于时区处理）
 
 
 # --- Configuration ---
@@ -99,14 +99,8 @@ COUNTRY_NAMES_CN = {
 # --- Functions ---
 
 def get_current_date():
-    """获取当前日期（上海时区）"""
-    try:
-        # 使用上海时区，与GitHub Actions中的TZ设置保持一致
-        tz = pytz.timezone('Asia/Shanghai')
-        return datetime.now(tz).strftime('%Y-%m-%d')
-    except:
-        # 如果pytz不可用，使用系统时间
-        return datetime.now().strftime('%Y-%m-%d')
+    """获取当前日期"""
+    return datetime.now().strftime('%Y-%m-%d')
         
 def get_exchange_rates(api_keys, url_template):
     """获取最新汇率，如果API失败则返回None"""
