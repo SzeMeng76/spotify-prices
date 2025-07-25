@@ -3,7 +3,7 @@ import requests
 import os
 from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 from datetime import datetime  # 添加这一行
-#import pytz  # 添加这一行（用于时区处理）
+import re
 
 
 # --- Configuration ---
@@ -98,6 +98,67 @@ COUNTRY_NAMES_CN = {
 
 # --- Functions ---
 
+def extract_price_from_text(price_text, currency):
+    """从价格文本中提取数字价格"""
+    if not price_text or not isinstance(price_text, str):
+        return None
+    
+    # 不同货币的符号
+    currency_symbols = {
+        'USD': r'\$',
+        'EUR': r'€',
+        'GBP': r'£',
+        'CNY': r'¥|yuan',
+        'JPY': r'¥',
+        # 可以根据需要添加更多货币符号
+    }
+    
+    # 获取当前货币的符号，如果没有找到则使用通用模式
+    symbol = currency_symbols.get(currency, r'[¥$€£]')
+    
+    # 匹配模式：货币符号后跟数字（支持逗号分隔和小数点）
+    patterns = [
+        rf'{symbol}\s*(\d{{1,3}}(?:,\d{{3}})*(?:\.\d{{2}})?)',  # $6,49 或 $1,234.56
+        rf'{symbol}\s*(\d+(?:\.\d{{2}})?)',  # $6.49
+        rf'(\d{{1,3}}(?:,\d{{3}})*(?:\.\d{{2}})?)\s*{symbol}',  # 6,49$ (后置符号)
+        rf'(\d+(?:\.\d{{2}})?)\s*{symbol}',  # 6.49$ (后置符号)
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, price_text)
+        if match:
+            # 提取数字并移除逗号
+            price_str = match.group(1).replace(',', '')
+            try:
+                return float(price_str)
+            except ValueError:
+                continue
+    
+    # 如果上面的模式都不匹配，尝试提取任何数字
+    number_match = re.search(r'(\d+(?:[,\.]\d+)*)', price_text)
+    if number_match:
+        price_str = number_match.group(1)
+        # 处理不同的小数点表示法
+        if ',' in price_str and '.' in price_str:
+            # 如果同时有逗号和点，点是小数点
+            price_str = price_str.replace(',', '')
+        elif ',' in price_str:
+            # 只有逗号，可能是小数点（如 6,49）或千位分隔符
+            parts = price_str.split(',')
+            if len(parts) == 2 and len(parts[1]) <= 2:
+                # 很可能是小数点
+                price_str = price_str.replace(',', '.')
+            else:
+                # 很可能是千位分隔符
+                price_str = price_str.replace(',', '')
+        
+        try:
+            return float(price_str)
+        except ValueError:
+            pass
+    
+    return None
+    
 def get_current_date():
     """获取当前日期"""
     return datetime.now().strftime('%Y-%m-%d')
@@ -191,42 +252,60 @@ def process_spotify_data(data, rates):
             }
             
             # Process primary_price and secondary_price
-            # If both exist, only keep secondary_price (as per user requirement)
             primary_price = plan.get('primary_price', '')
             secondary_price = plan.get('secondary_price', '')
             price_number = plan.get('price_number')
             
+            # 优先使用 secondary_price
             if secondary_price and secondary_price.strip():
-                # Use secondary_price
                 processed_plan['price'] = secondary_price
-                # Try to extract price number from secondary_price or use existing price_number
-                if price_number is not None:
-                    # 格式化 price_number 为带千位分隔符的字符串
+                
+                # 尝试从 price_number 获取价格，如果为0或None则从文本提取
+                if price_number is not None and price_number > 0:
                     processed_plan['price_number'] = format_price_number(price_number)
-                    # Convert to CNY
                     cny_price = convert_to_cny(price_number, currency, rates)
                     if cny_price is not None:
                         processed_plan['price_cny'] = float(cny_price)
                     else:
                         processed_plan['price_cny'] = None
                 else:
-                    processed_plan['price_number'] = None
-                    processed_plan['price_cny'] = None
+                    # 从 secondary_price 文本中提取价格
+                    extracted_price = extract_price_from_text(secondary_price, currency)
+                    if extracted_price is not None:
+                        processed_plan['price_number'] = format_price_number(extracted_price)
+                        cny_price = convert_to_cny(extracted_price, currency, rates)
+                        if cny_price is not None:
+                            processed_plan['price_cny'] = float(cny_price)
+                        else:
+                            processed_plan['price_cny'] = None
+                    else:
+                        processed_plan['price_number'] = None
+                        processed_plan['price_cny'] = None
+                        
             elif primary_price and primary_price.strip():
-                # Use primary_price if no secondary_price
                 processed_plan['price'] = primary_price
-                if price_number is not None:
-                    # 格式化 price_number 为带千位分隔符的字符串
+                
+                # 尝试从 price_number 获取价格，如果为0或None则从文本提取
+                if price_number is not None and price_number > 0:
                     processed_plan['price_number'] = format_price_number(price_number)
-                    # Convert to CNY
                     cny_price = convert_to_cny(price_number, currency, rates)
                     if cny_price is not None:
                         processed_plan['price_cny'] = float(cny_price)
                     else:
                         processed_plan['price_cny'] = None
                 else:
-                    processed_plan['price_number'] = None
-                    processed_plan['price_cny'] = None
+                    # 从 primary_price 文本中提取价格
+                    extracted_price = extract_price_from_text(primary_price, currency)
+                    if extracted_price is not None:
+                        processed_plan['price_number'] = format_price_number(extracted_price)
+                        cny_price = convert_to_cny(extracted_price, currency, rates)
+                        if cny_price is not None:
+                            processed_plan['price_cny'] = float(cny_price)
+                        else:
+                            processed_plan['price_cny'] = None
+                    else:
+                        processed_plan['price_number'] = None
+                        processed_plan['price_cny'] = None
             else:
                 # No valid price found
                 processed_plan['price'] = ''
