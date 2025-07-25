@@ -157,6 +157,94 @@ def extract_price_from_text(price_text, currency):
     
     print(f"无法从 '{price_text}' 中提取价格")
     return None
+
+def standardize_plan_name(plan_name):
+    """标准化套餐名称为英文统一格式"""
+    if not plan_name:
+        return plan_name
+    
+    # 转换为小写用于匹配
+    plan_lower = plan_name.lower()
+    
+    # 定义标准化映射规则
+    standardization_map = {
+        # Individual/Personal plans
+        'premium individual': 'Premium Individual',
+        'premium personal': 'Premium Individual', 
+        'premium個人': 'Premium Individual',
+        'premium 個人': 'Premium Individual',
+        'premium个人': 'Premium Individual',
+        'premium 个人': 'Premium Individual',
+        
+        # Student plans
+        'premium para estudiantes': 'Premium Student',
+        'premium student': 'Premium Student',
+        'premium estudiantil': 'Premium Student',
+        'premium universitário': 'Premium Student',
+        'premium étudiant': 'Premium Student',
+        'premium studenten': 'Premium Student',
+        'premium学生': 'Premium Student',
+        'premium 学生': 'Premium Student',
+        'premium大学生': 'Premium Student',
+        'premium 大学生': 'Premium Student',
+        'premium 學生': 'Premium Student',
+        'premium學生': 'Premium Student',
+        
+        # Duo plans
+        'premium duo': 'Premium Duo',
+        'premium para dois': 'Premium Duo',
+        'premium couple': 'Premium Duo',
+        'premium雙人': 'Premium Duo',
+        'premium 雙人': 'Premium Duo',
+        'premium双人': 'Premium Duo',
+        'premium 双人': 'Premium Duo',
+        
+        # Family plans
+        'premium familiar': 'Premium Family',
+        'premium family': 'Premium Family',
+        'premium família': 'Premium Family',
+        'premium famille': 'Premium Family',
+        'premium familie': 'Premium Family',
+        'premium家庭': 'Premium Family',
+        'premium 家庭': 'Premium Family',
+        'premium家族': 'Premium Family',
+        'premium 家族': 'Premium Family',
+        
+        # Free plans
+        'spotify free': 'Spotify Free',
+        'free': 'Spotify Free',
+        'gratuito': 'Spotify Free',
+        'gratuit': 'Spotify Free',
+        '免費': 'Spotify Free',
+        '免费': 'Spotify Free',
+    }
+    
+    # 直接匹配
+    if plan_lower in standardization_map:
+        return standardization_map[plan_lower]
+    
+    # 模糊匹配（包含关键词）
+    if 'individual' in plan_lower or 'personal' in plan_lower:
+        if 'premium' in plan_lower:
+            return 'Premium Individual'
+    
+    if any(keyword in plan_lower for keyword in ['estudiante', 'student', 'étudiant', 'studenten', '学生', '學生', '大学生']):
+        if 'premium' in plan_lower:
+            return 'Premium Student'
+    
+    if 'duo' in plan_lower or 'couple' in plan_lower or '双人' in plan_lower or '雙人' in plan_lower:
+        if 'premium' in plan_lower:
+            return 'Premium Duo'
+    
+    if any(keyword in plan_lower for keyword in ['familiar', 'family', 'família', 'famille', 'familie', '家庭', '家族']):
+        if 'premium' in plan_lower:
+            return 'Premium Family'
+    
+    if any(keyword in plan_lower for keyword in ['free', 'gratuito', 'gratuit', '免費', '免费']):
+        return 'Spotify Free'
+    
+    # 如果没有匹配到，保持原名称但首字母大写
+    return plan_name.title()
     
 def get_current_date():
     """获取当前日期"""
@@ -244,9 +332,13 @@ def process_spotify_data(data, rates):
             plan_name = plan.get('plan', '')
             currency = plan.get('currency', '')
             
+            # 标准化套餐名称
+            standardized_plan_name = standardize_plan_name(plan_name)
+            
             # Create processed plan object
             processed_plan = {
-                'plan': plan_name,
+                'plan': standardized_plan_name,  # 使用标准化名称
+                'original_plan_name': plan_name,  # 保留原始名称以备参考
                 'currency': currency
             }
             
@@ -326,7 +418,6 @@ def process_spotify_data(data, rates):
         }
     
     return processed_data
-
 
 def sort_by_family_plan_cny(processed_data, original_data):
     """按Premium Family的CNY价格从低到高排序国家，并在JSON前面添加最便宜的10个"""
