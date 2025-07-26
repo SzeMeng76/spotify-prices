@@ -111,8 +111,12 @@ def extract_price_number(price_str: str) -> float:
     if not price_str:
         return 0.0
     
-    # 移除货币符号和空格
+    # 移除货币符号和空格，保留数字、逗号和句点
     cleaned = re.sub(r'[^\d,.]', '', price_str)
+
+    # 如果没有数字，返回0                                                                              
+    if not re.search(r'\d', cleaned):                                                                  
+        return 0.0 
     
     # 处理不同的数字格式
     if ',' in cleaned and '.' in cleaned:
@@ -126,9 +130,9 @@ def extract_price_number(price_str: str) -> float:
     elif ',' in cleaned:
         # 可能是小数点或千位分隔符
         parts = cleaned.split(',')
-        if len(parts[-1]) <= 2:  # 最后部分是2位数，可能是小数
+        if len(parts) == 2 and len(parts[-1]) <= 2:  # 最后部分是1-2位数，很可能是小数
             cleaned = cleaned.replace(',', '.')
-        else:  # 千位分隔符
+        else:  # 千位分隔符或其他情况
             cleaned = cleaned.replace(',', '')
     
     try:
