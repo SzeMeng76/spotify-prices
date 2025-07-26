@@ -121,19 +121,44 @@ def extract_price_number(price_str: str) -> float:
     # 处理不同的数字格式
     if ',' in cleaned and '.' in cleaned:
         # 判断是欧式格式还是美式格式
-        if cleaned.rindex(',') > cleaned.rindex('.'):
-            # 欧式格式 (1.234,56)
+        comma_pos = cleaned.rindex(',')
+        dot_pos = cleaned.rindex('.')
+        if comma_pos > dot_pos:
+            # 欧式格式 (1.234,56) - 点是千位分隔符，逗号是小数点
             cleaned = cleaned.replace('.', '').replace(',', '.')
         else:
-            # 美式格式 (1,234.56)
+            # 美式格式 (1,234.56) - 逗号是千位分隔符，点是小数点
             cleaned = cleaned.replace(',', '')
     elif ',' in cleaned:
-        # 可能是小数点或千位分隔符
+        # 只有逗号的情况
         parts = cleaned.split(',')
-        if len(parts) == 2 and len(parts[-1]) <= 2:  # 最后部分是1-2位数，很可能是小数
-            cleaned = cleaned.replace(',', '.')
-        else:  # 千位分隔符或其他情况
+        if len(parts) == 2:
+            # 检查小数部分长度来判断是小数点还是千位分隔符
+            decimal_part = parts[-1]
+            if len(decimal_part) <= 2:
+                # 小数部分是1-2位数，很可能是小数点 (例如: 5,99)
+                cleaned = cleaned.replace(',', '.')
+            else:
+                # 小数部分超过2位，很可能是千位分隔符 (例如: 2,499)
+                cleaned = cleaned.replace(',', '')
+        else:
+            # 多个逗号，都是千位分隔符
             cleaned = cleaned.replace(',', '')
+    elif '.' in cleaned:
+        # 只有点的情况
+        parts = cleaned.split('.')
+        if len(parts) == 2:
+            # 检查小数部分长度
+            decimal_part = parts[-1]
+            if len(decimal_part) <= 2:
+                # 小数部分是1-2位数，保持为小数点 (例如: 5.99)
+                pass  # 保持不变
+            else:
+                # 小数部分超过2位，很可能是千位分隔符 (例如: 2.499)
+                cleaned = cleaned.replace('.', '')
+        else:
+            # 多个点，都是千位分隔符
+            cleaned = cleaned.replace('.', '')
     
     try:
         return float(cleaned)
