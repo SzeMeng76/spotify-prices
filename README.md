@@ -1,231 +1,231 @@
-# Spotify 价格爬虫与汇率转换器
+# 🎵 Spotify Global Price Tracker
 
-这个项目自动抓取各国Spotify订阅价格，并转换为人民币进行比较分析。支持GitHub Actions自动化运行，每周更新数据。
+> 自动抓取全球 Spotify 订阅价格，实时汇率转换，找出最优惠的订阅地区
 
-## 🌟 功能特性
+[![Auto Update](https://img.shields.io/badge/Auto%20Update-Weekly-brightgreen)](https://github.com/SzeMeng76/spotify-prices/actions)
+[![Price Data](https://img.shields.io/badge/Countries-50+-blue)](#)
+[![Currency](https://img.shields.io/badge/Convert%20to-CNY-red)](#)
 
-- 🌍 **全球价格抓取**: 自动抓取全球多个国家的Spotify Premium价格
-- 💰 **实时汇率转换**: 实时汇率转换，将所有价格转换为人民币
-- 📊 **智能排序**: 按Premium Family价格排序，找出最便宜的订阅地区
-- 🤖 **自动化运行**: GitHub Actions每周自动运行
-- 🔐 **安全管理**: 使用GitHub Secrets安全管理API密钥
-- 📁 **详细报告**: 生成详细的JSON报告和统计信息
-- 🗂️ **历史归档**: 自动归档历史数据，按年份组织，保留所有运行结果
+## ✨ 核心功能
 
-## 📂 项目结构
-
-```
-├── spotify.py                          # 主爬虫脚本
-├── spotify_rate_converter.py           # 汇率转换器
-├── requirements.txt                     # Python依赖
-├── .env.example                        # 环境变量示例
-├── .gitignore                          # Git忽略文件
-├── archive/                            # 历史数据归档目录
-│   ├── 2025/                          # 2025年数据
-│   ├── 2026/                          # 2026年数据
-│   └── README.md                      # 归档说明
-├── .github/workflows/
-│   ├── weekly-spotify-scraper.yml      # 主自动化工作流
-│   └── manual-test.yml                 # 手动测试工作流
-└── README.md                           # 项目文档
-```
+| 功能 | 描述 |
+|------|------|
+| 🌍 **全球价格抓取** | 自动抓取全球 50+ 国家的 Spotify Premium 价格 |
+| 💱 **实时汇率转换** | 集成汇率 API，所有价格实时转换为人民币 |
+| 🏆 **智能排序分析** | 按 Premium Family 价格排序，一键找出最便宜的订阅地区 |
+| 📊 **标准化数据** | 多语言套餐名称标准化（如 "Premium Familiar" → "Premium Family"） |
+| 🤖 **自动化运行** | GitHub Actions 每周日自动运行，无需人工干预 |
+| 📈 **历史数据** | 按年份自动归档，支持价格趋势分析 |
 
 ## 🚀 快速开始
 
-### 1. 克隆项目
-```bash
-git clone <your-repo-url>
-cd spotify-price-scraper
-```
+### 前置要求
+- Python 3.9+
+- 免费的 [OpenExchangeRates API Key](https://openexchangerates.org/)
 
-### 2. 安装依赖
+### 一键运行
 ```bash
+# 1. 克隆项目
+git clone <your-repo-url>
+cd spotify-price-tracker
+
+# 2. 安装依赖
 pip install -r requirements.txt
 playwright install
-```
 
-### 3. 配置API密钥（必需！）
-```bash
-# 复制环境变量模板
+# 3. 配置 API 密钥
 cp .env.example .env
+# 编辑 .env 文件，添加你的 API_KEY
 
-# 编辑 .env 文件，添加你的API密钥
-API_KEY=你的API密钥
+# 4. 运行完整流程
+python spotify.py                    # 爬取价格数据
+python spotify_rate_converter.py     # 转换汇率并排序
 ```
 
-**重要**: 现在必须设置API密钥才能运行。获取免费API密钥：
-1. 访问 [OpenExchangeRates](https://openexchangerates.org/)
-2. 注册免费账户（每月1000次请求）
-3. 获取你的API密钥
+### 🔑 API 密钥配置
 
-### 4. 运行测试
+**本地开发：**
 ```bash
-# 运行基础测试（如果有test_setup.py）
-python test_setup.py
+# .env 文件
+API_KEY=your_openexchangerates_api_key
 ```
 
-### 5. 手动运行
+**GitHub Actions：**
+1. 仓库 Settings → Secrets and variables → Actions
+2. 添加 Secret: `API_KEY` = `your_api_key`
+
+> 💡 **获取免费 API 密钥**：访问 [OpenExchangeRates](https://openexchangerates.org/) 注册，每月 1000 次免费请求
+
+## 🤖 自动化工作流
+
+### 📅 定时任务
+- **运行时间**：每周日北京时间上午 8:00
+- **执行内容**：价格爬取 → 汇率转换 → 数据提交 → 文件归档
+- **手动触发**：支持 GitHub Actions 手动运行
+
+### 🔄 工作流程
+```mermaid
+graph LR
+    A[爬取价格] --> B[汇率转换]
+    B --> C[数据标准化]
+    C --> D[排序分析]
+    D --> E[文件归档]
+    E --> F[提交到仓库]
+```
+
+## 📊 数据输出
+
+### 主要文件
+| 文件名 | 描述 | 用途 |
+|--------|------|------|
+| `spotify_prices_all_countries.json` | 原始价格数据 | 数据源，包含完整爬取信息 |
+| `spotify_prices_cny_sorted.json` | 人民币排序数据 | 分析结果，包含最便宜 Top 10 |
+
+### 特色数据结构
+```json
+{
+  "_top_10_cheapest_premium_family": {
+    "description": "最便宜的10个Premium Family套餐",
+    "updated_at": "2025-07-26",
+    "data": [
+      {
+        "rank": 1,
+        "country_name_cn": "尼日利亚",
+        "price_cny": 12.34,
+        "original_price": "₦1,900 per month"
+      }
+    ]
+  }
+}
+```
+
+## 🏗️ 项目架构
+
+```
+📦 spotify-price-tracker
+├── 🕷️ spotify.py                      # 核心爬虫引擎
+├── 💱 spotify_rate_converter.py       # 汇率转换与数据处理
+├── 📋 requirements.txt                 # Python 依赖管理
+├── ⚙️ .env.example                    # 环境变量模板
+├── 📁 archive/                        # 历史数据归档
+│   ├── 2025/                         # 按年份组织
+│   └── 2026/
+├── 🔄 .github/workflows/
+│   ├── weekly-spotify-scraper.yml    # 主自动化流程
+│   └── manual-test.yml               # 手动测试流程
+└── 📖 README.md
+```
+
+## 🌟 核心特性详解
+
+### 多语言套餐标准化
+自动将各国本地化的套餐名称转换为统一的英文标准：
+
+| 原始名称 | 标准化名称 | 地区 |
+|----------|------------|------|
+| Premium para Estudiantes | Premium Student | 西班牙语 |
+| Premium Familiar | Premium Family | 西班牙语 |
+| Premium 學生 | Premium Student | 中文 |
+| Premium 家庭 | Premium Family | 中文 |
+
+### 智能价格提取
+支持多种价格格式和促销信息：
+- ✅ `$6.49 per month` → 提取 6.49
+- ✅ `Después, $6,49*** por mes` → 提取 6.49
+- ✅ `首月免费，然后 ¥15/月` → 提取 15.00
+
+### 历史数据管理
+- 📅 按年份自动分类归档
+- 📈 支持长期价格趋势分析
+- 🔄 智能文件迁移和整理
+
+## 🛠️ 故障排除
+
+<details>
+<summary>🔍 常见问题解决</summary>
+
+### Playwright 安装问题
 ```bash
-# 运行爬虫
-python spotify.py
+# 强制重新安装浏览器
+playwright install --force
 
-# 转换汇率
-python spotify_rate_converter.py
+# 检查安装状态
+python -c "from playwright.sync_api import sync_playwright; print('✅ Playwright 正常')"
 ```
 
-## 🤖 GitHub Actions 自动化
+### API 限制处理
+- ⚠️ 免费账户：1000 次/月
+- 💡 错误码 429：请求过于频繁
+- 🔄 解决方案：等待重置或升级套餐
 
-### 自动化工作流
+### GitHub Actions 调试
+```bash
+# 检查 Secrets 配置
+GitHub仓库 → Settings → Secrets → API_KEY
 
-项目包含两个GitHub Actions工作流：
+# 查看详细日志
+Actions → 选择失败的工作流 → 展开日志
+```
+</details>
 
-#### 1. **Weekly Spotify Scraper** (每周自动运行)
-- **时间**: 每周日UTC时间0点（北京时间周日上午8点）
-- **功能**: 自动爬取价格、转换汇率、提交数据
-- **支持**: 手动触发运行
+## 📈 数据示例
 
-#### 2. **Manual Test Run** (手动测试)
-- **功能**: 测试项目基本功能
-- **模式**: 基础测试和完整测试
+最新的全球 Premium Family 价格 Top 5：
 
-### 🔐 GitHub Secrets 配置（重要！）
+| 排名 | 国家 | 价格 (CNY) | 原始价格 |
+|------|------|------------|----------|
+| 🥇 | 尼日利亚 | ¥12.34 | ₦1,900/月 |
+| 🥈 | 印度 | ¥25.67 | ₹179/月 |
+| 🥉 | 土耳其 | ¥28.90 | ₺24.99/月 |
+| 4 | 阿根廷 | ¥32.15 | ARS$699/月 |
+| 5 | 墨西哥 | ¥45.78 | $169/月 |
 
-为了安全使用汇率API，需要在GitHub仓库中设置secrets：
+> 💡 **价格仅供参考**，实际订阅可能受地区限制影响
 
-#### 设置步骤：
-1. 进入GitHub仓库 → **Settings** → **Secrets and variables** → **Actions**
-2. 点击 **New repository secret** 添加以下密钥：
+## 🔧 技术栈
 
-| Secret Name | Description |
-|-------------|-------------|
-| `API_KEY` | 你的OpenExchangeRates API密钥 |
+| 技术 | 用途 | 版本 |
+|------|------|------|
+| ![Python](https://img.shields.io/badge/Python-3.9+-blue) | 核心开发语言 | 3.9+ |
+| ![Playwright](https://img.shields.io/badge/Playwright-Latest-green) | 浏览器自动化 | Latest |
+| ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI/CD-orange) | 自动化部署 | - |
+| ![OpenExchangeRates](https://img.shields.io/badge/OpenExchangeRates-API-yellow) | 汇率数据源 | v6 |
 
-#### 获取自己的API密钥：
-1. 访问 [OpenExchangeRates](https://openexchangerates.org/)
-2. 注册免费账户
-3. 获取API密钥
-4. 在GitHub Secrets中添加为 `API_KEY`
+## ⚠️ 使用须知
 
-### 手动触发工作流
+- 📚 **用途**：仅限学习研究，请遵守各网站使用条款
+- ⏱️ **频率**：内置延迟机制，避免过度请求
+- 📊 **准确性**：价格数据仅供参考，以官方为准
+- 🌐 **限制**：某些地区可能有订阅限制
 
-1. 进入GitHub仓库的 **Actions** 页面
-2. 选择对应的工作流
-3. 点击 **Run workflow** 按钮
-4. 查看执行结果和日志
+## 🤝 贡献指南
 
-## 📁 输出文件
+欢迎提交 Issue 和 Pull Request！
 
-- **`spotify_prices_all_countries.json`**: 原始爬取数据
-- **`spotify_prices_cny_sorted.json`**: 转换为人民币并排序的数据
-- **包含最便宜的10个Premium Family套餐排行**
+1. Fork 本项目
+2. 创建功能分支：`git checkout -b feature/new-feature`
+3. 提交更改：`git commit -m 'Add new feature'`
+4. 推送分支：`git push origin feature/new-feature`
+5. 提交 Pull Request
 
-## 📊 数据文件说明
+## 📝 更新日志
 
-项目运行后会生成以下数据文件：
-
-### 主要数据文件
-- `spotify_prices_all_countries.json` - 最新的价格数据（供转换器使用）
-- `spotify_prices_cny_sorted.json` - 按人民币价格排序的结果
-
-### 历史归档
-- `archive/YYYY/spotify_prices_all_countries_YYYYMMDD_HHMMSS.json` - 按年份组织的历史数据
-- **智能归档**: 自动解析文件名中的时间戳，归档到正确的年份目录
-- 自动迁移现有根目录下的归档文件到对应年份目录
-- 保留所有历史记录，便于长期趋势分析
-- 目录结构示例：
-  ```
-  archive/
-  ├── 2025/
-  │   ├── spotify_prices_all_countries_20250630_143025.json
-  │   ├── spotify_prices_all_countries_20250707_140000.json
-  │   └── ...
-  ├── 2026/
-  │   └── spotify_prices_all_countries_20260101_080000.json
-  └── ...
-  ```
-
-#### 归档功能特性
-- **按年份自动分类**: 根据时间戳年份创建子目录
-- **自动迁移**: 检测并迁移现有的归档文件到正确位置
-- **统计信息**: 显示各年份的文件数量和总体统计
-- **数据用途**: 跨年价格变化趋势分析、历史数据对比、价格波动研究
-
-## ⚙️ 技术特性
-
-- **异步爬虫**: 使用Playwright进行高效的并发爬取
-- **浏览器自动化**: 支持Chromium/Firefox/WebKit (当前使用Chromium)
-- **GitHub Actions支持**: 完全支持Playwright在云端运行
-- **重试机制**: 内置错误处理和重试逻辑
-- **汇率精度**: 使用Decimal确保价格计算精度
-- **多语言支持**: 中英文国家名称对照
-- **缓存优化**: GitHub Actions使用依赖缓存加速构建
-
-## 🔧 故障排除
-
-### 常见问题
-
-1. **Playwright浏览器下载失败**
-   ```bash
-   # 强制重新安装
-   playwright install --force
-   
-   # 在GitHub Actions中查看浏览器安装日志
-   # 通常自动安装系统依赖就能解决
-   ```
-
-2. **本地Playwright测试**
-   ```bash
-   # 检查Playwright安装
-   playwright --version
-   
-   # 测试浏览器
-   python -c "from playwright.sync_api import sync_playwright; print('✅ Playwright正常')"
-   ```
-
-3. **API密钥限制**
-   - 检查API密钥是否有效
-   - 确认没有超出请求限制
-   - 尝试申请新的API密钥
-
-4. **GitHub Actions失败**
-   - 检查GitHub Secrets是否正确设置
-   - 查看Actions日志确定具体错误
-   - 手动触发测试工作流
-
-5. **数据文件为空**
-   - 确认爬虫成功运行
-   - 检查网络连接
-   - 查看错误日志
-
-## 📋 依赖包
-
-- `requests`: HTTP请求
-- `beautifulsoup4`: HTML解析
-- `playwright`: 浏览器自动化
-- `lxml`: XML/HTML解析器
-- `python-dotenv`: 环境变量管理
-
-## ⚠️ 注意事项
-
-- **合规使用**: 仅用于学习和研究目的，请遵守网站使用条款
-- **频率限制**: 爬虫包含延迟机制，避免对服务器造成压力
-- **数据准确性**: 价格数据仅供参考，请以官方价格为准
-- **API限制**: OpenExchangeRates免费版有请求次数限制
-
-## 📈 更新日志
-
-- **v2.0** - 添加GitHub Actions自动化
-- **v1.5** - 增加安全的API密钥管理
-- **v1.0** - 初始版本，基础爬虫功能
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request来改进项目！
+- **v3.0** ✨ 多语言套餐名称标准化
+- **v2.5** 🐛 修复小数点价格提取问题
+- **v2.0** 🤖 GitHub Actions 自动化
+- **v1.5** 🔐 API 密钥安全管理
+- **v1.0** 🎉 初始版本发布
 
 ## 📄 许可证
 
-本项目仅用于学习和研究目的。
+本项目仅用于学习和研究目的。请遵守相关法律法规和网站使用条款。
 
 ---
 
-🎵 **开始享受全球最优惠的Spotify订阅价格分析吧！**
+<div align="center">
+
+**🎵 发现全球最优惠的 Spotify 订阅价格！**
+
+[🚀 开始使用](#-快速开始) • [📊 查看数据](#-数据输出) • [🤖 自动化](#-自动化工作流) • [❓ 问题反馈](https://github.com/your-repo/issues)
+
+</div>
