@@ -187,6 +187,10 @@ def extract_price_from_text(price_text, currency):
                     integer_part = match.group(1)
                     decimal_part = match.group(2)
                     
+                    # 添加 None 检查
+                    if integer_part is None or decimal_part is None:
+                        continue
+                    
                     # 如果是千位分隔符格式，移除逗号
                     if ',' in integer_part and i == 2:  # $1,234.56 格式
                         integer_part = integer_part.replace(',', '')
@@ -196,6 +200,11 @@ def extract_price_from_text(price_text, currency):
                 else:
                     # 只有整数部分
                     integer_part = match.group(1)
+                    
+                    # 添加 None 检查
+                    if integer_part is None:
+                        continue
+                        
                     # 移除千位分隔符（如果有）
                     integer_part = integer_part.replace(',', '')
                     return float(integer_part)
