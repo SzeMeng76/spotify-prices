@@ -99,68 +99,21 @@ COUNTRY_NAMES_CN = {
 # --- Functions ---
 
 def extract_price_from_text(price_text, currency):
-    """从价格文本中提取数字价格（修复版）"""
+    """从价格文本中提取数字价格"""
     if not price_text or not isinstance(price_text, str):
         return None
     
-    # 扩展的货币符号映射
+    # 不同货币的符号
     currency_symbols = {
-        'USD': r'\$|US\$',
+        'USD': r'\$',
         'EUR': r'€',
         'GBP': r'£',
         'CNY': r'¥|yuan',
         'JPY': r'¥',
-        'ARS': r'\$',      # 阿根廷比索
-        'CLP': r'\$',      # 智利比索  
-        'COP': r'\$',      # 哥伦比亚比索
-        'MXN': r'\$|MX\$', # 墨西哥比索
-        'BRL': r'R\$',     # 巴西雷亚尔
-        'PEN': r'S/',      # 秘鲁索尔
-        'AED': r'AED',     # 阿联酋迪拉姆
-        'SAR': r'SAR',     # 沙特里亚尔
-        'QAR': r'QAR',     # 卡塔尔里亚尔
-        'EGP': r'EGP',     # 埃及镑
-        'NGN': r'₦',       # 尼日利亚奈拉
-        'INR': r'₹',       # 印度卢比
-        'PKR': r'Rs',      # 巴基斯坦卢比
-        'BDT': r'৳|BDT',   # 孟加拉塔卡
-        'LKR': r'LKR',     # 斯里兰卡卢比
-        'PHP': r'₱',       # 菲律宾比索
-        'THB': r'฿|THB',   # 泰铢
-        'MYR': r'RM',      # 马来西亚林吉特
-        'SGD': r'S\$|\$',  # 新加坡元
-        'HKD': r'HK\$|\$', # 港币
-        'TWD': r'NT\$|\$', # 台币
-        'KRW': r'₩',       # 韩元
-        'JPY': r'¥|￥',     # 日元
-        'CHF': r'CHF',     # 瑞士法郎
-        'SEK': r'kr',      # 瑞典克朗
-        'NOK': r'kr',      # 挪威克朗
-        'DKK': r'kr',      # 丹麦克朗
-        'PLN': r'zł',      # 波兰兹罗提
-        'CZK': r'Kč',      # 捷克克朗
-        'HUF': r'Ft',      # 匈牙利福林
-        'RON': r'RON|lei', # 罗马尼亚列伊
-        'BGN': r'лв',      # 保加利亚列弗
-        'TRY': r'₺|TRY',   # 土耳其里拉
-        'ILS': r'₪',       # 以色列新谢克尔
-        'ZAR': r'R',       # 南非兰特
-        'KES': r'KSh|Ksh', # 肯尼亚先令
-        'TZS': r'TSh',     # 坦桑尼亚先令
-        'UGX': r'USh',     # 乌干达先令
-        'GHS': r'GH₵|₵',   # 加纳塞地
-        'MAD': r'MAD',     # 摩洛哥迪拉姆
-        'TND': r'TND',     # 突尼斯第纳尔
-        'IDR': r'Rp',      # 印尼盾
-        'VND': r'₫',       # 越南盾
-        'IQD': r'IQD',     # 伊拉克第纳尔
-        'CAD': r'C\$|\$',  # 加拿大元
-        'AUD': r'A\$|\$',  # 澳元
-        'NZD': r'NZ\$|\$', # 新西兰元
     }
     
     # 获取当前货币的符号，如果没有找到则使用通用模式
-    symbol = currency_symbols.get(currency, r'[¥$€£₹₦₱₩₪₺₵฿]')
+    symbol = currency_symbols.get(currency, r'[¥$€£]')
     
     # 更精确的匹配模式
     patterns = [
@@ -187,10 +140,6 @@ def extract_price_from_text(price_text, currency):
                     integer_part = match.group(1)
                     decimal_part = match.group(2)
                     
-                    # 添加 None 检查
-                    if integer_part is None or decimal_part is None:
-                        continue
-                    
                     # 如果是千位分隔符格式，移除逗号
                     if ',' in integer_part and i == 2:  # $1,234.56 格式
                         integer_part = integer_part.replace(',', '')
@@ -200,11 +149,6 @@ def extract_price_from_text(price_text, currency):
                 else:
                     # 只有整数部分
                     integer_part = match.group(1)
-                    
-                    # 添加 None 检查
-                    if integer_part is None:
-                        continue
-                        
                     # 移除千位分隔符（如果有）
                     integer_part = integer_part.replace(',', '')
                     return float(integer_part)
@@ -212,105 +156,6 @@ def extract_price_from_text(price_text, currency):
                 continue
     
     print(f"无法从 '{price_text}' 中提取价格")
-    return None
-
-# 另外还需要一个简单的货币检测函数来修正明显错误的货币类型
-请在第 94 行后添加以下代码：
-pythondef detect_currency_from_price(price_text):
-    """从价格文本中检测实际货币"""
-    if not price_text or not isinstance(price_text, str):
-        return None
-    
-    # 货币符号和代码的映射
-    currency_patterns = {
-        # 马来西亚林吉特
-        'MYR': [r'RM\s*\d', r'\d+\s*RM'],
-        # 新台币
-        'TWD': [r'NT\$', r'\$\d+.*台币', r'後續每月只要\s*\$\d+', r'每月\s*\$\d+'],
-        # 阿根廷比索
-        'ARS': [r'\$\s*[\d,]+\.?\d*.*al\s*mes', r'peso', r'ARS'],
-        # 摩洛哥迪拉姆
-        'MAD': [r'\d+\s*MAD', r'MAD\s*\d+'],
-        # 印尼盾
-        'IDR': [r'Rp\s*\d', r'\d+\s*Rp'],
-        # 南非兰特
-        'ZAR': [r'R\s*\d', r'\d+\s*R'],
-        # 泰铢
-        'THB': [r'THB\s*\d', r'\d+\s*THB', r'฿'],
-        # 巴基斯坦卢比
-        'PKR': [r'Rs\s*\d', r'\d+\s*Rs'],
-        # 肯尼亚先令
-        'KES': [r'Ksh\s*\d', r'\d+\s*Ksh'],
-        # 坦桑尼亚先令
-        'TZS': [r'TSh\s*\d', r'\d+\s*TSh'],
-        # 乌干达先令
-        'UGX': [r'USh\s*\d', r'\d+\s*USh'],
-        # 越南盾
-        'VND': [r'₫\d', r'\d+\s*₫'],
-        # 韩元
-        'KRW': [r'₩\d', r'\d+\s*₩', r'원'],
-        # 巴西雷亚尔
-        'BRL': [r'R\$\s*\d', r'\d+\s*R\$'],
-        # 哥伦比亚比索
-        'COP': [r'COP\s*\d', r'\d+\s*COP'],
-        # 墨西哥比索
-        'MXN': [r'MX\$\s*\d', r'\d+\s*MX\$'],
-        # 秘鲁索尔
-        'PEN': [r'S/\s*\d', r'\d+\s*S/'],
-        # 智利比索
-        'CLP': [r'CLP\s*\d', r'\d+\s*CLP'],
-        # 波兰兹罗提
-        'PLN': [r'zł\s*\d', r'\d+\s*zł'],
-        # 捷克克朗
-        'CZK': [r'Kč\s*\d', r'\d+\s*Kč'],
-        # 匈牙利福林
-        'HUF': [r'Ft\s*\d', r'\d+\s*Ft'],
-        # 罗马尼亚列伊
-        'RON': [r'RON\s*\d', r'\d+\s*RON'],
-        # 港币
-        'HKD': [r'HK\$\s*\d', r'\d+\s*HK\$'],
-        # 以色列新谢克尔
-        'ILS': [r'₪\s*\d', r'\d+\s*₪'],
-        # 卡塔尔里亚尔
-        'QAR': [r'QAR\s*\d', r'\d+\s*QAR'],
-        # 沙特里亚尔
-        'SAR': [r'SAR\s*\d', r'\d+\s*SAR'],
-        # 阿联酋迪拉姆
-        'AED': [r'AED\s*\d', r'\d+\s*AED'],
-        # 保加利亚列弗
-        'BGN': [r'BGN\s*\d', r'\d+\s*BGN'],
-        # 瑞士法郎
-        'CHF': [r'CHF\s*\d', r'\d+\s*CHF'],
-        # 瑞典克朗
-        'SEK': [r'kr\s*\d', r'\d+\s*kr'],
-        # 印度卢比
-        'INR': [r'₹\s*\d', r'\d+\s*₹'],
-        # 埃及镑
-        'EGP': [r'EGP\s*\d', r'\d+\s*EGP'],
-        # 土耳其里拉
-        'TRY': [r'TRY\s*\d', r'\d+\s*TRY'],
-        # 孟加拉塔卡
-        'BDT': [r'BDT\s*\d', r'\d+\s*BDT'],
-        # 加纳塞地
-        'GHS': [r'GH₵\s*\d', r'\d+\s*GH₵'],
-        # 菲律宾比索
-        'PHP': [r'₱\s*\d', r'\d+\s*₱'],
-        # 斯里兰卡卢比
-        'LKR': [r'LKR\s*\d', r'\d+\s*LKR'],
-        # 伊拉克第纳尔
-        'IQD': [r'IQD\s*\d', r'\d+\s*IQD'],
-        # 尼日利亚奈拉
-        'NGN': [r'₦\s*\d', r'\d+\s*₦'],
-        # 日元（特殊处理，因为没有小数）
-        'JPY': [r'￥\s*\d', r'\d+\s*￥', r'円'],
-    }
-    
-    for currency, patterns in currency_patterns.items():
-        for pattern in patterns:
-            if re.search(pattern, price_text, re.IGNORECASE):
-                return currency
-    
-    # 如果没有找到特定货币，返回None（使用原有的currency字段）
     return None
 
 def standardize_plan_name(plan_name):
@@ -529,22 +374,17 @@ def process_spotify_data(data, rates):
             # 标准化套餐名称
             standardized_plan_name = standardize_plan_name(plan_name)
             
-            # 先定义价格变量
-            primary_price = plan.get('primary_price', '')
-            secondary_price = plan.get('secondary_price', '')
-            price_number = plan.get('price_number')
-            
-            # 检测实际货币
-            price_text_for_detection = secondary_price if secondary_price and secondary_price.strip() else primary_price
-            detected_currency = detect_currency_from_price(price_text_for_detection)
-            actual_currency = detected_currency if detected_currency else currency
-            
             # Create processed plan object
             processed_plan = {
                 'plan': standardized_plan_name,  # 使用标准化名称
                 'original_plan_name': plan_name,  # 保留原始名称以备参考
-                'currency': actual_currency
+                'currency': currency
             }
+            
+            # Process primary_price and secondary_price
+            primary_price = plan.get('primary_price', '')
+            secondary_price = plan.get('secondary_price', '')
+            price_number = plan.get('price_number')
             
             # 优先使用 secondary_price
             if secondary_price and secondary_price.strip():
@@ -553,17 +393,17 @@ def process_spotify_data(data, rates):
                 # 尝试从 price_number 获取价格，如果为0或None则从文本提取
                 if price_number is not None and price_number > 0:
                     processed_plan['price_number'] = format_price_number(price_number)
-                    cny_price = convert_to_cny(price_number, actual_currency, rates)
+                    cny_price = convert_to_cny(price_number, currency, rates)
                     if cny_price is not None:
                         processed_plan['price_cny'] = float(cny_price)
                     else:
                         processed_plan['price_cny'] = None
                 else:
                     # 从 secondary_price 文本中提取价格
-                    extracted_price = extract_price_from_text(secondary_price, actual_currency)
+                    extracted_price = extract_price_from_text(secondary_price, currency)
                     if extracted_price is not None:
                         processed_plan['price_number'] = format_price_number(extracted_price)
-                        cny_price = convert_to_cny(extracted_price, actual_currency, rates)
+                        cny_price = convert_to_cny(extracted_price, currency, rates)
                         if cny_price is not None:
                             processed_plan['price_cny'] = float(cny_price)
                         else:
@@ -578,17 +418,17 @@ def process_spotify_data(data, rates):
                 # 尝试从 price_number 获取价格，如果为0或None则从文本提取
                 if price_number is not None and price_number > 0:
                     processed_plan['price_number'] = format_price_number(price_number)
-                    cny_price = convert_to_cny(price_number, actual_currency, rates)
+                    cny_price = convert_to_cny(price_number, currency, rates)
                     if cny_price is not None:
                         processed_plan['price_cny'] = float(cny_price)
                     else:
                         processed_plan['price_cny'] = None
                 else:
                     # 从 primary_price 文本中提取价格
-                    extracted_price = extract_price_from_text(primary_price, actual_currency)
+                    extracted_price = extract_price_from_text(primary_price, currency)
                     if extracted_price is not None:
                         processed_plan['price_number'] = format_price_number(extracted_price)
-                        cny_price = convert_to_cny(extracted_price, actual_currency, rates)
+                        cny_price = convert_to_cny(extracted_price, currency, rates)
                         if cny_price is not None:
                             processed_plan['price_cny'] = float(cny_price)
                         else:
