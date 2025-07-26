@@ -188,6 +188,7 @@ SPOTIFY_REAL_CURRENCY_MAP = {
     "AG": {"currency": "USD", "symbol": "US$"},  # Antigua and Barbuda
     "AL": {"currency": "EUR", "symbol": "€"},  # Albania
     "AM": {"currency": "USD", "symbol": "US$"},  # Armenia
+    "AR": {"currency": "ARS", "symbol": "$"},  # Argentina
     "AO": {"currency": "USD", "symbol": "US$"},  # Angola
     "AT": {"currency": "EUR", "symbol": "€"},  # Austria
     "AU": {"currency": "AUD", "symbol": "A$"},  # Australia
