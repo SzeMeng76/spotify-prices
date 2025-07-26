@@ -215,8 +215,8 @@ def extract_price_from_text(price_text, currency):
     return None
 
 # 另外还需要一个简单的货币检测函数来修正明显错误的货币类型
-def detect_correct_currency(price_text, country_code, original_currency):
-    """简单的货币检测和修正"""
+def detect_correct_currency(price_text, country_code, original_currency, rates=None):
+    """简单的货币检测和修正（安全版本）"""
     if not price_text:
         return original_currency
     
@@ -235,8 +235,13 @@ def detect_correct_currency(price_text, country_code, original_currency):
     if expected_currency and original_currency == 'USD':
         # 检查价格文本中是否没有明确的USD标识
         if 'US$' not in price_text and 'USD' not in price_text:
-            print(f"修正 {country_code} 的货币: USD → {expected_currency}")
-            return expected_currency
+            # 重要：检查汇率表中是否有这个货币
+            if rates and expected_currency in rates:
+                print(f"修正 {country_code} 的货币: USD → {expected_currency}")
+                return expected_currency
+            else:
+                print(f"汇率表中未找到 {expected_currency}，保持使用 USD")
+                return original_currency
     
     return original_currency
 
