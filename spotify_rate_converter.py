@@ -443,10 +443,18 @@ def process_spotify_data(data, rates):
         for plan in country_info.get('plans', []):
             plan_name = plan.get('plan', '')
             currency = plan.get('currency', '')
-            currency = detect_correct_currency(secondary_price or primary_price, country_code, currency)
             
             # 标准化套餐名称
             standardized_plan_name = standardize_plan_name(plan_name)
+            
+            # 先定义价格变量
+            primary_price = plan.get('primary_price', '')
+            secondary_price = plan.get('secondary_price', '')
+            price_number = plan.get('price_number')
+            
+            # 修正货币类型
+            price_text = secondary_price if secondary_price and secondary_price.strip() else primary_price
+            currency = detect_correct_currency(price_text, country_code, currency)
             
             # Create processed plan object
             processed_plan = {
@@ -454,11 +462,6 @@ def process_spotify_data(data, rates):
                 'original_plan_name': plan_name,  # 保留原始名称以备参考
                 'currency': currency
             }
-            
-            # Process primary_price and secondary_price
-            primary_price = plan.get('primary_price', '')
-            secondary_price = plan.get('secondary_price', '')
-            price_number = plan.get('price_number')
             
             # 优先使用 secondary_price
             if secondary_price and secondary_price.strip():
