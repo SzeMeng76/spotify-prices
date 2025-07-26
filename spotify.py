@@ -111,14 +111,31 @@ def extract_price_number(price_str: str) -> float:
     if not price_str:
         return 0.0
     
-    # 移除货币符号和空格，保留数字、逗号和句点
-    cleaned = re.sub(r'[^\d,.]', '', price_str)
+    # 首先尝试提取货币符号后面的数字部分
+    # 匹配货币符号(如USD, $, €等)后跟数字的模式
+    currency_pattern = r'(?:USD|EUR|GBP|CAD|AUD|SGD|HKD|MXN|BRL|JPY|CNY|KRW|INR|THB|MYR|IDR|PHP|VND|TWD|CHF|SEK|NOK|DKK|PLN|CZK|HUF|RON|BGN|HRK|RSD|BAM|MKD|ALL|MDL|UAH|BYN|RUB|GEL|AMD|AZN|KGS|KZT|UZS|TJS|TMT|AFN|PKR|LKR|BDT|BTN|NPR|MVR|IRR|IQD|JOD|KWD|BHD|QAR|SAR|AED|OMR|YER|EGP|LBP|SYP|TND|DZD|MAD|LYD|SDG|SOS|ETB|ERN|DJF|KMF|SCR|MUR|MGA|MWK|ZMW|BWP|SZL|LSL|ZAR|NAD|AOA|XAF|XOF|XPF|NZD|FJD|TOP|WST|VUV|SBD|PGK|NCF|TVD|KID|AUD|MHD|PWD|FMD|GHS|NGN|LRD|SLL|GMD|GNF|CIV|BFA|MLI|NER|TCD|CMR|GAB|GNQ|COG|CAF|TZS|KES|UGX|RWF|BIF|MZN|ZWL|€|£|¥|￥|₹|₱|₪|₨|₦|₵|₡|₩|₴|₽|₺|zł|Kč|Ft|kr|R\$|C\$|A\$|S\$|HK\$|MX\$|NZ\$|NT\$|US\$|CA\$|\$)\s*([\d,\.]+)'
+    
+    currency_match = re.search(currency_pattern, price_str, re.IGNORECASE)
+    if currency_match:
+        number_part = currency_match.group(2)
+    else:
+        # 如果没找到货币符号，尝试提取纯数字部分
+        # 查找数字、逗号、点的连续组合
+        number_pattern = r'([\d,\.]+)'
+        number_matches = re.findall(number_pattern, price_str)
+        
+        if number_matches:
+            # 找到最长的数字串（通常是价格）
+            number_part = max(number_matches, key=len)
+        else:
+            return 0.0
 
     # 如果没有数字，返回0                                                                              
-    if not re.search(r'\d', cleaned):                                                                  
+    if not re.search(r'\d', number_part):                                                                  
         return 0.0 
     
     # 处理不同的数字格式
+    cleaned = number_part
     if ',' in cleaned and '.' in cleaned:
         # 判断是欧式格式还是美式格式
         comma_pos = cleaned.rindex(',')
