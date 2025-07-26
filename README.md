@@ -226,6 +226,6 @@ Actions → 选择失败的工作流 → 展开日志
 
 **🎵 发现全球最优惠的 Spotify 订阅价格！**
 
-[🚀 开始使用](#-快速开始) • [📊 查看数据](#-数据输出) • [🤖 自动化](#-自动化工作流) • [❓ 问题反馈](https://github.com/your-repo/issues)
+[🚀 开始使用](#-快速开始) • [📊 查看数据](#-数据输出) • [🤖 自动化](#-自动化工作流) • [❓ 问题反馈](https://github.com/SzeMeng76/spotify-prices/issues)
 
 </div>
