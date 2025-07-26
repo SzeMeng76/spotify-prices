@@ -293,6 +293,7 @@ SPOTIFY_REAL_CURRENCY_MAP = {
     "NR": {"currency": "AUD", "symbol": "A$"},  # Nauru
     "NZ": {"currency": "NZD", "symbol": "NZ$"},  # New Zealand
     "OM": {"currency": "USD", "symbol": "US$"},  # Oman
+    "PE": {"currency": "PEN", "symbol": "S/"},  # Peru
     "PG": {"currency": "USD", "symbol": "US$"},  # Papua New Guinea
     "PH": {"currency": "PHP", "symbol": "₱"},  # Philippines
     "PK": {"currency": "PKR", "symbol": "PKR"},  # Pakistan
