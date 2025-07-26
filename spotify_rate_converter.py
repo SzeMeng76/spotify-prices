@@ -99,21 +99,68 @@ COUNTRY_NAMES_CN = {
 # --- Functions ---
 
 def extract_price_from_text(price_text, currency):
-    """从价格文本中提取数字价格"""
+    """从价格文本中提取数字价格（修复版）"""
     if not price_text or not isinstance(price_text, str):
         return None
     
-    # 不同货币的符号
+    # 扩展的货币符号映射
     currency_symbols = {
-        'USD': r'\$',
+        'USD': r'\$|US\$',
         'EUR': r'€',
         'GBP': r'£',
         'CNY': r'¥|yuan',
         'JPY': r'¥',
+        'ARS': r'\$',      # 阿根廷比索
+        'CLP': r'\$',      # 智利比索  
+        'COP': r'\$',      # 哥伦比亚比索
+        'MXN': r'\$|MX\$', # 墨西哥比索
+        'BRL': r'R\$',     # 巴西雷亚尔
+        'PEN': r'S/',      # 秘鲁索尔
+        'AED': r'AED',     # 阿联酋迪拉姆
+        'SAR': r'SAR',     # 沙特里亚尔
+        'QAR': r'QAR',     # 卡塔尔里亚尔
+        'EGP': r'EGP',     # 埃及镑
+        'NGN': r'₦',       # 尼日利亚奈拉
+        'INR': r'₹',       # 印度卢比
+        'PKR': r'Rs',      # 巴基斯坦卢比
+        'BDT': r'৳|BDT',   # 孟加拉塔卡
+        'LKR': r'LKR',     # 斯里兰卡卢比
+        'PHP': r'₱',       # 菲律宾比索
+        'THB': r'฿|THB',   # 泰铢
+        'MYR': r'RM',      # 马来西亚林吉特
+        'SGD': r'S\$|\$',  # 新加坡元
+        'HKD': r'HK\$|\$', # 港币
+        'TWD': r'NT\$|\$', # 台币
+        'KRW': r'₩',       # 韩元
+        'JPY': r'¥|￥',     # 日元
+        'CHF': r'CHF',     # 瑞士法郎
+        'SEK': r'kr',      # 瑞典克朗
+        'NOK': r'kr',      # 挪威克朗
+        'DKK': r'kr',      # 丹麦克朗
+        'PLN': r'zł',      # 波兰兹罗提
+        'CZK': r'Kč',      # 捷克克朗
+        'HUF': r'Ft',      # 匈牙利福林
+        'RON': r'RON|lei', # 罗马尼亚列伊
+        'BGN': r'лв',      # 保加利亚列弗
+        'TRY': r'₺|TRY',   # 土耳其里拉
+        'ILS': r'₪',       # 以色列新谢克尔
+        'ZAR': r'R',       # 南非兰特
+        'KES': r'KSh|Ksh', # 肯尼亚先令
+        'TZS': r'TSh',     # 坦桑尼亚先令
+        'UGX': r'USh',     # 乌干达先令
+        'GHS': r'GH₵|₵',   # 加纳塞地
+        'MAD': r'MAD',     # 摩洛哥迪拉姆
+        'TND': r'TND',     # 突尼斯第纳尔
+        'IDR': r'Rp',      # 印尼盾
+        'VND': r'₫',       # 越南盾
+        'IQD': r'IQD',     # 伊拉克第纳尔
+        'CAD': r'C\$|\$',  # 加拿大元
+        'AUD': r'A\$|\$',  # 澳元
+        'NZD': r'NZ\$|\$', # 新西兰元
     }
     
     # 获取当前货币的符号，如果没有找到则使用通用模式
-    symbol = currency_symbols.get(currency, r'[¥$€£]')
+    symbol = currency_symbols.get(currency, r'[¥$€£₹₦₱₩₪₺₵฿]')
     
     # 更精确的匹配模式
     patterns = [
@@ -157,6 +204,32 @@ def extract_price_from_text(price_text, currency):
     
     print(f"无法从 '{price_text}' 中提取价格")
     return None
+
+# 另外还需要一个简单的货币检测函数来修正明显错误的货币类型
+def detect_correct_currency(price_text, country_code, original_currency):
+    """简单的货币检测和修正"""
+    if not price_text:
+        return original_currency
+    
+    # 国家代码到货币代码的基本映射（只包含常见的容易搞错的）
+    country_currency_map = {
+        'AR': 'ARS',  # 阿根廷
+        'CL': 'CLP',  # 智利
+        'CO': 'COP',  # 哥伦比亚
+        'MX': 'MXN',  # 墨西哥
+        'BR': 'BRL',  # 巴西
+        'PE': 'PEN',  # 秘鲁
+    }
+    
+    # 如果原始货币是USD，但国家应该有自己的货币，检查价格文本
+    expected_currency = country_currency_map.get(country_code)
+    if expected_currency and original_currency == 'USD':
+        # 检查价格文本中是否没有明确的USD标识
+        if 'US$' not in price_text and 'USD' not in price_text:
+            print(f"修正 {country_code} 的货币: USD → {expected_currency}")
+            return expected_currency
+    
+    return original_currency
 
 def standardize_plan_name(plan_name):
     """标准化套餐名称为英文统一格式"""
@@ -370,6 +443,7 @@ def process_spotify_data(data, rates):
         for plan in country_info.get('plans', []):
             plan_name = plan.get('plan', '')
             currency = plan.get('currency', '')
+            currency = detect_correct_currency(secondary_price or primary_price, country_code, currency)
             
             # 标准化套餐名称
             standardized_plan_name = standardize_plan_name(plan_name)
