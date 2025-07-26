@@ -136,7 +136,7 @@ def extract_price_number(price_str: str) -> float:
     except ValueError:
         return 0.0
 
-def detect_currency(price_str: str) -> str:
+def detect_currency(price_str: str, country_code: str = None) -> str:
     """检测价格字符串中的货币"""
 
     # 1. 优先使用静态映射表
