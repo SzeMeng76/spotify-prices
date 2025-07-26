@@ -138,6 +138,13 @@ def extract_price_number(price_str: str) -> float:
 
 def detect_currency(price_str: str) -> str:
     """检测价格字符串中的货币"""
+
+    # 1. 优先使用静态映射表
+    if country_code and country_code in SPOTIFY_REAL_CURRENCY_MAP:
+        expected_currency = SPOTIFY_REAL_CURRENCY_MAP[country_code]["currency"]
+        print(f"    💱 {country_code}: 使用映射表货币 {expected_currency}")
+        return expected_currency
+    
     currency_symbols = {
         # 优先检查带前缀的美元符号
         'US$': 'USD', 'USD': 'USD',
@@ -675,7 +682,7 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                         price_str = plan.get('price', '')
                         if price_str:
                             price_number = extract_price_number(price_str)
-                            detected_currency = detect_currency(price_str)
+                            detected_currency = detect_currency(price_str, country_code)
                             
                             enhanced_plan['price_number'] = price_number
                             enhanced_plan['currency'] = detected_currency
