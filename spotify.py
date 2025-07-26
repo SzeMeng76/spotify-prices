@@ -263,6 +263,7 @@ SPOTIFY_REAL_CURRENCY_MAP = {
     "LS": {"currency": "USD", "symbol": "US$"},  # Lesotho
     "LT": {"currency": "EUR", "symbol": "€"},  # Lithuania
     "LV": {"currency": "EUR", "symbol": "€"},  # Latvia
+    "MA": {"currency": "MAD", "symbol": "MAD"},  # Morocco
     "MD": {"currency": "USD", "symbol": "US$"},  # Moldova
     "ME": {"currency": "EUR", "symbol": "€"},  # Montenegro
     "MG": {"currency": "USD", "symbol": "US$"},  # Madagascar
@@ -316,6 +317,7 @@ SPOTIFY_REAL_CURRENCY_MAP = {
     "TG": {"currency": "USD", "symbol": "US$"},  # Togo
     "TH": {"currency": "THB", "symbol": "THB"},  # Thailand
     "TL": {"currency": "USD", "symbol": "US$"},  # Timor-Leste
+    "TN": {"currency": "TND", "symbol": "DT"},  # Tunisia
     "TO": {"currency": "USD", "symbol": "US$"},  # Tonga
     "TR": {"currency": "TRY", "symbol": "TRY"},  # Turkey
     "TT": {"currency": "USD", "symbol": "US$"},  # Trinidad and Tobago
@@ -328,6 +330,7 @@ SPOTIFY_REAL_CURRENCY_MAP = {
     "UZ": {"currency": "USD", "symbol": "US$"},  # Uzbekistan
     "VC": {"currency": "USD", "symbol": "US$"},  # St. Vincent and the Grenadines
     "VE": {"currency": "USD", "symbol": "US$"},  # Venezuela
+    "VN": {"currency": "VND", "symbol": "₫"},  # Vietnam
     "VU": {"currency": "USD", "symbol": "US$"},  # Vanuatu
     "WS": {"currency": "USD", "symbol": "US$"},  # Samoa
     "XK": {"currency": "EUR", "symbol": "€"},  # Kosovo
