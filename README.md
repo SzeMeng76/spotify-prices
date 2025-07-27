@@ -213,6 +213,7 @@ Welcome to submit Issues and Pull Requests!
 
 ## 📝 Changelog
 
+- **v3.2** 🔧 Comprehensive fix for currency detection and price scraping system
 - **v3.1** 🌍 Enhanced multilingual plan name recognition for improved data standardization accuracy
 - **v3.0** ✨ Multi-language plan name standardization
 - **v2.5** 🐛 Fix decimal point price extraction
