@@ -18,6 +18,8 @@
 | 📊 **Standardized Data** | Multi-language plan name standardization (e.g., "Premium Familiar" → "Premium Family") |
 | 🤖 **Automated Execution** | GitHub Actions runs automatically every Sunday, no manual intervention needed |
 | 📈 **Historical Data** | Auto-archive by year, supports price trend analysis |
+| 📊 **Price Change Tracking** | Automatic detection and logging of price changes with detailed changelog |
+| 🗂️ **Smart Archive Management** | Monthly archive system for changelog entries with automatic cleanup |
 
 ## 🚀 Quick Start
 
@@ -42,6 +44,7 @@ cp .env.example .env
 # 4. Run the complete workflow
 python spotify.py                    # Scrape price data
 python spotify_rate_converter.py     # Convert currency and sort
+python changelog_archiver.py         # Archive old changelog entries (monthly)
 ```
 
 ### 🔑 API Key Configuration
@@ -62,7 +65,7 @@ API_KEY=your_openexchangerates_api_key
 
 ### 📅 Scheduled Tasks
 - **Runtime**: Every Sunday 8:00 AM Beijing Time
-- **Execution**: Price Scraping → Currency Conversion → Data Commit → File Archive
+- **Execution**: Price Scraping → Currency Conversion → Change Detection → Archive Management → Data Commit → File Archive
 - **Manual Trigger**: Support GitHub Actions manual execution
 
 ### 🔄 Workflow Process
@@ -71,8 +74,11 @@ graph LR
     A[Scrape Prices] --> B[Convert Currency]
     B --> C[Standardize Data]
     C --> D[Sort & Analyze]
-    D --> E[Archive Files]
-    E --> F[Commit to Repo]
+    D --> E[Detect Changes]
+    E --> F[Update Changelog]
+    F --> G[Archive Management]
+    G --> H[Archive Files]
+    H --> I[Commit to Repo]
 ```
 
 ## 📊 Data Output
@@ -82,6 +88,8 @@ graph LR
 |----------|-------------|---------|
 | `spotify_prices_all_countries.json` | Raw price data | Data source with complete scraping info |
 | `spotify_prices_cny_sorted.json` | CNY sorted data | Analysis results with Top 10 cheapest |
+| `CHANGELOG.md` | Price change history | Track all pricing changes with timestamps |
+| `price_changes_summary_YYYYMMDD_HHMMSS.json` | Change detection report | Detailed analysis of price variations |
 
 ### Featured Data Structure
 ```json
@@ -107,11 +115,17 @@ graph LR
 📦 spotify-price-tracker
 ├── 🕷️ spotify.py                      # Core scraping engine
 ├── 💱 spotify_rate_converter.py       # Currency conversion & data processing
+├── 📊 price_change_detector.py        # Price change detection system
+├── 🗂️ changelog_archiver.py           # Changelog archive management
 ├── 📋 requirements.txt                 # Python dependencies
 ├── ⚙️ .env.example                    # Environment variables template
+├── 📝 CHANGELOG.md                    # Price change history log
 ├── 📁 archive/                        # Historical data archive
 │   ├── 2025/                         # Organized by year
 │   └── 2026/
+├── 📁 changelog_archive/              # Monthly changelog archives
+│   ├── changelog_2025-07.md          # July 2025 price changes
+│   └── changelog_2025-08.md          # August 2025 price changes
 ├── 🔄 .github/workflows/
 │   ├── weekly-spotify-scraper.yml    # Main automation workflow
 │   └── manual-test.yml               # Manual testing workflow
@@ -137,10 +151,17 @@ Support various price formats and promotional information:
 - ✅ `Después, $6,49*** por mes` → Extract 6.49
 - ✅ `First month free, then ¥15/month` → Extract 15.00
 
+### Price Change Detection & Tracking
+- 🔍 **Automatic Change Detection**: Compare new prices with historical data to identify changes
+- 📝 **Detailed Changelog**: Record all price changes with timestamps and detailed analysis
+- 📊 **Change Summary Reports**: Generate comprehensive reports showing price variations
+- 🗂️ **Smart Archive System**: Monthly archive management keeps changelog organized
+
 ### Historical Data Management
 - 📅 Auto-categorize archives by year
 - 📈 Support long-term price trend analysis
 - 🔄 Smart file migration and organization
+- 📆 **Monthly Changelog Archives**: Automatic monthly archive creation for better organization
 
 ## 🛠️ Troubleshooting
 
@@ -213,6 +234,7 @@ Welcome to submit Issues and Pull Requests!
 
 ## 📝 Changelog
 
+- **v3.3** 🆕 **Price Change Detection System**: Added automatic price change detection, detailed changelog tracking, and monthly archive management
 - **v3.2** 🔧 Comprehensive fix for currency detection and price scraping system
 - **v3.1** 🌍 Enhanced multilingual plan name recognition for improved data standardization accuracy
 - **v3.0** ✨ Multi-language plan name standardization
@@ -220,6 +242,8 @@ Welcome to submit Issues and Pull Requests!
 - **v2.0** 🤖 GitHub Actions automation
 - **v1.5** 🔐 Secure API key management
 - **v1.0** 🎉 Initial release
+
+> 💡 **New Feature**: Check out [CHANGELOG.md](CHANGELOG.md) for detailed price change history and monthly archives!
 
 ## 📄 License
 
