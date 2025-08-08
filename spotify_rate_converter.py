@@ -616,16 +616,13 @@ def create_prepaid_rankings(processed_data, original_data):
                 if plan.get('total_price_cny') is not None:
                     country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
                     
-                    # 使用总预付价格数据
+                    # 使用月均价格显示（price是月均价格文本）+ 总价格数据
+                    monthly_price_number = plan.get('price_number')
                     total_price_number = plan.get('total_price_number')
                     currency = plan.get('currency', '')
                     
-                    # 格式化总预付价格显示
-                    formatted_total_price = format_price_number(total_price_number)
-                    if formatted_total_price:
-                        original_price = f"{currency} {formatted_total_price}"
-                    else:
-                        original_price = plan.get('price', '')
+                    # 使用原始的月均价格显示
+                    original_price = plan.get('price', '')
                     
                     individual_1year_plans.append({
                         'country_code': country_code,
@@ -633,8 +630,10 @@ def create_prepaid_rankings(processed_data, original_data):
                         'country_name_cn': country_name_cn,
                         'original_price': original_price,
                         'currency': currency,
-                        'price_number': formatted_total_price,
-                        'price_cny': plan.get('total_price_cny'),
+                        'price_number': monthly_price_number,  # 月均价格
+                        'price_cny': plan.get('price_cny'),  # 月均价格的CNY转换
+                        'total_price_number': total_price_number,  # 总预付价格
+                        'total_price_cny': plan.get('total_price_cny'),  # 总预付价格的CNY转换
                         'plan_name': plan_name
                     })
     
@@ -665,16 +664,13 @@ def create_prepaid_rankings(processed_data, original_data):
                 if plan.get('total_price_cny') is not None:
                     country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
                     
-                    # 使用总预付价格数据
+                    # 使用月均价格显示（price是月均价格文本）+ 总价格数据
+                    monthly_price_number = plan.get('price_number')
                     total_price_number = plan.get('total_price_number')
                     currency = plan.get('currency', '')
                     
-                    # 格式化总预付价格显示
-                    formatted_total_price = format_price_number(total_price_number)
-                    if formatted_total_price:
-                        original_price = f"{currency} {formatted_total_price}"
-                    else:
-                        original_price = plan.get('price', '')
+                    # 使用原始的月均价格显示
+                    original_price = plan.get('price', '')
                     
                     family_1year_plans.append({
                         'country_code': country_code,
@@ -682,8 +678,10 @@ def create_prepaid_rankings(processed_data, original_data):
                         'country_name_cn': country_name_cn,
                         'original_price': original_price,
                         'currency': currency,
-                        'price_number': formatted_total_price,
-                        'price_cny': plan.get('total_price_cny'),
+                        'price_number': monthly_price_number,  # 月均价格
+                        'price_cny': plan.get('price_cny'),  # 月均价格的CNY转换
+                        'total_price_number': total_price_number,  # 总预付价格
+                        'total_price_cny': plan.get('total_price_cny'),  # 总预付价格的CNY转换
                         'plan_name': plan_name
                     })
     
