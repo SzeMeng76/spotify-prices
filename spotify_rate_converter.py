@@ -158,132 +158,122 @@ def extract_price_from_text(price_text, currency):
     print(f"无法从 '{price_text}' 中提取价格")
     return None
 
-def standardize_plan_name(plan_name):
-    """标准化套餐名称为英文统一格式"""
+def is_prepaid_plan(plan_name, original_plan_name=None):
+    """判断是否为预付费套餐"""
+    if not plan_name:
+        return False
+    
+    # 检查原始套餐名称（更准确）
+    name_to_check = original_plan_name if original_plan_name else plan_name
+    name_lower = name_to_check.lower()
+    
+    # 预付费关键词
+    prepaid_keywords = [
+        'prepaid', '预付', 'year prepaid', 'month prepaid', 'months prepaid', 
+        'one-time', 'annual', 'yearly', 'advance payment', '年付', '月付预付'
+    ]
+    
+    # 时长关键词（通常表示预付费）
+    duration_keywords = [
+        '1 year', '6 months', '3 months', '12 months', 
+        '1年', '6个月', '3个月', '12个月'
+    ]
+    
+    # 检查是否包含预付费关键词
+    for keyword in prepaid_keywords:
+        if keyword in name_lower:
+            return True
+    
+    # 检查是否包含时长关键词（与预付费相关）
+    for keyword in duration_keywords:
+        if keyword in name_lower:
+            return True
+    
+    return False
+
+def extract_prepaid_duration(plan_name, original_plan_name=None):
+    """提取预付费套餐的时长"""
+    if not plan_name:
+        return None
+    
+    name_to_check = original_plan_name if original_plan_name else plan_name
+    name_lower = name_to_check.lower()
+    
+    # 时长映射
+    duration_map = {
+        '1 year': '1年',
+        '6 months': '6个月', 
+        '3 months': '3个月',
+        '1 month': '1个月',
+        '12 months': '1年',
+        '1年': '1年',
+        '6个月': '6个月',
+        '3个月': '3个月',
+        '1个月': '1个月'
+    }
+    
+    for duration_key, duration_value in duration_map.items():
+        if duration_key in name_lower:
+            return duration_value
+    
+    return None
+
+def standardize_plan_name(plan_name, original_plan_name=None):
+    """标准化套餐名称为英文统一格式，区分预付费"""
     if not plan_name:
         return plan_name
     
     # 转换为小写用于匹配
     plan_lower = plan_name.lower()
+    original_lower = original_plan_name.lower() if original_plan_name else plan_lower
     
-    # 定义标准化映射规则
-    standardization_map = {
-        # Individual/Personal plans
-        'premium individual': 'Premium Individual',
-        'premium personal': 'Premium Individual', 
-        'premium個人': 'Premium Individual',
-        'premium 個人': 'Premium Individual',
-        'premium个人': 'Premium Individual',
-        'premium 个人': 'Premium Individual',
-        # 法语
-        'premium personnel': 'Premium Individual',
-        # 芬兰语
-        'yksilö-premium': 'Premium Individual',
-        # 匈牙利语
-        'egyéni premium csomag': 'Premium Individual',
-        # 韩语/日语
-        'premium standard': 'Premium Individual',
-        # 斯瓦希里语
-        'premium ya binafsi': 'Premium Individual',
-        
-        # Student plans
-        'premium para estudiantes': 'Premium Student',
-        'premium student': 'Premium Student',
-        'premium estudiantil': 'Premium Student',
-        'premium universitário': 'Premium Student',
-        'premium étudiant': 'Premium Student',
-        'premium studenten': 'Premium Student',
-        'premium学生': 'Premium Student',
-        'premium 学生': 'Premium Student',
-        'premium大学生': 'Premium Student',
-        'premium 大学生': 'Premium Student',
-        'premium 學生': 'Premium Student',
-        'premium學生': 'Premium Student',
-        # 法语
-        'premium étudiants': 'Premium Student',
-        # 芬兰语
-        'opiskelija‑premium': 'Premium Student',
-        # 匈牙利语
-        'hallgatói premium csomag': 'Premium Student',
-        # 摩洛哥法语
-        'premium étudiants': 'Premium Student',
-        
-        # Duo plans
-        'premium duo': 'Premium Duo',
-        'premium para dois': 'Premium Duo',
-        'premium couple': 'Premium Duo',
-        'premium雙人': 'Premium Duo',
-        'premium 雙人': 'Premium Duo',
-        'premium双人': 'Premium Duo',
-        'premium 双人': 'Premium Duo',
-        # 芬兰语
-        'duo‑premium': 'Premium Duo',
-        # 匈牙利语
-        'premium duo csomag': 'Premium Duo',
-        
-        # Family plans
-        'premium familiar': 'Premium Family',
-        'premium family': 'Premium Family',
-        'premium família': 'Premium Family',
-        'premium famille': 'Premium Family',
-        'premium familie': 'Premium Family',
-        'premium家庭': 'Premium Family',
-        'premium 家庭': 'Premium Family',
-        'premium家族': 'Premium Family',
-        'premium 家族': 'Premium Family',
-        # 芬兰语
-        'perhe‑premium': 'Premium Family',
-        # 匈牙利语
-        'családi premium csomag': 'Premium Family',
-        # 斯瓦希里语
-        'premium ya familia': 'Premium Family',
-        
-        # Special/Other plans
-        'premium basic': 'Premium Basic',  # 韩国特殊套餐
-        'premium lite': 'Premium Lite',    # 哥伦比亚等
-        
-        # Free plans
-        'spotify free': 'Spotify Free',
-        'free': 'Spotify Free',
-        'gratuito': 'Spotify Free',
-        'gratuit': 'Spotify Free',
-        '免費': 'Spotify Free',
-        '免费': 'Spotify Free',
-    }
+    # 检查是否为预付费
+    is_prepaid = is_prepaid_plan(plan_name, original_plan_name)
+    duration = extract_prepaid_duration(plan_name, original_plan_name) if is_prepaid else None
     
-    # 直接匹配
-    if plan_lower in standardization_map:
-        return standardization_map[plan_lower]
+    # 先进行基础套餐类型判断
+    base_plan_type = None
     
-    # 模糊匹配（包含关键词）
-    if any(keyword in plan_lower for keyword in ['individual', 'personal', 'personnel', 'yksilö', 'egyéni', 'binafsi']):
-        if 'premium' in plan_lower:
-            return 'Premium Individual'
+    # Individual/Personal plans
+    if any(keyword in original_lower for keyword in ['individual', 'personal', 'personnel', 'yksilö', 'egyéni', 'binafsi', '个人', '個人']):
+        if 'premium' in original_lower:
+            base_plan_type = 'Premium Individual'
     
-    if any(keyword in plan_lower for keyword in ['estudiante', 'student', 'étudiant', 'studenten', 'opiskelija', 'hallgatói', '学生', '學生', '大学生']):
-        if 'premium' in plan_lower:
-            return 'Premium Student'
+    # Student plans
+    elif any(keyword in original_lower for keyword in ['estudiante', 'student', 'étudiant', 'studenten', 'opiskelija', 'hallgatói', '学生', '學生', '大学生']):
+        if 'premium' in original_lower:
+            base_plan_type = 'Premium Student'
     
-    if any(keyword in plan_lower for keyword in ['duo', 'couple', '双人', '雙人']):
-        if 'premium' in plan_lower:
-            return 'Premium Duo'
+    # Duo plans
+    elif any(keyword in original_lower for keyword in ['duo', 'couple', '双人', '雙人']):
+        if 'premium' in original_lower:
+            base_plan_type = 'Premium Duo'
     
-    if any(keyword in plan_lower for keyword in ['familiar', 'family', 'família', 'famille', 'familie', 'perhe', 'családi', 'familia', '家庭', '家族']):
-        if 'premium' in plan_lower:
-            return 'Premium Family'
+    # Family plans
+    elif any(keyword in original_lower for keyword in ['familiar', 'family', 'família', 'famille', 'familie', 'perhe', 'családi', 'familia', '家庭', '家族']):
+        if 'premium' in original_lower:
+            base_plan_type = 'Premium Family'
     
-    if any(keyword in plan_lower for keyword in ['free', 'gratuito', 'gratuit', '免費', '免费']):
-        return 'Spotify Free'
+    # Free plans
+    elif any(keyword in original_lower for keyword in ['free', 'gratuito', 'gratuit', '免費', '免费']):
+        base_plan_type = 'Spotify Free'
     
-    # 特殊处理
-    if 'basic' in plan_lower and 'premium' in plan_lower:
-        return 'Premium Basic'
+    # Special plans
+    elif 'basic' in original_lower and 'premium' in original_lower:
+        base_plan_type = 'Premium Basic'
+    elif 'lite' in original_lower and 'premium' in original_lower:
+        base_plan_type = 'Premium Lite'
+    else:
+        # 如果没有匹配到基础类型，保持原名称
+        base_plan_type = plan_name.title()
     
-    if 'lite' in plan_lower and 'premium' in plan_lower:
-        return 'Premium Lite'
-    
-    # 如果没有匹配到，保持原名称但首字母大写
-    return plan_name.title()
+    # 如果是预付费，添加预付费标识和时长
+    if is_prepaid and duration and base_plan_type:
+        return f"{base_plan_type} ({duration}预付费)"
+    elif is_prepaid and base_plan_type:
+        return f"{base_plan_type} (预付费)"
+    else:
+        return base_plan_type
     
 def get_current_date():
     """获取当前日期"""
@@ -371,8 +361,9 @@ def process_spotify_data(data, rates):
             plan_name = plan.get('plan', '')
             currency = plan.get('currency', '')
             
-            # 标准化套餐名称
-            standardized_plan_name = standardize_plan_name(plan_name)
+            # 标准化套餐名称，传递原始名称用于预付费判断
+            original_plan_name = plan.get('original_plan_name', plan_name)
+            standardized_plan_name = standardize_plan_name(plan_name, original_plan_name)
             
             # Create processed plan object
             processed_plan = {
@@ -528,6 +519,104 @@ def sort_by_family_plan_cny(processed_data, original_data):
     
     return sorted_data
 
+def create_prepaid_rankings(processed_data, original_data):
+    """创建预付费套餐排行榜"""
+    rankings = {}
+    
+    # 1. 预付费个人1年排行榜
+    individual_1year_plans = []
+    for country_code, country_info in processed_data.items():
+        for plan in country_info.get('plans', []):
+            plan_name = plan.get('plan', '')
+            original_name = plan.get('original_plan_name', '')
+            
+            # 检查是否为预付费个人1年套餐
+            if (('Premium Individual' in plan_name and '1年预付费' in plan_name) or
+                ('Individual' in original_name and '1 year' in original_name.lower()) or
+                ('Individual' in original_name and 'year prepaid' in original_name.lower())):
+                
+                if plan.get('price_cny') is not None:
+                    country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
+                    
+                    # 获取原始价格数据进行格式化
+                    original_price_number = None
+                    for original_plan in original_data.get(country_code, {}).get('plans', []):
+                        if original_plan.get('original_plan_name', '') == original_name:
+                            original_price_number = original_plan.get('price_number')
+                            break
+                    
+                    formatted_price_number = format_price_number(original_price_number)
+                    
+                    individual_1year_plans.append({
+                        'country_code': country_code,
+                        'country_name': country_info.get('country_name', ''),
+                        'country_name_cn': country_name_cn,
+                        'original_price': plan.get('price', ''),
+                        'currency': plan.get('currency', ''),
+                        'price_number': formatted_price_number,
+                        'price_cny': plan.get('price_cny'),
+                        'plan_name': plan_name
+                    })
+    
+    # 排序并添加排名
+    individual_1year_plans.sort(key=lambda x: x['price_cny'])
+    for i, plan in enumerate(individual_1year_plans[:10]):
+        plan['rank'] = i + 1
+    
+    rankings['_top_10_cheapest_individual_1year_prepaid'] = {
+        'description': '最便宜的10个Premium Individual 1年预付费套餐',
+        'updated_at': get_current_date(),
+        'data': individual_1year_plans[:10]
+    }
+    
+    # 2. 预付费家庭1年排行榜
+    family_1year_plans = []
+    for country_code, country_info in processed_data.items():
+        for plan in country_info.get('plans', []):
+            plan_name = plan.get('plan', '')
+            original_name = plan.get('original_plan_name', '')
+            
+            # 检查是否为预付费家庭1年套餐
+            if (('Premium Family' in plan_name and '1年预付费' in plan_name) or
+                ('Family' in original_name and '1 year' in original_name.lower()) or
+                ('Family' in original_name and 'year prepaid' in original_name.lower())):
+                
+                if plan.get('price_cny') is not None:
+                    country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
+                    
+                    # 获取原始价格数据进行格式化
+                    original_price_number = None
+                    for original_plan in original_data.get(country_code, {}).get('plans', []):
+                        if original_plan.get('original_plan_name', '') == original_name:
+                            original_price_number = original_plan.get('price_number')
+                            break
+                    
+                    formatted_price_number = format_price_number(original_price_number)
+                    
+                    family_1year_plans.append({
+                        'country_code': country_code,
+                        'country_name': country_info.get('country_name', ''),
+                        'country_name_cn': country_name_cn,
+                        'original_price': plan.get('price', ''),
+                        'currency': plan.get('currency', ''),
+                        'price_number': formatted_price_number,
+                        'price_cny': plan.get('price_cny'),
+                        'plan_name': plan_name
+                    })
+    
+    # 排序并添加排名
+    family_1year_plans.sort(key=lambda x: x['price_cny'])
+    for i, plan in enumerate(family_1year_plans[:10]):
+        plan['rank'] = i + 1
+    
+    rankings['_top_10_cheapest_family_1year_prepaid'] = {
+        'description': '最便宜的10个Premium Family 1年预付费套餐',
+        'updated_at': get_current_date(),
+        'data': family_1year_plans[:10]
+    }
+    
+    return rankings
+
 
 def format_price_number(price_number):
     """格式化价格数字，添加千位分隔符，如果是整数则不显示小数点"""
@@ -587,38 +676,55 @@ def main():
     print("\n4. 按Premium Family的CNY价格排序...")
     sorted_data = sort_by_family_plan_cny(processed_data, spotify_data)
     
-    # 5. Save processed data
-    print(f"\n5. 保存处理后的数据到 {OUTPUT_JSON_PATH}...")
+    # 5. Create prepaid rankings
+    print("\n5. 创建预付费套餐排行榜...")
+    prepaid_rankings = create_prepaid_rankings(processed_data, spotify_data)
+    
+    # 将排行榜添加到排序数据的开头
+    for ranking_key, ranking_data in prepaid_rankings.items():
+        sorted_data[ranking_key] = ranking_data
+    
+    # 6. Save processed data
+    print(f"\n6. 保存处理后的数据到 {OUTPUT_JSON_PATH}...")
     try:
         with open(OUTPUT_JSON_PATH, 'w', encoding='utf-8') as f:
             json.dump(sorted_data, f, ensure_ascii=False, indent=2)
         print("处理完成！")
         
-        # Show top 10 cheapest Premium Family plans
-        print("\n最便宜的10个Premium Family套餐:")
+        # Show rankings
+        print("\n" + "="*70)
+        print("                             排行榜汇总")
+        print("="*70)
+        
+        # 1. Premium Family 月付排行榜
+        print("\n💰 最便宜的10个Premium Family月付套餐:")
         print("-" * 60)
         if '_top_10_cheapest_premium_family' in sorted_data:
             for item in sorted_data['_top_10_cheapest_premium_family']['data']:
                 print(f"{item['rank']:2d}. {item['country_name_cn']:15s} ({item['country_code']}): "
                       f"¥{item['price_cny']:7.2f} ({item['currency']} {item['price_number']})")
+        
+        # 2. Premium Individual 1年预付费排行榜  
+        print("\n🎯 最便宜的10个Premium Individual 1年预付费套餐:")
+        print("-" * 60)
+        if '_top_10_cheapest_individual_1year_prepaid' in sorted_data:
+            for item in sorted_data['_top_10_cheapest_individual_1year_prepaid']['data']:
+                print(f"{item['rank']:2d}. {item['country_name_cn']:15s} ({item['country_code']}): "
+                      f"¥{item['price_cny']:7.2f} ({item['currency']} {item['price_number']})")
         else:
-            count = 0
-            for country_code, country_info in sorted_data.items():
-                if country_code.startswith('_'):
-                    continue
-                for plan in country_info.get('plans', []):
-                    plan_name = plan.get('plan', '')
-                    if (('Premium Family' in plan_name or 'Premium Familiar' in plan_name or 
-                         'Premium Famille' in plan_name or 'Premium Familie' in plan_name) and 
-                        plan.get('price_cny') is not None):
-                        country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info['country_name'])
-                        print(f"{count+1:2d}. {country_name_cn:15s} ({country_code}): "
-                              f"¥{plan['price_cny']:7.2f} ({plan['currency']} {plan.get('price_number', 'N/A')})")
-                        count += 1
-                        if count >= 10:
-                            break
-                if count >= 10:
-                    break
+            print("    暂无数据")
+        
+        # 3. Premium Family 1年预付费排行榜
+        print("\n👨‍👩‍👧‍👦 最便宜的10个Premium Family 1年预付费套餐:")
+        print("-" * 60)  
+        if '_top_10_cheapest_family_1year_prepaid' in sorted_data:
+            for item in sorted_data['_top_10_cheapest_family_1year_prepaid']['data']:
+                print(f"{item['rank']:2d}. {item['country_name_cn']:15s} ({item['country_code']}): "
+                      f"¥{item['price_cny']:7.2f} ({item['currency']} {item['price_number']})")
+        else:
+            print("    暂无数据")
+            
+        print("\n" + "="*70)
         
     except Exception as e:
         print(f"保存文件时出错: {e}")
