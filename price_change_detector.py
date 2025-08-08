@@ -269,7 +269,17 @@ class PriceChangeDetector:
             'changes': changes
         }
         
-        summary_file = f"price_changes_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        # 保存到archive目录
+        now = datetime.now()
+        timestamp = now.strftime('%Y%m%d_%H%M%S')
+        year = now.strftime('%Y')
+        month = now.strftime('%m')
+        archive_dir = f"archive/{year}/{month}"
+        
+        # 确保archive目录存在
+        os.makedirs(archive_dir, exist_ok=True)
+        
+        summary_file = f"{archive_dir}/price_changes_summary_{timestamp}.json"
         with open(summary_file, 'w', encoding='utf-8') as f:
             json.dump(summary, f, ensure_ascii=False, indent=2)
         
@@ -302,7 +312,17 @@ class PriceChangeDetector:
                 'changes': [],
                 'note': '首次运行或无历史数据，跳过价格对比'
             }
-            summary_file = f"price_changes_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            # 保存到archive目录
+            now = datetime.now()
+            timestamp = now.strftime('%Y%m%d_%H%M%S')
+            year = now.strftime('%Y')
+            month = now.strftime('%m')
+            archive_dir = f"archive/{year}/{month}"
+            
+            # 确保archive目录存在
+            os.makedirs(archive_dir, exist_ok=True)
+            
+            summary_file = f"{archive_dir}/price_changes_summary_{timestamp}.json"
             with open(summary_file, 'w', encoding='utf-8') as f:
                 json.dump(summary, f, ensure_ascii=False, indent=2)
             print(f"✅ 生成初始摘要文件: {summary_file}")
