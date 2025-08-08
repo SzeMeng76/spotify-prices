@@ -462,12 +462,42 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                                   .get('storefront', {})
                                   .get('plans', []))
                 
-                # Also check for prepaid plans (one-time payments)
-                prepaid_plans = (data.get('props', {})
-                               .get('pageProps', {})
-                               .get('components', {})
-                               .get('storefront', {})
-                               .get('prepaidPlans', []))
+                # Also check for prepaid plans (one-time payments) - they are embedded in regular plans
+                prepaid_plans = []
+                structured_plans_with_prepaid = (data.get('props', {})
+                                               .get('pageProps', {})
+                                               .get('components', {})
+                                               .get('storefront', {})
+                                               .get('plans', []))
+                
+                # Extract prepaid options from each plan's prepaidSection
+                for plan in structured_plans_with_prepaid:
+                    prepaid_section = plan.get('prepaidSection', {})
+                    if prepaid_section:
+                        prepaid_options = prepaid_section.get('prepaid', {}).get('prepaidOption', [])
+                        plan_header = plan.get('header', 'Premium')
+                        
+                        for option in prepaid_options:
+                            duration = option.get('duration', '')
+                            price = option.get('price', '')
+                            price_desc = option.get('priceDescription', '')
+                            comparison_text = option.get('priceComparisonText', '')
+                            savings_text = option.get('savingsBadgeText', '')
+                            
+                            # Create a clear prepaid plan name
+                            prepaid_plan_name = f"{plan_header} ({duration} prepaid)" if duration else f"{plan_header} (prepaid)"
+                            
+                            prepaid_plan = {
+                                'header': prepaid_plan_name,
+                                'primaryPriceDescription': price_desc if price_desc else price,
+                                'secondaryPriceDescription': comparison_text,
+                                'savingsBadgeText': savings_text,
+                                'duration': duration,
+                                'base_plan': plan_header,
+                                'is_prepaid': True
+                            }
+                            prepaid_plans.append(prepaid_plan)
+                            print(f"    ✓ 发现预付费选项: {prepaid_plan_name} - {price_desc or price}")
                 
                 # Combine regular and prepaid plans
                 all_plans = structured_plans + prepaid_plans
@@ -479,11 +509,15 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                         primary_price = (plan.get('primaryPriceDescription') or "").strip()
                         secondary_price = (plan.get('secondaryPriceDescription') or "").strip()
                         
-                        # 检测是否为预付费套餐
-                        combined_text = f"{plan_header} {primary_price} {secondary_price}".lower()
-                        is_prepaid = any(keyword in combined_text for keyword in 
-                                       ['prepaid', 'one-time', '一次性', 'advance', 'year', 'month', '年', '月', 
-                                        'does not auto-renew', 'pay once', 'top up', 'save'])
+                        # 检测是否为预付费套餐 - 优先使用明确标识
+                        is_prepaid = plan.get('is_prepaid', False)
+                        if not is_prepaid:
+                            # 如果没有明确标识，使用关键词检测
+                            combined_text = f"{plan_header} {primary_price} {secondary_price}".lower()
+                            is_prepaid = any(keyword in combined_text for keyword in 
+                                           ['prepaid', 'one-time', '一次性', 'advance', 'does not auto-renew', 'pay once', 'top up']) or \
+                                         bool(re.search(r'\d+\s*(?:year|month|年|月)(?!s?\s*after)', combined_text)) or \
+                                         bool(re.search(r'save.*[\$€£]', combined_text))
                         
                         # 提取所有套餐
                         plan_data = {
@@ -615,8 +649,11 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                                 plan_name, price = first, second
                             
                             # 检测是否为预付费套餐
-                            is_prepaid = any(keyword in plan_name.lower() or keyword in price.lower() for keyword in 
-                                           ['year', 'month', 'prepaid', 'one-time', 'advance', 'save', 'top up', '年', '月'])
+                            combined_regex_text = f"{plan_name} {price}".lower()
+                            is_prepaid = any(keyword in combined_regex_text for keyword in 
+                                           ['prepaid', 'one-time', 'advance', 'top up']) or \
+                                         bool(re.search(r'\d+\s*(?:year|month|年|月)(?!s?\s*after)', combined_regex_text)) or \
+                                         bool(re.search(r'save.*[\$€£]', combined_regex_text))
                                 
                             plans.append({
                                 'plan': plan_name.strip() if plan_name else 'Premium Plan',
@@ -773,9 +810,11 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                         price_str = plan.get('price', '')
                         
                         # 判断是否为预付费套餐（根据关键词或价格描述）
-                        is_prepaid = any(keyword in plan_name or keyword in price_str.lower() for keyword in 
-                                       ['prepaid', 'one-time', '一次性', 'advance', 'year', 'month', '年', '月', 
-                                        'does not auto-renew', 'pay once', 'top up', 'save'])
+                        combined_text = f"{plan_name} {price_str}".lower()
+                        is_prepaid = any(keyword in combined_text for keyword in 
+                                       ['prepaid', 'one-time', '一次性', 'advance', 'does not auto-renew', 'pay once', 'top up']) or \
+                                     bool(re.search(r'\d+\s*(?:year|month|年|月)(?!s?\s*after)', combined_text)) or \
+                                     bool(re.search(r'save.*[\$€£]', combined_text))
                         
                         enhanced_plan['is_prepaid'] = is_prepaid
                         enhanced_plan['payment_type'] = 'prepaid' if is_prepaid else 'recurring'
