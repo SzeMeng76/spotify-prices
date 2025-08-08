@@ -16,6 +16,8 @@
 | 💱 **Real-time Currency Conversion** | Integrated exchange rate API, convert all prices to CNY in real-time |
 | 🏆 **Smart Sorting & Analysis** | Sort by Premium Family prices, instantly find the cheapest subscription regions |
 | 📊 **Standardized Data** | Multi-language plan name standardization (e.g., "Premium Familiar" → "Premium Family") |
+| 🎯 **Ranking System** | **NEW!** Top 10 rankings for monthly and prepaid plans with detailed price comparison |
+| 💳 **Prepaid Plan Support** | **NEW!** Comprehensive support for prepaid subscriptions (1-year, 6-month, etc.) with total cost analysis |
 | 🤖 **Automated Execution** | GitHub Actions runs automatically every Sunday, no manual intervention needed |
 | 📈 **Historical Data** | Auto-archive by year, supports price trend analysis |
 | 📊 **Price Change Tracking** | Automatic detection and logging of price changes with detailed changelog |
@@ -96,13 +98,39 @@ graph LR
 {
   "_top_10_cheapest_premium_family": {
     "description": "Top 10 cheapest Premium Family plans",
-    "updated_at": "2025-07-26",
+    "updated_at": "2025-08-09",
     "data": [
       {
         "rank": 1,
         "country_name_cn": "Nigeria",
-        "price_cny": 12.34,
-        "original_price": "₦1,900 per month"
+        "price_cny": 11.73,
+        "original_price": "₦2,500 / month"
+      }
+    ]
+  },
+  "_top_10_cheapest_individual_1year_prepaid": {
+    "description": "Top 10 cheapest Premium Individual 1-year prepaid plans",
+    "updated_at": "2025-08-09",
+    "data": [
+      {
+        "rank": 1,
+        "country_name_cn": "Pakistan",
+        "price_cny": 7.37,
+        "total_price_cny": 88.4,
+        "original_price": "Equivalent to Rs 290.84 per month"
+      }
+    ]
+  },
+  "_top_10_cheapest_family_1year_prepaid": {
+    "description": "Top 10 cheapest Premium Family 1-year prepaid plans",
+    "updated_at": "2025-08-09",
+    "data": [
+      {
+        "rank": 1,
+        "country_name_cn": "Brazil",
+        "price_cny": 47.22,
+        "total_price_cny": 566.64,
+        "original_price": "Equivalent to R$40.84 per month"
       }
     ]
   }
@@ -134,6 +162,30 @@ graph LR
 ```
 
 ## 🌟 Core Features Explained
+
+### 🎯 Multi-Tier Ranking System
+Our intelligent ranking system provides comprehensive price analysis:
+
+#### 📊 Monthly Subscription Rankings
+- **Premium Family Monthly**: Top 10 most affordable family plans worldwide
+- **Premium Individual Monthly**: Best value individual subscriptions
+- **Real-time CNY Conversion**: All prices instantly converted for easy comparison
+
+#### 💳 Prepaid Subscription Rankings  
+**NEW FEATURE!** Complete analysis of prepaid options with substantial savings:
+
+| Plan Type | Description | Key Benefits |
+|-----------|-------------|--------------|
+| **Individual 1-Year Prepaid** | Annual individual subscriptions | 💰 Up to 15% savings vs monthly |
+| **Family 1-Year Prepaid** | Annual family subscriptions | 👨‍👩‍👧‍👦 Best value for households |
+| **6-Month Prepaid** | Mid-term prepaid options | ⚖️ Balance of savings and flexibility |
+
+### 💳 Advanced Prepaid Plan Detection
+Automatically identifies and processes prepaid subscriptions:
+- **Smart Recognition**: Detects prepaid keywords in multiple languages
+- **Total Cost Analysis**: Calculates both monthly average and total prepaid cost
+- **Savings Calculator**: Shows exact savings compared to monthly plans
+- **Duration Support**: 1-year, 6-month, 3-month prepaid plans
 
 ### Multi-language Plan Standardization
 Automatically convert localized plan names to unified English standards:
@@ -194,15 +246,34 @@ Actions → Select failed workflow → Expand logs
 
 ## 📈 Data Examples
 
-Latest Global Premium Family Price Top 5:
+### 🏆 Latest Global Rankings
 
+#### 💰 Premium Family Monthly Top 5:
 | Rank | Country | Price (CNY) | Original Price |
 |------|---------|-------------|----------------|
-| 🥇 | Nigeria | ¥12.34 | ₦1,900/month |
-| 🥈 | India | ¥25.67 | ₹179/month |
-| 🥉 | Turkey | ¥28.90 | ₺24.99/month |
-| 4 | Argentina | ¥32.15 | ARS$699/month |
-| 5 | Mexico | ¥45.78 | $169/month |
+| 🥇 | Nigeria | ¥11.73 | ₦2,500/month |
+| 🥈 | Pakistan | ¥14.67 | Rs 579/month |
+| 🥉 | Egypt | ¥16.28 | EGP 109.99/month |
+| 4 | Turkey | ¥17.66 | TRY 99.99/month |
+| 5 | India | ¥18.80 | ₹229/month |
+
+#### 🎯 Premium Individual 1-Year Prepaid Top 5:
+| Rank | Country | Monthly Avg (CNY) | Total Cost (CNY) | Savings |
+|------|---------|------------------|------------------|---------|
+| 🥇 | Pakistan | ¥7.37 | ¥88.40 | ~50% |
+| 🥈 | India | ¥9.40 | ¥112.80 | ~45% |
+| 🥉 | Turkey | ¥12.25 | ¥147.00 | ~30% |
+| 4 | Brazil | ¥18.85 | ¥226.20 | ~25% |
+| 5 | Argentina | ¥21.45 | ¥257.40 | ~20% |
+
+#### 👨‍👩‍👧‍👦 Premium Family 1-Year Prepaid Top 5:
+| Rank | Country | Monthly Avg (CNY) | Total Cost (CNY) | Savings |
+|------|---------|------------------|------------------|---------|
+| 🥇 | Brazil | ¥47.22 | ¥566.64 | ~25% |
+| 🥈 | Turkey | ¥52.45 | ¥629.40 | ~20% |
+| 🥉 | Argentina | ¥58.90 | ¥706.80 | ~18% |
+| 4 | Mexico | ¥65.30 | ¥783.60 | ~15% |
+| 5 | India | ¥72.15 | ¥865.80 | ~12% |
 
 > 💡 **Prices for reference only**, actual subscriptions may be subject to regional restrictions
 
@@ -234,6 +305,12 @@ Welcome to submit Issues and Pull Requests!
 
 ## 📝 Changelog
 
+- **v4.0** 🎯 **NEW!** **Advanced Ranking & Prepaid System**: 
+  - Added comprehensive ranking system for monthly and prepaid plans
+  - Full support for prepaid subscriptions (1-year, 6-month, 3-month)
+  - Total cost analysis and savings calculator for prepaid plans
+  - Enhanced data structure with prepaid-specific fields
+  - Multi-tier comparison system for better decision making
 - **v3.3** 🆕 **Price Change Detection System**: Added automatic price change detection, detailed changelog tracking, and monthly archive management
 - **v3.2** 🔧 Comprehensive fix for currency detection and price scraping system
 - **v3.1** 🌍 Enhanced multilingual plan name recognition for improved data standardization accuracy
@@ -255,7 +332,9 @@ This project is for educational and research purposes only. Please comply with r
 
 **🎵 Discover the Best Spotify Subscription Deals Worldwide!**
 
-[🚀 Get Started](#-quick-start) • [📊 View Data](#-data-output) • [🤖 Automation](#-automation-workflow) • [❓ Issues](https://github.com/SzeMeng76/spotify-prices/issues)
+**🆕 NOW WITH PREPAID RANKINGS!** Find the ultimate savings with our new prepaid plan analysis system.
+
+[🚀 Get Started](#-quick-start) • [🎯 View Rankings](#-data-examples) • [📊 View Data](#-data-output) • [🤖 Automation](#-automation-workflow) • [❓ Issues](https://github.com/SzeMeng76/spotify-prices/issues)
 
 **Language**: [English](README.md) | [中文](README_zh.md)
 
