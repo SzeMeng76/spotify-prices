@@ -462,18 +462,36 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                                   .get('storefront', {})
                                   .get('plans', []))
                 
-                if structured_plans:
-                    print(f"    📊 找到结构化数据中的 {len(structured_plans)} 个套餐")
-                    for plan in structured_plans:
+                # Also check for prepaid plans (one-time payments)
+                prepaid_plans = (data.get('props', {})
+                               .get('pageProps', {})
+                               .get('components', {})
+                               .get('storefront', {})
+                               .get('prepaidPlans', []))
+                
+                # Combine regular and prepaid plans
+                all_plans = structured_plans + prepaid_plans
+                
+                if all_plans:
+                    print(f"    📊 找到结构化数据中的 {len(all_plans)} 个套餐 (包含 {len(prepaid_plans)} 个预付费套餐)")
+                    for plan in all_plans:
                         plan_header = (plan.get('header') or "未知套餐").strip()
                         primary_price = (plan.get('primaryPriceDescription') or "").strip()
                         secondary_price = (plan.get('secondaryPriceDescription') or "").strip()
+                        
+                        # 检测是否为预付费套餐
+                        combined_text = f"{plan_header} {primary_price} {secondary_price}".lower()
+                        is_prepaid = any(keyword in combined_text for keyword in 
+                                       ['prepaid', 'one-time', '一次性', 'advance', 'year', 'month', '年', '月', 
+                                        'does not auto-renew', 'pay once', 'top up', 'save'])
                         
                         # 提取所有套餐
                         plan_data = {
                             'plan': plan_header,
                             'primary_price': primary_price,
                             'secondary_price': secondary_price,
+                            'is_prepaid': is_prepaid,
+                            'payment_type': 'prepaid' if is_prepaid else 'recurring',
                             'source': 'structured_data'
                         }
                         
@@ -564,12 +582,22 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
         if not plans:
             all_text = soup.get_text()
             
-            # 更全面的正则模式，匹配所有套餐类型
+            # 更全面的正则模式，匹配所有套餐类型，包括预付费
             plan_patterns = [
+                # 常规月付套餐
                 r'(Premium\s+(?:Family|Individual|Student|Duo)|(?:Family|Individual|Student|Duo)\s+Premium|Premium)\s*[:\-]?\s*([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+|[\d,.]+\s*[€$£¥₹₱₪₨₦₵₡])',
                 r'(Premium\s+(?:Family|Individual|Student|Duo)|(?:Family|Individual|Student|Duo)).*?([€$£¥₹₱₪₨₦₵₡]\s*[\d,.][\d,.\s]*)',
                 r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.][\d,.\s]*)\s*.*?(Premium\s+(?:Family|Individual|Student|Duo)|(?:Family|Individual|Student|Duo))',
-                r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.][\d,.\s]*)\s*/?\s*month'
+                r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.][\d,.\s]*)\s*/?\s*month',
+                # 预付费套餐 - 按时长匹配
+                r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+)\s*.*(\\d+\\s*(?:Year|Years|Month|Months|年|月))',
+                r'(\\d+\\s*(?:Year|Years|Month|Months|年|月)).*?([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+)',
+                # 预付费套餐 - 按关键词匹配
+                r'((?:Prepaid|One[\\-\\s]*time|Pay\\s*once|Top\\s*up|Advance).*?)([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+)',
+                r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+).*((?:Prepaid|One[\\-\\s]*time|Pay\\s*once|Top\\s*up|Advance))',
+                # "Save" 关键词通常表示预付费优惠
+                r'([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+).*(Save\\s*[€$£¥₹₱₪₨₦₵₡]\\s*[\d,.]+)',
+                r'(Save\\s*[€$£¥₹₱₪₨₦₵₡]\\s*[\d,.]+).*?([€$£¥₹₱₪₨₦₵₡]\s*[\d,.]+)'
             ]
             
             for pattern in plan_patterns:
@@ -585,22 +613,32 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                             else:
                                 # 第一个是套餐名，第二个是价格
                                 plan_name, price = first, second
+                            
+                            # 检测是否为预付费套餐
+                            is_prepaid = any(keyword in plan_name.lower() or keyword in price.lower() for keyword in 
+                                           ['year', 'month', 'prepaid', 'one-time', 'advance', 'save', 'top up', '年', '月'])
                                 
                             plans.append({
                                 'plan': plan_name.strip() if plan_name else 'Premium Plan',
                                 'price': price.strip(),
+                                'is_prepaid': is_prepaid,
+                                'payment_type': 'prepaid' if is_prepaid else 'recurring',
                                 'source': 'regex_parsing'
                             })
                         else:
                             plans.append({
                                 'plan': 'Premium Plan',
                                 'price': match[0].strip(),
+                                'is_prepaid': False,
+                                'payment_type': 'recurring',
                                 'source': 'regex_parsing'
                             })
                     else:
                         plans.append({
                             'plan': 'Premium Plan',
                             'price': match.strip(),
+                            'is_prepaid': False,
+                            'payment_type': 'recurring',
                             'source': 'regex_parsing'
                         })
                     
@@ -730,8 +768,19 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                     for plan in plans:
                         enhanced_plan = plan.copy()
                         
-                        # 提取价格数值和货币
+                        # 检测是否为预付费套餐
+                        plan_name = plan.get('plan', '').lower()
                         price_str = plan.get('price', '')
+                        
+                        # 判断是否为预付费套餐（根据关键词或价格描述）
+                        is_prepaid = any(keyword in plan_name or keyword in price_str.lower() for keyword in 
+                                       ['prepaid', 'one-time', '一次性', 'advance', 'year', 'month', '年', '月', 
+                                        'does not auto-renew', 'pay once', 'top up', 'save'])
+                        
+                        enhanced_plan['is_prepaid'] = is_prepaid
+                        enhanced_plan['payment_type'] = 'prepaid' if is_prepaid else 'recurring'
+                        
+                        # 提取价格数值和货币
                         if price_str:
                             price_number = extract_price_number(price_str)
                             detected_currency = detect_currency(price_str, country_code)
@@ -739,8 +788,9 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                             enhanced_plan['price_number'] = price_number
                             enhanced_plan['currency'] = detected_currency
                             
-                            # 显示检测到的货币信息
-                            print(f"    💰 {plan.get('plan', 'Unknown')}: {price_str} ({detected_currency})")
+                            # 显示检测到的货币信息，标注预付费类型
+                            payment_label = "[预付费]" if is_prepaid else "[月付]"
+                            print(f"    💰 {plan.get('plan', 'Unknown')} {payment_label}: {price_str} ({detected_currency})")
                         
                         enhanced_plans.append(enhanced_plan)
                     
