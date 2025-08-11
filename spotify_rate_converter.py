@@ -413,11 +413,18 @@ def handle_fixed_prepaid_data(plan, currency, rates):
     """
     result = {}
     
-    # 如果有equivalent_monthly_number，说明这是修复后的数据
-    if plan.get('equivalent_monthly_number'):
+    # 检查是否为修复后的数据格式
+    # 修复后的数据会有equivalent_monthly或者price包含"for X year/months"
+    is_fixed_format = (
+        plan.get('equivalent_monthly_number') or 
+        plan.get('equivalent_monthly') or
+        ('for' in plan.get('price', '').lower() and ('year' in plan.get('price', '').lower() or 'month' in plan.get('price', '').lower()))
+    )
+    
+    if is_fixed_format:
         # 使用总价格
         total_price_number = plan.get('price_number')
-        monthly_price_number = plan.get('equivalent_monthly_number')
+        monthly_price_number = plan.get('equivalent_monthly_number', 0)
         
         result['total_price_display'] = plan.get('price', '')
         result['monthly_price_display'] = plan.get('equivalent_monthly', '')
@@ -429,6 +436,8 @@ def handle_fixed_prepaid_data(plan, currency, rates):
             result['total_price_cny'] = convert_to_cny(total_price_number, currency, rates)
         if monthly_price_number:
             result['monthly_price_cny'] = convert_to_cny(monthly_price_number, currency, rates)
+        else:
+            result['monthly_price_cny'] = None
             
         return result
     
@@ -466,12 +475,18 @@ def process_spotify_data(data, rates):
                 fixed_prepaid_data = handle_fixed_prepaid_data(plan, currency, rates)
                 if fixed_prepaid_data:
                     # 使用修复后的数据
-                    processed_plan['price'] = fixed_prepaid_data['total_price_display']
-                    processed_plan['price_number'] = format_price_number(fixed_prepaid_data['total_price_number'])
-                    processed_plan['price_cny'] = float(fixed_prepaid_data['total_price_cny']) if fixed_prepaid_data['total_price_cny'] else None
-                    processed_plan['monthly_equivalent'] = fixed_prepaid_data['monthly_price_display']
-                    processed_plan['monthly_equivalent_number'] = format_price_number(fixed_prepaid_data['monthly_price_number'])
-                    processed_plan['monthly_equivalent_cny'] = float(fixed_prepaid_data['monthly_price_cny']) if fixed_prepaid_data['monthly_price_cny'] else None
+                    processed_plan['price'] = fixed_prepaid_data.get('total_price_display', '')
+                    processed_plan['price_number'] = format_price_number(fixed_prepaid_data.get('total_price_number'))
+                    
+                    total_price_cny = fixed_prepaid_data.get('total_price_cny')
+                    processed_plan['price_cny'] = float(total_price_cny) if total_price_cny else None
+                    
+                    processed_plan['monthly_equivalent'] = fixed_prepaid_data.get('monthly_price_display', '')
+                    processed_plan['monthly_equivalent_number'] = format_price_number(fixed_prepaid_data.get('monthly_price_number'))
+                    
+                    monthly_price_cny = fixed_prepaid_data.get('monthly_price_cny')
+                    processed_plan['monthly_equivalent_cny'] = float(monthly_price_cny) if monthly_price_cny else None
+                    
                     processed_plan['source'] = plan.get('source', '')
                     processed_plans.append(processed_plan)
                     continue
@@ -679,16 +694,18 @@ def create_prepaid_rankings(processed_data, original_data):
                 ('Individual' in original_name and '1 year' in original_name.lower()) or
                 ('Individual' in original_name and 'year prepaid' in original_name.lower())):
                 
-                # 使用total_price_cny进行排序，这是总预付价格
-                if plan.get('total_price_cny') is not None:
+                # 使用price_cny进行排序（修复后price_cny已经是总价格）
+                if plan.get('price_cny') is not None:
                     country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
                     
-                    # 使用月均价格显示（price是月均价格文本）+ 总价格数据
-                    monthly_price_number = plan.get('price_number')
-                    total_price_number = plan.get('total_price_number')
+                    # 修复后的数据结构：price_number和price_cny已经是总价格
+                    total_price_number = plan.get('price_number')  # 总价格数值
+                    total_price_cny = plan.get('price_cny')  # 总价格CNY
+                    monthly_equivalent_number = plan.get('monthly_equivalent_number')  # 月价格数值
+                    monthly_equivalent_cny = plan.get('monthly_equivalent_cny')  # 月价格CNY
                     currency = plan.get('currency', '')
                     
-                    # 使用原始的月均价格显示
+                    # 使用总价格显示
                     original_price = plan.get('price', '')
                     
                     individual_1year_plans.append({
@@ -697,10 +714,10 @@ def create_prepaid_rankings(processed_data, original_data):
                         'country_name_cn': country_name_cn,
                         'original_price': original_price,
                         'currency': currency,
-                        'price_number': monthly_price_number,  # 月均价格
-                        'price_cny': plan.get('price_cny'),  # 月均价格的CNY转换
-                        'total_price_number': total_price_number,  # 总预付价格
-                        'total_price_cny': plan.get('total_price_cny'),  # 总预付价格的CNY转换
+                        'price_number': total_price_number,  # 总价格（修复后）
+                        'price_cny': total_price_cny,  # 总价格的CNY转换
+                        'monthly_equivalent_number': monthly_equivalent_number,  # 月价格参考
+                        'monthly_equivalent_cny': monthly_equivalent_cny,  # 月价格CNY参考
                         'plan_name': plan_name
                     })
     
@@ -727,16 +744,18 @@ def create_prepaid_rankings(processed_data, original_data):
                 ('Family' in original_name and '1 year' in original_name.lower()) or
                 ('Family' in original_name and 'year prepaid' in original_name.lower())):
                 
-                # 使用total_price_cny进行排序，这是总预付价格
-                if plan.get('total_price_cny') is not None:
+                # 使用price_cny进行排序（修复后price_cny已经是总价格）
+                if plan.get('price_cny') is not None:
                     country_name_cn = COUNTRY_NAMES_CN.get(country_code, country_info.get('country_name', country_code))
                     
-                    # 使用月均价格显示（price是月均价格文本）+ 总价格数据
-                    monthly_price_number = plan.get('price_number')
-                    total_price_number = plan.get('total_price_number')
+                    # 修复后的数据结构：price_number和price_cny已经是总价格
+                    total_price_number = plan.get('price_number')  # 总价格数值
+                    total_price_cny = plan.get('price_cny')  # 总价格CNY
+                    monthly_equivalent_number = plan.get('monthly_equivalent_number')  # 月价格数值
+                    monthly_equivalent_cny = plan.get('monthly_equivalent_cny')  # 月价格CNY
                     currency = plan.get('currency', '')
                     
-                    # 使用原始的月均价格显示
+                    # 使用总价格显示
                     original_price = plan.get('price', '')
                     
                     family_1year_plans.append({
@@ -745,10 +764,10 @@ def create_prepaid_rankings(processed_data, original_data):
                         'country_name_cn': country_name_cn,
                         'original_price': original_price,
                         'currency': currency,
-                        'price_number': monthly_price_number,  # 月均价格
-                        'price_cny': plan.get('price_cny'),  # 月均价格的CNY转换
-                        'total_price_number': total_price_number,  # 总预付价格
-                        'total_price_cny': plan.get('total_price_cny'),  # 总预付价格的CNY转换
+                        'price_number': total_price_number,  # 总价格（修复后）
+                        'price_cny': total_price_cny,  # 总价格的CNY转换
+                        'monthly_equivalent_number': monthly_equivalent_number,  # 月价格参考
+                        'monthly_equivalent_cny': monthly_equivalent_cny,  # 月价格CNY参考
                         'plan_name': plan_name
                     })
     
