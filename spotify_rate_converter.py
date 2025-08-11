@@ -356,8 +356,12 @@ def convert_to_cny(amount, currency_code, rates):
         return None
 
 
-def calculate_total_prepaid_price(price_number, plan_name, original_plan_name):
-    """计算预付费套餐的实际总价格"""
+def calculate_total_prepaid_price(price_number, plan_name, original_plan_name, price_text=None):
+    """计算预付费套餐的实际总价格
+    
+    注意：由于爬虫修复，现在预付费套餐的price_number已经是总价格，
+    不需要再乘以月数。此函数主要用于验证和提供月均价格计算。
+    """
     if not price_number:
         return None, None
     
@@ -370,7 +374,7 @@ def calculate_total_prepaid_price(price_number, plan_name, original_plan_name):
     if not duration:
         return None, None
     
-    # 根据时长计算总价
+    # 时长月数映射
     duration_multipliers = {
         '1年': 12,
         '6个月': 6,
@@ -379,11 +383,56 @@ def calculate_total_prepaid_price(price_number, plan_name, original_plan_name):
     }
     
     multiplier = duration_multipliers.get(duration)
-    if multiplier:
-        total_price = price_number * multiplier
-        return total_price, multiplier
+    if not multiplier:
+        return None, None
     
-    return None, None
+    # 检查price_text是否表明这是总价格（修复后的爬虫会包含 "for X year/months"）
+    if price_text and any(phrase in price_text.lower() for phrase in ['for 1 year', 'for 6 months', 'for 3 months', 'for 1 month']):
+        # 这是总价格，直接使用
+        total_price = price_number
+        return total_price, multiplier
+    else:
+        # 为了兼容性，如果price_number看起来像月价格，就乘以月数
+        # 通常年付套餐的总价会比月价格大很多
+        if multiplier > 1 and price_number < 1000:  # 假设总价超过1000的货币单位很少见于月价格
+            # 可能是月价格，需要乘以月数
+            total_price = price_number * multiplier
+        else:
+            # 可能已经是总价格了
+            total_price = price_number
+        return total_price, multiplier
+
+def handle_fixed_prepaid_data(plan, currency, rates):
+    """处理修复后的预付费数据结构
+    
+    修复后的爬虫会在预付费套餐中提供：
+    - price: 总价格（如 "EGP 699.99 for 1 year"）
+    - equivalent_monthly: 等效月价格（如 "Equivalent to EGP 58.34 per month"）
+    - price_number: 总价格数值（如 699.99）
+    - equivalent_monthly_number: 等效月价格数值（如 58.34）
+    """
+    result = {}
+    
+    # 如果有equivalent_monthly_number，说明这是修复后的数据
+    if plan.get('equivalent_monthly_number'):
+        # 使用总价格
+        total_price_number = plan.get('price_number')
+        monthly_price_number = plan.get('equivalent_monthly_number')
+        
+        result['total_price_display'] = plan.get('price', '')
+        result['monthly_price_display'] = plan.get('equivalent_monthly', '')
+        result['total_price_number'] = total_price_number
+        result['monthly_price_number'] = monthly_price_number
+        
+        # 转换为CNY
+        if total_price_number:
+            result['total_price_cny'] = convert_to_cny(total_price_number, currency, rates)
+        if monthly_price_number:
+            result['monthly_price_cny'] = convert_to_cny(monthly_price_number, currency, rates)
+            
+        return result
+    
+    return None
 
 def process_spotify_data(data, rates):
     """处理Spotify价格数据，添加CNY汇率转换"""
@@ -409,6 +458,24 @@ def process_spotify_data(data, rates):
                 'currency': currency
             }
             
+            # 检查是否为预付费套餐且使用修复后的数据格式
+            is_prepaid = plan.get('is_prepaid', False) or plan.get('payment_type') == 'prepaid'
+            
+            # 优先处理修复后的预付费数据格式
+            if is_prepaid:
+                fixed_prepaid_data = handle_fixed_prepaid_data(plan, currency, rates)
+                if fixed_prepaid_data:
+                    # 使用修复后的数据
+                    processed_plan['price'] = fixed_prepaid_data['total_price_display']
+                    processed_plan['price_number'] = format_price_number(fixed_prepaid_data['total_price_number'])
+                    processed_plan['price_cny'] = float(fixed_prepaid_data['total_price_cny']) if fixed_prepaid_data['total_price_cny'] else None
+                    processed_plan['monthly_equivalent'] = fixed_prepaid_data['monthly_price_display']
+                    processed_plan['monthly_equivalent_number'] = format_price_number(fixed_prepaid_data['monthly_price_number'])
+                    processed_plan['monthly_equivalent_cny'] = float(fixed_prepaid_data['monthly_price_cny']) if fixed_prepaid_data['monthly_price_cny'] else None
+                    processed_plan['source'] = plan.get('source', '')
+                    processed_plans.append(processed_plan)
+                    continue
+            
             # Process primary_price and secondary_price
             primary_price = plan.get('primary_price', '')
             secondary_price = plan.get('secondary_price', '')
@@ -428,7 +495,7 @@ def process_spotify_data(data, rates):
                         processed_plan['price_cny'] = None
                     
                     # 如果是预付费套餐，计算实际总价格
-                    total_price, multiplier = calculate_total_prepaid_price(price_number, standardized_plan_name, plan_name)
+                    total_price, multiplier = calculate_total_prepaid_price(price_number, standardized_plan_name, plan_name, secondary_price)
                     if total_price is not None:
                         processed_plan['total_price_number'] = format_price_number(total_price)
                         total_cny_price = convert_to_cny(total_price, currency, rates)
@@ -448,7 +515,7 @@ def process_spotify_data(data, rates):
                             processed_plan['price_cny'] = None
                         
                         # 如果是预付费套餐，计算实际总价格
-                        total_price, multiplier = calculate_total_prepaid_price(extracted_price, standardized_plan_name, plan_name)
+                        total_price, multiplier = calculate_total_prepaid_price(extracted_price, standardized_plan_name, plan_name, secondary_price)
                         if total_price is not None:
                             processed_plan['total_price_number'] = format_price_number(total_price)
                             total_cny_price = convert_to_cny(total_price, currency, rates)
@@ -473,7 +540,7 @@ def process_spotify_data(data, rates):
                         processed_plan['price_cny'] = None
                     
                     # 如果是预付费套餐，计算实际总价格
-                    total_price, multiplier = calculate_total_prepaid_price(price_number, standardized_plan_name, plan_name)
+                    total_price, multiplier = calculate_total_prepaid_price(price_number, standardized_plan_name, plan_name, secondary_price)
                     if total_price is not None:
                         processed_plan['total_price_number'] = format_price_number(total_price)
                         total_cny_price = convert_to_cny(total_price, currency, rates)
@@ -493,7 +560,7 @@ def process_spotify_data(data, rates):
                             processed_plan['price_cny'] = None
                         
                         # 如果是预付费套餐，计算实际总价格
-                        total_price, multiplier = calculate_total_prepaid_price(extracted_price, standardized_plan_name, plan_name)
+                        total_price, multiplier = calculate_total_prepaid_price(extracted_price, standardized_plan_name, plan_name, secondary_price)
                         if total_price is not None:
                             processed_plan['total_price_number'] = format_price_number(total_price)
                             total_cny_price = convert_to_cny(total_price, currency, rates)

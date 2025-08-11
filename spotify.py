@@ -529,11 +529,18 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                             'source': 'structured_data'
                         }
                         
-                        # 确定最终价格显示
-                        if secondary_price:
+                        # 确定最终价格显示 - 修复预付费套餐价格显示
+                        if is_prepaid:
+                            # 对于预付费套餐，显示总价而不是等效月价格
+                            plan_data['price'] = primary_price  # 显示总价（如 EGP 699.99 for 1 year）
+                            if secondary_price:
+                                plan_data['equivalent_monthly'] = secondary_price  # 保留等效月价格作为参考
+                        elif secondary_price:
+                            # 对于常规套餐，如果有secondary_price，使用它作为主要价格
                             plan_data['price'] = secondary_price
                             plan_data['original_price'] = primary_price
                         else:
+                            # 只有primary_price的情况
                             plan_data['price'] = primary_price
                             
                         plans.append(plan_data)
@@ -819,9 +826,18 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                         enhanced_plan['is_prepaid'] = is_prepaid
                         enhanced_plan['payment_type'] = 'prepaid' if is_prepaid else 'recurring'
                         
-                        # 提取价格数值和货币
+                        # 提取价格数值和货币 - 修复预付费套餐价格数值提取
                         if price_str:
-                            price_number = extract_price_number(price_str)
+                            # 对于预付费套餐，从总价中提取数值，而不是从等效月价格
+                            if is_prepaid and 'equivalent_monthly' in enhanced_plan:
+                                # 预付费套餐：从总价格字符串中提取数值
+                                price_number = extract_price_number(price_str)
+                                # 同时保留等效月价格数值用于比较
+                                enhanced_plan['equivalent_monthly_number'] = extract_price_number(enhanced_plan['equivalent_monthly'])
+                            else:
+                                # 常规套餐：正常提取价格数值
+                                price_number = extract_price_number(price_str)
+                            
                             detected_currency = detect_currency(price_str, country_code)
                             
                             enhanced_plan['price_number'] = price_number
@@ -830,6 +846,10 @@ async def get_spotify_prices_for_country(browser: Browser, country_code: str, co
                             # 显示检测到的货币信息，标注预付费类型
                             payment_label = "[预付费]" if is_prepaid else "[月付]"
                             print(f"    💰 {plan.get('plan', 'Unknown')} {payment_label}: {price_str} ({detected_currency})")
+                            
+                            # 为预付费套餐显示额外信息
+                            if is_prepaid and 'equivalent_monthly' in enhanced_plan:
+                                print(f"        └─ 等效月价格: {enhanced_plan['equivalent_monthly']}")
                         
                         enhanced_plans.append(enhanced_plan)
                     
