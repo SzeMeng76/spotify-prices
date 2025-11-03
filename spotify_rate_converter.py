@@ -470,8 +470,11 @@ def process_spotify_data(data, rates):
             # 检查是否为预付费套餐且使用修复后的数据格式
             is_prepaid = plan.get('is_prepaid', False) or plan.get('payment_type') == 'prepaid'
             
-            # 优先处理修复后的预付费数据格式
-            if is_prepaid:
+            # 检查是否为免费试用套餐（首月免费）
+            is_free_trial = 'free' in plan.get('price', '').lower() and 'for' in plan.get('price', '').lower()
+
+            # 优先处理修复后的预付费数据格式（但排除免费试用）
+            if is_prepaid and not is_free_trial:
                 fixed_prepaid_data = handle_fixed_prepaid_data(plan, currency, rates)
                 if fixed_prepaid_data:
                     # 使用修复后的数据
@@ -495,7 +498,12 @@ def process_spotify_data(data, rates):
             primary_price = plan.get('primary_price', '')
             secondary_price = plan.get('secondary_price', '')
             price_number = plan.get('price_number')
-            
+
+            # 如果是免费试用套餐，使用 secondary_price（"after" 后的价格）
+            # 并且使用 equivalent_monthly_number 作为价格数值
+            if is_free_trial and secondary_price:
+                price_number = plan.get('equivalent_monthly_number', price_number)
+
             # 优先使用 secondary_price
             if secondary_price and secondary_price.strip():
                 processed_plan['price'] = secondary_price

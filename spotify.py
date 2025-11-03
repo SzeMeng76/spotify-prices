@@ -110,11 +110,16 @@ def extract_price_number(price_str: str) -> float:
     """从价格字符串中提取数值"""
     if not price_str:
         return 0.0
-    
+
+    # 检查是否为免费试用期套餐（"Free for X month" 等）
+    # 这些套餐的初始价格应该是0
+    if re.search(r'\bfree\b.*\bfor\b.*\bmonth', price_str.lower()):
+        return 0.0
+
     # 首先尝试提取货币符号后面的数字部分
     # 匹配货币符号(如USD, $, €等)后跟数字的模式
     currency_pattern = r'([$]|US[$]|CA[$]|A[$]|S[$]|HK[$]|MX[$]|NZ[$]|NT[$]|R[$]|C[$]|USD|EUR|GBP|CAD|AUD|SGD|HKD|MXN|BRL|JPY|CNY|KRW|INR|THB|MYR|IDR|PHP|VND|TWD|CHF|SEK|NOK|DKK|PLN|CZK|HUF|RON|BGN|HRK|RSD|BAM|MKD|ALL|MDL|UAH|BYN|RUB|GEL|AMD|AZN|KGS|KZT|UZS|TJS|TMT|AFN|PKR|LKR|BDT|BTN|NPR|MVR|IRR|IQD|JOD|KWD|BHD|QAR|SAR|AED|OMR|YER|EGP|LBP|SYP|TND|DZD|MAD|LYD|SDG|SOS|ETB|ERN|DJF|KMF|SCR|MUR|MGA|MWK|ZMW|BWP|SZL|LSL|ZAR|NAD|AOA|XAF|XOF|XPF|NZD|FJD|TOP|WST|VUV|SBD|PGK|NCF|TVD|KID|MHD|PWD|FMD|GHS|NGN|LRD|SLL|GMD|GNF|CIV|BFA|MLI|NER|TCD|CMR|GAB|GNQ|COG|CAF|TZS|KES|UGX|RWF|BIF|MZN|ZWL|€|£|¥|￥|₹|₱|₪|₨|₦|₵|₡|₩|₴|₽|₺|zł|Kč|Ft|kr)\s+([\d,\.]+)'
-    
+
     currency_match = re.search(currency_pattern, price_str, re.IGNORECASE)
     if currency_match:
         number_part = currency_match.group(2)
@@ -123,15 +128,15 @@ def extract_price_number(price_str: str) -> float:
         # 查找数字、逗号、点的连续组合
         number_pattern = r'([\d,\.]+)'
         number_matches = re.findall(number_pattern, price_str)
-        
+
         if number_matches:
             # 找到最长的数字串（通常是价格）
             number_part = max(number_matches, key=len)
         else:
             return 0.0
 
-    # 如果没有数字，返回0                                                                              
-    if not re.search(r'\d', number_part):                                                                  
+    # 如果没有数字，返回0
+    if not re.search(r'\d', number_part):
         return 0.0 
     
     # 处理不同的数字格式
@@ -514,10 +519,15 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
                         if not is_prepaid:
                             # 如果没有明确标识，使用关键词检测
                             combined_text = f"{plan_header} {primary_price} {secondary_price}".lower()
-                            is_prepaid = any(keyword in combined_text for keyword in 
-                                           ['prepaid', 'one-time', '一次性', 'advance', 'does not auto-renew', 'pay once', 'top up']) or \
-                                         bool(re.search(r'\d+\s*(?:year|month|年|月)(?!s?\s*after)', combined_text)) or \
-                                         bool(re.search(r'save.*[\$€£]', combined_text))
+
+                            # 排除免费试用期套餐（"free for X month" 不是预付费）
+                            is_free_trial = bool(re.search(r'\bfree\b.*\bfor\b.*\bmonth', combined_text))
+
+                            if not is_free_trial:
+                                is_prepaid = any(keyword in combined_text for keyword in
+                                               ['prepaid', 'one-time', '一次性', 'advance', 'does not auto-renew', 'pay once', 'top up']) or \
+                                             bool(re.search(r'\d+\s*(?:year|month|年|月)(?!s?\s*after)', combined_text)) or \
+                                             bool(re.search(r'save.*[\$€£]', combined_text))
                         
                         # 提取所有套餐
                         plan_data = {
