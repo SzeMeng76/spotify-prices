@@ -626,8 +626,8 @@ def sort_by_family_plan_cny(processed_data, original_data):
         
         # Find Premium Family plan (支持多语言)
         for plan in country_info.get('plans', []):
-            plan_name = plan.get('plan', '')
-            if ('Premium Family' in plan_name or 'Premium Familiar' in plan_name or 
+            plan_name = plan.get('plan') or ''
+            if ('Premium Family' in plan_name or 'Premium Familiar' in plan_name or
                 'Premium Famille' in plan_name or 'Premium Familie' in plan_name):
                 family_plan = plan
                 break
