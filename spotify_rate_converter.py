@@ -453,11 +453,11 @@ def process_spotify_data(data, rates):
         processed_plans = []
         
         for plan in country_info.get('plans', []):
-            plan_name = plan.get('plan', '')
+            plan_name = plan.get('plan') or ''
             currency = plan.get('currency', '')
-            
+
             # 标准化套餐名称，传递原始名称用于预付费判断
-            original_plan_name = plan.get('original_plan_name', plan_name)
+            original_plan_name = plan.get('original_plan_name') or plan_name
             standardized_plan_name = standardize_plan_name(plan_name, original_plan_name)
             
             # Create processed plan object
@@ -650,9 +650,9 @@ def sort_by_family_plan_cny(processed_data, original_data):
         # 获取原始 price_number 数值进行格式化
         original_price_number = None
         for original_plan in original_data.get(country_code, {}).get('plans', []):
-            plan_name = original_plan.get('plan', '')
+            plan_name = original_plan.get('plan') or ''
             # 支持多语言的家庭套餐名称
-            if ('Premium Family' in plan_name or 'Premium Familiar' in plan_name or 
+            if ('Premium Family' in plan_name or 'Premium Familiar' in plan_name or
                 'Premium Famille' in plan_name or 'Premium Familie' in plan_name):
                 original_price_number = original_plan.get('price_number')
                 break
@@ -694,9 +694,9 @@ def create_prepaid_rankings(processed_data, original_data):
     individual_1year_plans = []
     for country_code, country_info in processed_data.items():
         for plan in country_info.get('plans', []):
-            plan_name = plan.get('plan', '')
-            original_name = plan.get('original_plan_name', '')
-            
+            plan_name = plan.get('plan') or ''
+            original_name = plan.get('original_plan_name') or ''
+
             # 检查是否为预付费个人1年套餐
             if (('Premium Individual' in plan_name and '1 Year Prepaid' in plan_name) or
                 ('Individual' in original_name and '1 year' in original_name.lower()) or
@@ -744,9 +744,9 @@ def create_prepaid_rankings(processed_data, original_data):
     family_1year_plans = []
     for country_code, country_info in processed_data.items():
         for plan in country_info.get('plans', []):
-            plan_name = plan.get('plan', '')
-            original_name = plan.get('original_plan_name', '')
-            
+            plan_name = plan.get('plan') or ''
+            original_name = plan.get('original_plan_name') or ''
+
             # 检查是否为预付费家庭1年套餐
             if (('Premium Family' in plan_name and '1 Year Prepaid' in plan_name) or
                 ('Family' in original_name and '1 year' in original_name.lower()) or
