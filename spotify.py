@@ -461,19 +461,30 @@ def extract_spotify_prices(html: str) -> List[Dict[str, Any]]:
             try:
                 data = json.loads(json_script.get_text())
                 # 尝试从结构化数据中提取套餐信息
-                structured_plans = (data.get('props', {})
-                                  .get('pageProps', {})
-                                  .get('components', {})
-                                  .get('storefront', {})
-                                  .get('plans', []))
+                # 注意：components 是一个列表，不是字典！需要遍历找到 SpotlightSection
+                components = data.get('props', {}).get('pageProps', {}).get('components', [])
+                structured_plans = []
+
+                # 遍历组件列表，找到包含plans的组件
+                if isinstance(components, list):
+                    for component in components:
+                        if isinstance(component, dict):
+                            # 检查是否是 SpotlightSection 组件（包含plans）
+                            if component.get('name') == 'SpotlightSection':
+                                structured_plans = component.get('attributes', {}).get('plans', [])
+                                break
+                else:
+                    # 兼容旧的字典格式（如果存在）
+                    structured_plans = (data.get('props', {})
+                                      .get('pageProps', {})
+                                      .get('components', {})
+                                      .get('storefront', {})
+                                      .get('plans', []))
                 
                 # Also check for prepaid plans (one-time payments) - they are embedded in regular plans
                 prepaid_plans = []
-                structured_plans_with_prepaid = (data.get('props', {})
-                                               .get('pageProps', {})
-                                               .get('components', {})
-                                               .get('storefront', {})
-                                               .get('plans', []))
+                # 使用已经提取的 structured_plans，避免重复代码
+                structured_plans_with_prepaid = structured_plans
                 
                 # Extract prepaid options from each plan's prepaidSection
                 for plan in structured_plans_with_prepaid:
