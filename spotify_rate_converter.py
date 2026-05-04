@@ -698,9 +698,13 @@ def create_prepaid_rankings(processed_data, original_data):
             original_name = plan.get('original_plan_name') or ''
 
             # 检查是否为预付费个人1年套餐
+            # 注意：印度等国家使用"Standard"而不是"Individual"来表示个人版
             if (('Premium Individual' in plan_name and '1 Year Prepaid' in plan_name) or
+                ('Premium Standard' in plan_name and '1 Year Prepaid' in plan_name) or
                 ('Individual' in original_name and '1 year' in original_name.lower()) or
-                ('Individual' in original_name and 'year prepaid' in original_name.lower())):
+                ('Standard' in original_name and '1 year' in original_name.lower() and 'Family' not in original_name) or
+                ('Individual' in original_name and 'year prepaid' in original_name.lower()) or
+                ('Standard' in original_name and 'year prepaid' in original_name.lower() and 'Family' not in original_name)):
                 
                 # 使用price_cny进行排序（修复后price_cny已经是总价格）
                 if plan.get('price_cny') is not None:
