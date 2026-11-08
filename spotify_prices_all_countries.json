@@ -52,8 +52,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:28",
+    "scraped_at": "2026-11-08 08:05:02",
     "source_url": "https://www.spotify.com/bf-en/premium",
+    "attempt": 1
+  },
+  "AO": {
+    "country_code": "AO",
+    "country_name": "Angola",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$4.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$4.49 / month",
+        "price_number": 4.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$5.79 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$5.79 / month",
+        "price_number": 5.79,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:05:02",
+    "source_url": "https://www.spotify.com/ao-en/premium",
     "attempt": 1
   },
   "BI": {
@@ -109,7 +166,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:29",
+    "scraped_at": "2026-11-08 08:05:02",
     "source_url": "https://www.spotify.com/bi-en/premium",
     "attempt": 1
   },
@@ -166,65 +223,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:29",
+    "scraped_at": "2026-11-08 08:05:02",
     "source_url": "https://www.spotify.com/bj-en/premium",
-    "attempt": 1
-  },
-  "AO": {
-    "country_code": "AO",
-    "country_name": "Angola",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$4.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$4.49 / month",
-        "price_number": 4.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$5.79 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$5.79 / month",
-        "price_number": 5.79,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:07:30",
-    "source_url": "https://www.spotify.com/ao-en/premium",
     "attempt": 1
   },
   "BW": {
@@ -280,65 +280,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:35",
+    "scraped_at": "2026-11-08 08:05:08",
     "source_url": "https://www.spotify.com/bw/premium",
-    "attempt": 1
-  },
-  "CM": {
-    "country_code": "CM",
-    "country_name": "Cameroon",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$4.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$4.49 / month",
-        "price_number": 4.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$5.79 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$5.79 / month",
-        "price_number": 5.79,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:07:36",
-    "source_url": "https://www.spotify.com/cm-en/premium",
     "attempt": 1
   },
   "CV": {
@@ -394,8 +337,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:36",
+    "scraped_at": "2026-11-08 08:05:09",
     "source_url": "https://www.spotify.com/cv-en/premium",
+    "attempt": 1
+  },
+  "CM": {
+    "country_code": "CM",
+    "country_name": "Cameroon",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$4.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$4.49 / month",
+        "price_number": 4.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$5.79 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$5.79 / month",
+        "price_number": 5.79,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:05:10",
+    "source_url": "https://www.spotify.com/cm-en/premium",
     "attempt": 1
   },
   "TD": {
@@ -451,7 +451,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:36",
+    "scraped_at": "2026-11-08 08:05:10",
     "source_url": "https://www.spotify.com/td-en/premium",
     "attempt": 1
   },
@@ -508,7 +508,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:37",
+    "scraped_at": "2026-11-08 08:05:10",
     "source_url": "https://www.spotify.com/km-en/premium",
     "attempt": 1
   },
@@ -565,7 +565,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:42",
+    "scraped_at": "2026-11-08 08:05:15",
     "source_url": "https://www.spotify.com/ci-en/premium",
     "attempt": 1
   },
@@ -622,8 +622,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:44",
+    "scraped_at": "2026-11-08 08:05:18",
     "source_url": "https://www.spotify.com/dj-en/premium",
+    "attempt": 1
+  },
+  "GQ": {
+    "country_code": "GQ",
+    "country_name": "Equatorial Guinea",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$4.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$4.49 / month",
+        "price_number": 4.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$5.79 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$5.79 / month",
+        "price_number": 5.79,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:05:18",
+    "source_url": "https://www.spotify.com/gq-en/premium",
     "attempt": 1
   },
   "EG": {
@@ -632,15 +689,15 @@
     "plans": [
       {
         "plan": "Premium Individual",
-        "primary_price": "EGP 39 per month for 6 months",
+        "primary_price": "EGP 0 for 1 month",
         "secondary_price": "EGP 79/month after",
         "is_prepaid": true,
         "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "EGP 39 per month for 6 months",
+        "price": "EGP 0 for 1 month",
         "equivalent_monthly": "EGP 79/month after",
         "equivalent_monthly_number": 79.0,
-        "price_number": 39.0,
+        "price_number": 0.0,
         "currency": "EGP"
       },
       {
@@ -749,65 +806,8 @@
         "currency": "EGP"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:44",
+    "scraped_at": "2026-11-08 08:05:18",
     "source_url": "https://www.spotify.com/eg-en/premium",
-    "attempt": 1
-  },
-  "GQ": {
-    "country_code": "GQ",
-    "country_name": "Equatorial Guinea",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$4.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$4.49 / month",
-        "price_number": 4.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$5.79 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$5.79 / month",
-        "price_number": 5.79,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:07:44",
-    "source_url": "https://www.spotify.com/gq-en/premium",
     "attempt": 1
   },
   "CD": {
@@ -861,7 +861,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:49",
+    "scraped_at": "2026-11-08 08:05:24",
     "source_url": "https://www.spotify.com/cd/premium",
     "attempt": 1
   },
@@ -918,7 +918,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:51",
+    "scraped_at": "2026-11-08 08:05:25",
     "source_url": "https://www.spotify.com/et-en/premium",
     "attempt": 1
   },
@@ -975,7 +975,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:52",
+    "scraped_at": "2026-11-08 08:05:26",
     "source_url": "https://www.spotify.com/ga-en/premium",
     "attempt": 1
   },
@@ -1032,7 +1032,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:57",
+    "scraped_at": "2026-11-08 08:05:30",
     "source_url": "https://www.spotify.com/sz/premium",
     "attempt": 1
   },
@@ -1089,7 +1089,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:57",
+    "scraped_at": "2026-11-08 08:05:32",
     "source_url": "https://www.spotify.com/gn-en/premium",
     "attempt": 1
   },
@@ -1146,7 +1146,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:07:59",
+    "scraped_at": "2026-11-08 08:05:33",
     "source_url": "https://www.spotify.com/gm/premium",
     "attempt": 1
   },
@@ -1264,7 +1264,7 @@
         "currency": "GHS"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:04",
+    "scraped_at": "2026-11-08 08:05:38",
     "source_url": "https://www.spotify.com/gh/premium",
     "attempt": 1
   },
@@ -1443,8 +1443,43 @@
         "currency": "KES"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:16",
+    "scraped_at": "2026-11-08 08:05:48",
     "source_url": "https://www.spotify.com/ke-en/premium",
+    "attempt": 1
+  },
+  "LY": {
+    "country_code": "LY",
+    "country_name": "Libya",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:05:48",
+    "source_url": "https://www.spotify.com/ly-en/premium",
     "attempt": 1
   },
   "GW": {
@@ -1500,43 +1535,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:16",
+    "scraped_at": "2026-11-08 08:05:48",
     "source_url": "https://www.spotify.com/gw-en/premium",
-    "attempt": 1
-  },
-  "LY": {
-    "country_code": "LY",
-    "country_name": "Libya",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:08:16",
-    "source_url": "https://www.spotify.com/ly-en/premium",
     "attempt": 1
   },
   "LS": {
@@ -1592,7 +1592,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:23",
+    "scraped_at": "2026-11-08 08:05:55",
     "source_url": "https://www.spotify.com/ls/premium",
     "attempt": 1
   },
@@ -1649,7 +1649,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:24",
+    "scraped_at": "2026-11-08 08:05:56",
     "source_url": "https://www.spotify.com/lr/premium",
     "attempt": 1
   },
@@ -1706,7 +1706,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:24",
+    "scraped_at": "2026-11-08 08:05:56",
     "source_url": "https://www.spotify.com/ml-en/premium",
     "attempt": 1
   },
@@ -1763,65 +1763,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:24",
+    "scraped_at": "2026-11-08 08:05:56",
     "source_url": "https://www.spotify.com/mg-en/premium",
-    "attempt": 1
-  },
-  "MR": {
-    "country_code": "MR",
-    "country_name": "Mauritania",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$4.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$4.49 / month",
-        "price_number": 4.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$5.79 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$5.79 / month",
-        "price_number": 5.79,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:08:31",
-    "source_url": "https://www.spotify.com/mr-en/premium",
     "attempt": 1
   },
   "MW": {
@@ -1877,8 +1820,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:31",
+    "scraped_at": "2026-11-08 08:06:03",
     "source_url": "https://www.spotify.com/mw/premium",
+    "attempt": 1
+  },
+  "MR": {
+    "country_code": "MR",
+    "country_name": "Mauritania",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$4.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$4.49 / month",
+        "price_number": 4.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$5.79 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$5.79 / month",
+        "price_number": 5.79,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:06:03",
+    "source_url": "https://www.spotify.com/mr-en/premium",
     "attempt": 1
   },
   "MZ": {
@@ -1934,135 +1934,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:32",
+    "scraped_at": "2026-11-08 08:06:04",
     "source_url": "https://www.spotify.com/mz-en/premium",
-    "attempt": 1
-  },
-  "MA": {
-    "country_code": "MA",
-    "country_name": "Morocco",
-    "plans": [
-      {
-        "plan": "Premium Personnel",
-        "primary_price": "22,50 MAD par mois pendant 6 mois",
-        "secondary_price": "45 MAD/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "45 MAD/mois ensuite",
-        "original_price": "22,50 MAD par mois pendant 6 mois",
-        "price_number": 45.0,
-        "currency": "MAD"
-      },
-      {
-        "plan": "Premium Étudiants",
-        "primary_price": "23 MAD pour 2 mois",
-        "secondary_price": "23 MAD/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "23 MAD/mois ensuite",
-        "original_price": "23 MAD pour 2 mois",
-        "price_number": 23.0,
-        "currency": "MAD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "60 MAD pour 2 mois",
-        "secondary_price": "60 MAD/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "60 MAD/mois ensuite",
-        "original_price": "60 MAD pour 2 mois",
-        "price_number": 60.0,
-        "currency": "MAD"
-      },
-      {
-        "plan": "Premium Famille",
-        "primary_price": "75 MAD pour 2 mois",
-        "secondary_price": "75 MAD/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "75 MAD/mois ensuite",
-        "original_price": "75 MAD pour 2 mois",
-        "price_number": 75.0,
-        "currency": "MAD"
-      },
-      {
-        "plan": "Premium Personnel (1 an prepaid)",
-        "primary_price": "450 MAD pour 1 an",
-        "secondary_price": "Équivalent à 37,50 MAD par mois",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "450 MAD pour 1 an",
-        "equivalent_monthly": "Équivalent à 37,50 MAD par mois",
-        "equivalent_monthly_number": 37.5,
-        "price_number": 450.0,
-        "currency": "MAD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:08:38",
-    "source_url": "https://www.spotify.com/ma/premium",
-    "attempt": 1
-  },
-  "MU": {
-    "country_code": "MU",
-    "country_name": "Mauritius",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$4.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$4.49 / month",
-        "price_number": 4.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$5.79 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$5.79 / month",
-        "price_number": 5.79,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:08:38",
-    "source_url": "https://www.spotify.com/mu/premium",
     "attempt": 1
   },
   "NA": {
@@ -2118,7 +1991,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:38",
+    "scraped_at": "2026-11-08 08:06:10",
     "source_url": "https://www.spotify.com/na-en/premium",
     "attempt": 1
   },
@@ -2175,48 +2048,13 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:39",
+    "scraped_at": "2026-11-08 08:06:11",
     "source_url": "https://www.spotify.com/ne-en/premium",
     "attempt": 1
   },
-  "CG": {
-    "country_code": "CG",
-    "country_name": "Republic of the Congo",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$1.69/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$1.69/month after",
-        "equivalent_monthly_number": 1.69,
-        "price_number": 0.0,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:08:46",
-    "source_url": "https://www.spotify.com/cg-en/premium",
-    "attempt": 1
-  },
-  "SN": {
-    "country_code": "SN",
-    "country_name": "Senegal",
+  "MU": {
+    "country_code": "MU",
+    "country_name": "Mauritius",
     "plans": [
       {
         "plan": "Premium Individual",
@@ -2267,8 +2105,78 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:46",
-    "source_url": "https://www.spotify.com/sn-en/premium",
+    "scraped_at": "2026-11-08 08:06:11",
+    "source_url": "https://www.spotify.com/mu/premium",
+    "attempt": 1
+  },
+  "MA": {
+    "country_code": "MA",
+    "country_name": "Morocco",
+    "plans": [
+      {
+        "plan": "Premium Personnel",
+        "primary_price": "45 MAD pour 2 mois",
+        "secondary_price": "45 MAD/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "45 MAD/mois ensuite",
+        "original_price": "45 MAD pour 2 mois",
+        "price_number": 45.0,
+        "currency": "MAD"
+      },
+      {
+        "plan": "Premium Étudiants",
+        "primary_price": "23 MAD pour 2 mois",
+        "secondary_price": "23 MAD/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "23 MAD/mois ensuite",
+        "original_price": "23 MAD pour 2 mois",
+        "price_number": 23.0,
+        "currency": "MAD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "60 MAD pour 2 mois",
+        "secondary_price": "60 MAD/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "60 MAD/mois ensuite",
+        "original_price": "60 MAD pour 2 mois",
+        "price_number": 60.0,
+        "currency": "MAD"
+      },
+      {
+        "plan": "Premium Famille",
+        "primary_price": "75 MAD pour 2 mois",
+        "secondary_price": "75 MAD/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "75 MAD/mois ensuite",
+        "original_price": "75 MAD pour 2 mois",
+        "price_number": 75.0,
+        "currency": "MAD"
+      },
+      {
+        "plan": "Premium Personnel (1 an prepaid)",
+        "primary_price": "450 MAD pour 1 an",
+        "secondary_price": "Équivalent à 37,50 MAD par mois",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "450 MAD pour 1 an",
+        "equivalent_monthly": "Équivalent à 37,50 MAD par mois",
+        "equivalent_monthly_number": 37.5,
+        "price_number": 450.0,
+        "currency": "MAD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:06:11",
+    "source_url": "https://www.spotify.com/ma/premium",
     "attempt": 1
   },
   "NG": {
@@ -2324,8 +2232,43 @@
         "currency": "NGN"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:46",
+    "scraped_at": "2026-11-08 08:06:18",
     "source_url": "https://www.spotify.com/ng/premium",
+    "attempt": 1
+  },
+  "CG": {
+    "country_code": "CG",
+    "country_name": "Republic of the Congo",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:06:18",
+    "source_url": "https://www.spotify.com/cg-en/premium",
     "attempt": 1
   },
   "ST": {
@@ -2381,8 +2324,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:46",
+    "scraped_at": "2026-11-08 08:06:19",
     "source_url": "https://www.spotify.com/st-en/premium",
+    "attempt": 1
+  },
+  "SN": {
+    "country_code": "SN",
+    "country_name": "Senegal",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$1.69/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$1.69/month after",
+        "equivalent_monthly_number": 1.69,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$4.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$4.49 / month",
+        "price_number": 4.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$5.79 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$5.79 / month",
+        "price_number": 5.79,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:06:19",
+    "source_url": "https://www.spotify.com/sn-en/premium",
     "attempt": 1
   },
   "RW": {
@@ -2438,7 +2438,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:53",
+    "scraped_at": "2026-11-08 08:06:25",
     "source_url": "https://www.spotify.com/rw/premium",
     "attempt": 1
   },
@@ -2495,7 +2495,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:08:53",
+    "scraped_at": "2026-11-08 08:06:26",
     "source_url": "https://www.spotify.com/sc-en/premium",
     "attempt": 1
   },
@@ -2591,7 +2591,7 @@
         "currency": "ZAR"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:04",
+    "scraped_at": "2026-11-08 08:06:38",
     "source_url": "https://www.spotify.com/za-en/premium",
     "attempt": 1
   },
@@ -2709,7 +2709,7 @@
         "currency": "TZS"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:05",
+    "scraped_at": "2026-11-08 08:06:38",
     "source_url": "https://www.spotify.com/tz-en/premium",
     "attempt": 1
   },
@@ -2766,7 +2766,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:05",
+    "scraped_at": "2026-11-08 08:06:39",
     "source_url": "https://www.spotify.com/tg-en/premium",
     "attempt": 1
   },
@@ -2811,7 +2811,7 @@
         "currency": "TND"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:12",
+    "scraped_at": "2026-11-08 08:06:45",
     "source_url": "https://www.spotify.com/tn/premium",
     "attempt": 1
   },
@@ -2868,7 +2868,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:12",
+    "scraped_at": "2026-11-08 08:06:46",
     "source_url": "https://www.spotify.com/sl/premium",
     "attempt": 1
   },
@@ -2986,7 +2986,7 @@
         "currency": "UGX"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:13",
+    "scraped_at": "2026-11-08 08:06:46",
     "source_url": "https://www.spotify.com/ug-en/premium",
     "attempt": 1
   },
@@ -3043,7 +3043,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:18",
+    "scraped_at": "2026-11-08 08:06:53",
     "source_url": "https://www.spotify.com/zm/premium",
     "attempt": 1
   },
@@ -3100,7 +3100,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:19",
+    "scraped_at": "2026-11-08 08:06:54",
     "source_url": "https://www.spotify.com/az-en/premium",
     "attempt": 1
   },
@@ -3157,7 +3157,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:20",
+    "scraped_at": "2026-11-08 08:06:54",
     "source_url": "https://www.spotify.com/zw/premium",
     "attempt": 1
   },
@@ -3214,7 +3214,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:20",
+    "scraped_at": "2026-11-08 08:06:54",
     "source_url": "https://www.spotify.com/bh-en/premium",
     "attempt": 1
   },
@@ -3271,7 +3271,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:25",
+    "scraped_at": "2026-11-08 08:07:00",
     "source_url": "https://www.spotify.com/am/premium",
     "attempt": 1
   },
@@ -3328,7 +3328,7 @@
         "currency": "BDT"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:26",
+    "scraped_at": "2026-11-08 08:07:01",
     "source_url": "https://www.spotify.com/bd-en/premium",
     "attempt": 1
   },
@@ -3385,7 +3385,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:27",
+    "scraped_at": "2026-11-08 08:07:01",
     "source_url": "https://www.spotify.com/bn-en/premium",
     "attempt": 1
   },
@@ -3442,65 +3442,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:34",
+    "scraped_at": "2026-11-08 08:07:08",
     "source_url": "https://www.spotify.com/bt/premium",
-    "attempt": 1
-  },
-  "HK": {
-    "country_code": "HK",
-    "country_name": "Hong Kong",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "HK$0 for 1 month",
-        "secondary_price": "HK$78/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "HK$0 for 1 month",
-        "equivalent_monthly": "HK$78/month after",
-        "equivalent_monthly_number": 78.0,
-        "price_number": 0.0,
-        "currency": "HKD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "HK$0 for 1 month",
-        "secondary_price": "HK$48/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "HK$0 for 1 month",
-        "equivalent_monthly": "HK$48/month after",
-        "equivalent_monthly_number": 48.0,
-        "price_number": 0.0,
-        "currency": "HKD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "HK$98 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "HK$98 / month",
-        "price_number": 98.0,
-        "currency": "HKD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "HK$128 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "HK$128 / month",
-        "price_number": 128.0,
-        "currency": "HKD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:09:35",
-    "source_url": "https://www.spotify.com/hk-en/premium",
     "attempt": 1
   },
   "KH": {
@@ -3556,8 +3499,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:35",
+    "scraped_at": "2026-11-08 08:07:09",
     "source_url": "https://www.spotify.com/kh/premium",
+    "attempt": 1
+  },
+  "HK": {
+    "country_code": "HK",
+    "country_name": "Hong Kong",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "HK$0 for 1 month",
+        "secondary_price": "HK$78/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "HK$0 for 1 month",
+        "equivalent_monthly": "HK$78/month after",
+        "equivalent_monthly_number": 78.0,
+        "price_number": 0.0,
+        "currency": "HKD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "HK$0 for 1 month",
+        "secondary_price": "HK$48/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "HK$0 for 1 month",
+        "equivalent_monthly": "HK$48/month after",
+        "equivalent_monthly_number": 48.0,
+        "price_number": 0.0,
+        "currency": "HKD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "HK$98 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "HK$98 / month",
+        "price_number": 98.0,
+        "currency": "HKD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "HK$128 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "HK$128 / month",
+        "price_number": 128.0,
+        "currency": "HKD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:07:09",
+    "source_url": "https://www.spotify.com/hk-en/premium",
     "attempt": 1
   },
   "CY": {
@@ -3613,7 +3613,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:40",
+    "scraped_at": "2026-11-08 08:07:14",
     "source_url": "https://www.spotify.com/cy/premium",
     "attempt": 1
   },
@@ -3670,7 +3670,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:40",
+    "scraped_at": "2026-11-08 08:07:15",
     "source_url": "https://www.spotify.com/ge/premium",
     "attempt": 1
   },
@@ -3680,15 +3680,15 @@
     "plans": [
       {
         "plan": "Premium Standard",
-        "primary_price": "₹139 for 2 months",
+        "primary_price": "₹99 for 3 months",
         "secondary_price": "₹139/month after",
         "is_prepaid": true,
         "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "₹139 for 2 months",
+        "price": "₹99 for 3 months",
         "equivalent_monthly": "₹139/month after",
         "equivalent_monthly_number": 139.0,
-        "price_number": 139.0,
+        "price_number": 99.0,
         "currency": "INR"
       },
       {
@@ -3729,7 +3729,7 @@
         "currency": "INR"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:41",
+    "scraped_at": "2026-11-08 08:07:15",
     "source_url": "https://www.spotify.com/in-en/premium",
     "attempt": 1
   },
@@ -3775,7 +3775,7 @@
         "currency": "IDR"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:42",
+    "scraped_at": "2026-11-08 08:07:16",
     "source_url": "https://www.spotify.com/id-en/premium",
     "attempt": 1
   },
@@ -3832,122 +3832,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:52",
+    "scraped_at": "2026-11-08 08:07:26",
     "source_url": "https://www.spotify.com/jo-en/premium",
-    "attempt": 1
-  },
-  "IL": {
-    "country_code": "IL",
-    "country_name": "Israel",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "₪0 for 1 month",
-        "secondary_price": "₪23.90/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "₪0 for 1 month",
-        "equivalent_monthly": "₪23.90/month after",
-        "equivalent_monthly_number": 23.9,
-        "price_number": 0.0,
-        "currency": "ILS"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "₪0 for 1 month",
-        "secondary_price": "₪12.90/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "₪0 for 1 month",
-        "equivalent_monthly": "₪12.90/month after",
-        "equivalent_monthly_number": 12.9,
-        "price_number": 0.0,
-        "currency": "ILS"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "₪33.90 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "₪33.90 / month",
-        "price_number": 33.9,
-        "currency": "ILS"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "₪39.90 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "₪39.90 / month",
-        "price_number": 39.9,
-        "currency": "ILS"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:09:52",
-    "source_url": "https://www.spotify.com/il-en/premium",
-    "attempt": 1
-  },
-  "KZ": {
-    "country_code": "KZ",
-    "country_name": "Kazakhstan",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$4.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$4.99/month after",
-        "equivalent_monthly_number": 4.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$2.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$2.49/month after",
-        "equivalent_monthly_number": 2.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$6.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$6.49 / month",
-        "price_number": 6.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$7.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$7.99 / month",
-        "price_number": 7.99,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:09:52",
-    "source_url": "https://www.spotify.com/kz-en/premium",
     "attempt": 1
   },
   "IQ": {
@@ -4064,8 +3950,122 @@
         "currency": "IQD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:53",
+    "scraped_at": "2026-11-08 08:07:27",
     "source_url": "https://www.spotify.com/iq-en/premium",
+    "attempt": 1
+  },
+  "KZ": {
+    "country_code": "KZ",
+    "country_name": "Kazakhstan",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$4.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$4.99/month after",
+        "equivalent_monthly_number": 4.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$2.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$2.49/month after",
+        "equivalent_monthly_number": 2.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$6.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$6.49 / month",
+        "price_number": 6.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$7.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$7.99 / month",
+        "price_number": 7.99,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:07:27",
+    "source_url": "https://www.spotify.com/kz-en/premium",
+    "attempt": 1
+  },
+  "IL": {
+    "country_code": "IL",
+    "country_name": "Israel",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "₪0 for 1 month",
+        "secondary_price": "₪23.90/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "₪0 for 1 month",
+        "equivalent_monthly": "₪23.90/month after",
+        "equivalent_monthly_number": 23.9,
+        "price_number": 0.0,
+        "currency": "ILS"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "₪0 for 1 month",
+        "secondary_price": "₪12.90/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "₪0 for 1 month",
+        "equivalent_monthly": "₪12.90/month after",
+        "equivalent_monthly_number": 12.9,
+        "price_number": 0.0,
+        "currency": "ILS"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "₪33.90 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "₪33.90 / month",
+        "price_number": 33.9,
+        "currency": "ILS"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "₪39.90 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "₪39.90 / month",
+        "price_number": 39.9,
+        "currency": "ILS"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:07:27",
+    "source_url": "https://www.spotify.com/il-en/premium",
     "attempt": 1
   },
   "JP": {
@@ -4119,65 +4119,8 @@
         "currency": "JPY"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:58",
+    "scraped_at": "2026-11-08 08:07:33",
     "source_url": "https://www.spotify.com/jp/premium",
-    "attempt": 1
-  },
-  "KG": {
-    "country_code": "KG",
-    "country_name": "Kyrgyz Republic",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$5.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$5.49/month after",
-        "equivalent_monthly_number": 5.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$2.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$2.99/month after",
-        "equivalent_monthly_number": 2.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$7.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$7.49 / month",
-        "price_number": 7.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$9.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$9.49 / month",
-        "price_number": 9.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:09:59",
-    "source_url": "https://www.spotify.com/kg-en/premium",
     "attempt": 1
   },
   "KW": {
@@ -4246,8 +4189,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:09:59",
+    "scraped_at": "2026-11-08 08:07:34",
     "source_url": "https://www.spotify.com/kw-en/premium",
+    "attempt": 1
+  },
+  "KG": {
+    "country_code": "KG",
+    "country_name": "Kyrgyz Republic",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$5.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$5.49/month after",
+        "equivalent_monthly_number": 5.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$2.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$2.99/month after",
+        "equivalent_monthly_number": 2.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$7.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$7.49 / month",
+        "price_number": 7.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$9.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$9.49 / month",
+        "price_number": 9.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:07:36",
+    "source_url": "https://www.spotify.com/kg-en/premium",
     "attempt": 1
   },
   "LB": {
@@ -4303,7 +4303,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:00",
+    "scraped_at": "2026-11-08 08:07:36",
     "source_url": "https://www.spotify.com/lb-en/premium",
     "attempt": 1
   },
@@ -4360,65 +4360,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:05",
+    "scraped_at": "2026-11-08 08:07:41",
     "source_url": "https://www.spotify.com/mo-en/premium",
-    "attempt": 1
-  },
-  "MV": {
-    "country_code": "MV",
-    "country_name": "Maldives",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$ 0 for 1 month",
-        "secondary_price": "US$ 5.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$ 0 for 1 month",
-        "equivalent_monthly": "US$ 5.49/month after",
-        "equivalent_monthly_number": 5.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$ 0 for 1 month",
-        "secondary_price": "US$ 2.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$ 0 for 1 month",
-        "equivalent_monthly": "US$ 2.99/month after",
-        "equivalent_monthly_number": 2.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$ 7.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$ 7.49 / month",
-        "price_number": 7.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$ 9.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$ 9.49 / month",
-        "price_number": 9.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:10:06",
-    "source_url": "https://www.spotify.com/mv-en/premium",
     "attempt": 1
   },
   "MY": {
@@ -4476,7 +4419,7 @@
         "currency": "MYR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:07",
+    "scraped_at": "2026-11-08 08:07:41",
     "source_url": "https://www.spotify.com/my-en/premium",
     "attempt": 1
   },
@@ -4533,8 +4476,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:07",
+    "scraped_at": "2026-11-08 08:07:42",
     "source_url": "https://www.spotify.com/la/premium",
+    "attempt": 1
+  },
+  "MV": {
+    "country_code": "MV",
+    "country_name": "Maldives",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$ 0 for 1 month",
+        "secondary_price": "US$ 5.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$ 0 for 1 month",
+        "equivalent_monthly": "US$ 5.49/month after",
+        "equivalent_monthly_number": 5.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$ 0 for 1 month",
+        "secondary_price": "US$ 2.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$ 0 for 1 month",
+        "equivalent_monthly": "US$ 2.99/month after",
+        "equivalent_monthly_number": 2.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$ 7.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$ 7.49 / month",
+        "price_number": 7.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$ 9.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$ 9.49 / month",
+        "price_number": 9.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:07:43",
+    "source_url": "https://www.spotify.com/mv-en/premium",
     "attempt": 1
   },
   "NP": {
@@ -4590,7 +4590,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:13",
+    "scraped_at": "2026-11-08 08:07:49",
     "source_url": "https://www.spotify.com/np-en/premium",
     "attempt": 1
   },
@@ -4647,7 +4647,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:13",
+    "scraped_at": "2026-11-08 08:07:49",
     "source_url": "https://www.spotify.com/om-en/premium",
     "attempt": 1
   },
@@ -4726,7 +4726,7 @@
         "currency": "PKR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:14",
+    "scraped_at": "2026-11-08 08:07:50",
     "source_url": "https://www.spotify.com/pk-en/premium",
     "attempt": 1
   },
@@ -4783,7 +4783,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:15",
+    "scraped_at": "2026-11-08 08:07:50",
     "source_url": "https://www.spotify.com/ps-en/premium",
     "attempt": 1
   },
@@ -4840,7 +4840,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:15",
+    "scraped_at": "2026-11-08 08:07:51",
     "source_url": "https://www.spotify.com/mn/premium",
     "attempt": 1
   },
@@ -4901,7 +4901,7 @@
         "currency": "PHP"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:21",
+    "scraped_at": "2026-11-08 08:07:56",
     "source_url": "https://www.spotify.com/ph-en/premium",
     "attempt": 1
   },
@@ -4971,7 +4971,7 @@
         "currency": "QAR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:21",
+    "scraped_at": "2026-11-08 08:07:57",
     "source_url": "https://www.spotify.com/qa-en/premium",
     "attempt": 1
   },
@@ -4981,15 +4981,15 @@
     "plans": [
       {
         "plan": "Premium Standard",
-        "primary_price": "SAR 11.99 per month for 6 months",
+        "primary_price": "SAR 0 for 1 month",
         "secondary_price": "SAR 23.99/month after",
         "is_prepaid": true,
         "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "SAR 11.99 per month for 6 months",
+        "price": "SAR 0 for 1 month",
         "equivalent_monthly": "SAR 23.99/month after",
         "equivalent_monthly_number": 23.99,
-        "price_number": 11.99,
+        "price_number": 0.0,
         "currency": "SAR"
       },
       {
@@ -5030,7 +5030,7 @@
         "currency": "SAR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:22",
+    "scraped_at": "2026-11-08 08:07:58",
     "source_url": "https://www.spotify.com/sa-en/premium",
     "attempt": 1
   },
@@ -5087,100 +5087,8 @@
         "currency": "KRW"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:33",
+    "scraped_at": "2026-11-08 08:08:09",
     "source_url": "https://www.spotify.com/kr-en/premium",
-    "attempt": 1
-  },
-  "SG": {
-    "country_code": "SG",
-    "country_name": "Singapore",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "$0 for 1 month",
-        "secondary_price": "$11.98/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "$0 for 1 month",
-        "equivalent_monthly": "$11.98/month after",
-        "equivalent_monthly_number": 11.98,
-        "price_number": 0.0,
-        "currency": "SGD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "$0 for 1 month",
-        "secondary_price": "$6.48/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "$0 for 1 month",
-        "equivalent_monthly": "$6.48/month after",
-        "equivalent_monthly_number": 6.48,
-        "price_number": 0.0,
-        "currency": "SGD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "$16.98 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$16.98 / month",
-        "price_number": 16.98,
-        "currency": "SGD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "$20.98 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$20.98 / month",
-        "price_number": 20.98,
-        "currency": "SGD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:10:33",
-    "source_url": "https://www.spotify.com/sg-en/premium",
-    "attempt": 1
-  },
-  "TJ": {
-    "country_code": "TJ",
-    "country_name": "Tajikistan",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$5.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$5.49/month after",
-        "equivalent_monthly_number": 5.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$2.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$2.99/month after",
-        "equivalent_monthly_number": 2.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:10:33",
-    "source_url": "https://www.spotify.com/tj-en/premium",
     "attempt": 1
   },
   "LK": {
@@ -5297,8 +5205,100 @@
         "currency": "LKR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:34",
+    "scraped_at": "2026-11-08 08:08:10",
     "source_url": "https://www.spotify.com/lk-en/premium",
+    "attempt": 1
+  },
+  "SG": {
+    "country_code": "SG",
+    "country_name": "Singapore",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "$0 for 1 month",
+        "secondary_price": "$11.98/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "$0 for 1 month",
+        "equivalent_monthly": "$11.98/month after",
+        "equivalent_monthly_number": 11.98,
+        "price_number": 0.0,
+        "currency": "SGD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "$0 for 1 month",
+        "secondary_price": "$6.48/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "$0 for 1 month",
+        "equivalent_monthly": "$6.48/month after",
+        "equivalent_monthly_number": 6.48,
+        "price_number": 0.0,
+        "currency": "SGD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "$16.98 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$16.98 / month",
+        "price_number": 16.98,
+        "currency": "SGD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "$20.98 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$20.98 / month",
+        "price_number": 20.98,
+        "currency": "SGD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:08:10",
+    "source_url": "https://www.spotify.com/sg-en/premium",
+    "attempt": 1
+  },
+  "TJ": {
+    "country_code": "TJ",
+    "country_name": "Tajikistan",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$5.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$5.49/month after",
+        "equivalent_monthly_number": 5.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$2.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$2.99/month after",
+        "equivalent_monthly_number": 2.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:08:10",
+    "source_url": "https://www.spotify.com/tj-en/premium",
     "attempt": 1
   },
   "TW": {
@@ -5352,7 +5352,7 @@
         "currency": "TWD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:40",
+    "scraped_at": "2026-11-08 08:08:17",
     "source_url": "https://www.spotify.com/tw/premium",
     "attempt": 1
   },
@@ -5413,64 +5413,8 @@
         "currency": "THB"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:40",
+    "scraped_at": "2026-11-08 08:08:17",
     "source_url": "https://www.spotify.com/th-en/premium",
-    "attempt": 1
-  },
-  "TR": {
-    "country_code": "TR",
-    "country_name": "Turkey",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "TRY 59 per month for 6 months",
-        "secondary_price": "TRY 115/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "TRY 59 per month for 6 months",
-        "equivalent_monthly": "TRY 115/month after",
-        "equivalent_monthly_number": 115.0,
-        "price_number": 59.0,
-        "currency": "TRY"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "Free for first 1 month",
-        "secondary_price": "TRY 60/month after",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "TRY 60/month after",
-        "original_price": "Free for first 1 month",
-        "price_number": 60.0,
-        "currency": "TRY"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "TRY 159 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "TRY 159 / month",
-        "price_number": 159.0,
-        "currency": "TRY"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "TRY 199 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "TRY 199 / month",
-        "price_number": 199.0,
-        "currency": "TRY"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:10:40",
-    "source_url": "https://www.spotify.com/tr-en/premium",
     "attempt": 1
   },
   "TL": {
@@ -5526,7 +5470,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:41",
+    "scraped_at": "2026-11-08 08:08:18",
     "source_url": "https://www.spotify.com/tl-en/premium",
     "attempt": 1
   },
@@ -5585,8 +5529,63 @@
         "currency": "AED"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:41",
+    "scraped_at": "2026-11-08 08:08:18",
     "source_url": "https://www.spotify.com/ae-en/premium",
+    "attempt": 1
+  },
+  "TR": {
+    "country_code": "TR",
+    "country_name": "Turkey",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "Free for first 1 month",
+        "secondary_price": "TRY 115/month after",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "TRY 115/month after",
+        "original_price": "Free for first 1 month",
+        "price_number": 115.0,
+        "currency": "TRY"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "Free for first 1 month",
+        "secondary_price": "TRY 60/month after",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "TRY 60/month after",
+        "original_price": "Free for first 1 month",
+        "price_number": 60.0,
+        "currency": "TRY"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "TRY 159 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "TRY 159 / month",
+        "price_number": 159.0,
+        "currency": "TRY"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "TRY 199 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "TRY 199 / month",
+        "price_number": 199.0,
+        "currency": "TRY"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:08:19",
+    "source_url": "https://www.spotify.com/tr-en/premium",
     "attempt": 1
   },
   "VN": {
@@ -5681,7 +5680,7 @@
         "currency": "VND"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:48",
+    "scraped_at": "2026-11-08 08:08:24",
     "source_url": "https://www.spotify.com/vn-en/premium",
     "attempt": 1
   },
@@ -5738,65 +5737,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:53",
+    "scraped_at": "2026-11-08 08:08:31",
     "source_url": "https://www.spotify.com/uz/premium",
-    "attempt": 1
-  },
-  "AL": {
-    "country_code": "AL",
-    "country_name": "Albania",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€5.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€5.99/month after",
-        "equivalent_monthly_number": 5.99,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "€8.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€8.49 / month",
-        "price_number": 8.49,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "€10.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€10.49 / month",
-        "price_number": 10.49,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:10:55",
-    "source_url": "https://www.spotify.com/al/premium",
     "attempt": 1
   },
   "BY": {
@@ -5852,8 +5794,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:55",
+    "scraped_at": "2026-11-08 08:08:32",
     "source_url": "https://www.spotify.com/by-en/premium",
+    "attempt": 1
+  },
+  "AL": {
+    "country_code": "AL",
+    "country_name": "Albania",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€5.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€5.99/month after",
+        "equivalent_monthly_number": 5.99,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "€8.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€8.49 / month",
+        "price_number": 8.49,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "€10.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€10.49 / month",
+        "price_number": 10.49,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:08:32",
+    "source_url": "https://www.spotify.com/al/premium",
     "attempt": 1
   },
   "AT": {
@@ -5907,7 +5906,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:56",
+    "scraped_at": "2026-11-08 08:08:33",
     "source_url": "https://www.spotify.com/at/premium",
     "attempt": 1
   },
@@ -5962,7 +5961,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:10:56",
+    "scraped_at": "2026-11-08 08:08:33",
     "source_url": "https://www.spotify.com/ad/premium",
     "attempt": 1
   },
@@ -6019,7 +6018,7 @@
         "currency": "BGN"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:03",
+    "scraped_at": "2026-11-08 08:08:39",
     "source_url": "https://www.spotify.com/bg-en/premium",
     "attempt": 1
   },
@@ -6076,7 +6075,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:03",
+    "scraped_at": "2026-11-08 08:08:40",
     "source_url": "https://www.spotify.com/hr-en/premium",
     "attempt": 1
   },
@@ -6131,7 +6130,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:08",
+    "scraped_at": "2026-11-08 08:08:46",
     "source_url": "https://www.spotify.com/be/premium",
     "attempt": 1
   },
@@ -6188,7 +6187,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:08",
+    "scraped_at": "2026-11-08 08:08:47",
     "source_url": "https://www.spotify.com/ba/premium",
     "attempt": 1
   },
@@ -6243,65 +6242,8 @@
         "currency": "CZK"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:10",
+    "scraped_at": "2026-11-08 08:08:48",
     "source_url": "https://www.spotify.com/cz/premium",
-    "attempt": 1
-  },
-  "EE": {
-    "country_code": "EE",
-    "country_name": "Estonia",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€11.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€11.99/month after",
-        "equivalent_monthly_number": 11.99,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€6.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€6.49/month after",
-        "equivalent_monthly_number": 6.49,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "€15.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€15.99 / month",
-        "price_number": 15.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "€19.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€19.99 / month",
-        "price_number": 19.99,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:11:20",
-    "source_url": "https://www.spotify.com/ee-en/premium",
     "attempt": 1
   },
   "DE": {
@@ -6357,7 +6299,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:20",
+    "scraped_at": "2026-11-08 08:08:59",
     "source_url": "https://www.spotify.com/de-en/premium",
     "attempt": 1
   },
@@ -6414,8 +6356,65 @@
         "currency": "DKK"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:21",
+    "scraped_at": "2026-11-08 08:08:59",
     "source_url": "https://www.spotify.com/dk-en/premium",
+    "attempt": 1
+  },
+  "EE": {
+    "country_code": "EE",
+    "country_name": "Estonia",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€11.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€11.99/month after",
+        "equivalent_monthly_number": 11.99,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€6.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€6.49/month after",
+        "equivalent_monthly_number": 6.49,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "€15.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€15.99 / month",
+        "price_number": 15.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "€19.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€19.99 / month",
+        "price_number": 19.99,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:08:59",
+    "source_url": "https://www.spotify.com/ee-en/premium",
     "attempt": 1
   },
   "FI": {
@@ -6469,7 +6468,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:27",
+    "scraped_at": "2026-11-08 08:09:06",
     "source_url": "https://www.spotify.com/fi/premium",
     "attempt": 1
   },
@@ -6524,7 +6523,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:28",
+    "scraped_at": "2026-11-08 08:09:06",
     "source_url": "https://www.spotify.com/fr/premium",
     "attempt": 1
   },
@@ -6581,8 +6580,63 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:29",
+    "scraped_at": "2026-11-08 08:09:07",
     "source_url": "https://www.spotify.com/is-en/premium",
+    "attempt": 1
+  },
+  "GR": {
+    "country_code": "GR",
+    "country_name": "Greece",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "0 € για 1 μήνα",
+        "secondary_price": "8,99 €/μήνα στη συνέχεια",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "8,99 €/μήνα στη συνέχεια",
+        "original_price": "0 € για 1 μήνα",
+        "price_number": 8.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "0 € για 1 μήνα",
+        "secondary_price": "4,99 €/μήνα στη συνέχεια",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "4,99 €/μήνα στη συνέχεια",
+        "original_price": "0 € για 1 μήνα",
+        "price_number": 4.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "11,99 € / μήνα",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "11,99 € / μήνα",
+        "price_number": 11.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "14,99 € / μήνα",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "14,99 € / μήνα",
+        "price_number": 14.99,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:09:14",
+    "source_url": "https://www.spotify.com/gr/premium",
     "attempt": 1
   },
   "HU": {
@@ -6647,63 +6701,8 @@
         "currency": "HUF"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:34",
+    "scraped_at": "2026-11-08 08:09:15",
     "source_url": "https://www.spotify.com/hu/premium",
-    "attempt": 1
-  },
-  "GR": {
-    "country_code": "GR",
-    "country_name": "Greece",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "0 € για 1 μήνα",
-        "secondary_price": "8,99 €/μήνα στη συνέχεια",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "8,99 €/μήνα στη συνέχεια",
-        "original_price": "0 € για 1 μήνα",
-        "price_number": 8.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "0 € για 1 μήνα",
-        "secondary_price": "4,99 €/μήνα στη συνέχεια",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "4,99 €/μήνα στη συνέχεια",
-        "original_price": "0 € για 1 μήνα",
-        "price_number": 4.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "11,99 € / μήνα",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "11,99 € / μήνα",
-        "price_number": 11.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "14,99 € / μήνα",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "14,99 € / μήνα",
-        "price_number": 14.99,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:11:35",
-    "source_url": "https://www.spotify.com/gr/premium",
     "attempt": 1
   },
   "XK": {
@@ -6759,65 +6758,63 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:39",
+    "scraped_at": "2026-11-08 08:09:15",
     "source_url": "https://www.spotify.com/xk-en/premium",
     "attempt": 1
   },
-  "IE": {
-    "country_code": "IE",
-    "country_name": "Ireland",
+  "IT": {
+    "country_code": "IT",
+    "country_name": "Italy",
     "plans": [
       {
         "plan": "Premium Individual",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€12.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
+        "primary_price": "0 € per 1 mese",
+        "secondary_price": "Dopo, 11,99 € al mese",
+        "is_prepaid": false,
+        "payment_type": "recurring",
         "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€12.99/month after",
-        "equivalent_monthly_number": 12.99,
-        "price_number": 0.0,
+        "price": "Dopo, 11,99 € al mese",
+        "original_price": "0 € per 1 mese",
+        "price_number": 11.99,
         "currency": "EUR"
       },
       {
         "plan": "Premium Student",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€6.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
+        "primary_price": "0 € per 1 mese",
+        "secondary_price": "Dopo, 6,49 € al mese",
+        "is_prepaid": false,
+        "payment_type": "recurring",
         "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€6.99/month after",
-        "equivalent_monthly_number": 6.99,
-        "price_number": 0.0,
+        "price": "Dopo, 6,49 € al mese",
+        "original_price": "0 € per 1 mese",
+        "price_number": 6.49,
         "currency": "EUR"
       },
       {
         "plan": "Premium Duo",
-        "primary_price": "€18.99 / month",
+        "primary_price": "16,99 € / mese",
         "secondary_price": "",
         "is_prepaid": false,
         "payment_type": "recurring",
         "source": "structured_data",
-        "price": "€18.99 / month",
-        "price_number": 18.99,
+        "price": "16,99 € / mese",
+        "price_number": 16.99,
         "currency": "EUR"
       },
       {
         "plan": "Premium Family",
-        "primary_price": "€22.99 / month",
+        "primary_price": "20,99 € / mese",
         "secondary_price": "",
         "is_prepaid": false,
         "payment_type": "recurring",
         "source": "structured_data",
-        "price": "€22.99 / month",
-        "price_number": 22.99,
+        "price": "20,99 € / mese",
+        "price_number": 20.99,
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:41",
-    "source_url": "https://www.spotify.com/ie/premium",
+    "scraped_at": "2026-11-08 08:09:21",
+    "source_url": "https://www.spotify.com/it/premium",
     "attempt": 1
   },
   "LV": {
@@ -6873,63 +6870,65 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:42",
+    "scraped_at": "2026-11-08 08:09:21",
     "source_url": "https://www.spotify.com/lv-en/premium",
     "attempt": 1
   },
-  "IT": {
-    "country_code": "IT",
-    "country_name": "Italy",
+  "IE": {
+    "country_code": "IE",
+    "country_name": "Ireland",
     "plans": [
       {
         "plan": "Premium Individual",
-        "primary_price": "0 € per 1 mese",
-        "secondary_price": "Dopo, 11,99 € al mese",
-        "is_prepaid": false,
-        "payment_type": "recurring",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€12.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "Dopo, 11,99 € al mese",
-        "original_price": "0 € per 1 mese",
-        "price_number": 11.99,
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€12.99/month after",
+        "equivalent_monthly_number": 12.99,
+        "price_number": 0.0,
         "currency": "EUR"
       },
       {
         "plan": "Premium Student",
-        "primary_price": "0 € per 1 mese",
-        "secondary_price": "Dopo, 6,49 € al mese",
-        "is_prepaid": false,
-        "payment_type": "recurring",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€6.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "Dopo, 6,49 € al mese",
-        "original_price": "0 € per 1 mese",
-        "price_number": 6.49,
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€6.99/month after",
+        "equivalent_monthly_number": 6.99,
+        "price_number": 0.0,
         "currency": "EUR"
       },
       {
         "plan": "Premium Duo",
-        "primary_price": "16,99 € / mese",
+        "primary_price": "€18.99 / month",
         "secondary_price": "",
         "is_prepaid": false,
         "payment_type": "recurring",
         "source": "structured_data",
-        "price": "16,99 € / mese",
-        "price_number": 16.99,
+        "price": "€18.99 / month",
+        "price_number": 18.99,
         "currency": "EUR"
       },
       {
         "plan": "Premium Family",
-        "primary_price": "20,99 € / mese",
+        "primary_price": "€22.99 / month",
         "secondary_price": "",
         "is_prepaid": false,
         "payment_type": "recurring",
         "source": "structured_data",
-        "price": "20,99 € / mese",
-        "price_number": 20.99,
+        "price": "€22.99 / month",
+        "price_number": 22.99,
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:42",
-    "source_url": "https://www.spotify.com/it/premium",
+    "scraped_at": "2026-11-08 08:09:22",
+    "source_url": "https://www.spotify.com/ie/premium",
     "attempt": 1
   },
   "LT": {
@@ -6985,7 +6984,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:46",
+    "scraped_at": "2026-11-08 08:09:23",
     "source_url": "https://www.spotify.com/lt-en/premium",
     "attempt": 1
   },
@@ -7040,7 +7039,7 @@
         "currency": "CHF"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:48",
+    "scraped_at": "2026-11-08 08:09:29",
     "source_url": "https://www.spotify.com/li/premium",
     "attempt": 1
   },
@@ -7097,120 +7096,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:50",
+    "scraped_at": "2026-11-08 08:09:29",
     "source_url": "https://www.spotify.com/md-en/premium",
-    "attempt": 1
-  },
-  "ME": {
-    "country_code": "ME",
-    "country_name": "Montenegro",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€5.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€5.99/month after",
-        "equivalent_monthly_number": 5.99,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "€0 for 1 month",
-        "secondary_price": "€3.29/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "€0 for 1 month",
-        "equivalent_monthly": "€3.29/month after",
-        "equivalent_monthly_number": 3.29,
-        "price_number": 0.0,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "€8.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€8.49 / month",
-        "price_number": 8.49,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "€10.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "€10.49 / month",
-        "price_number": 10.49,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:11:56",
-    "source_url": "https://www.spotify.com/me-en/premium",
-    "attempt": 1
-  },
-  "LU": {
-    "country_code": "LU",
-    "country_name": "Luxembourg",
-    "plans": [
-      {
-        "plan": "Premium Personnel",
-        "primary_price": "0 € pour 1 mois",
-        "secondary_price": "13,99 €/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "13,99 €/mois ensuite",
-        "original_price": "0 € pour 1 mois",
-        "price_number": 13.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Étudiants",
-        "primary_price": "0 € pour 1 mois",
-        "secondary_price": "6,99 €/mois ensuite",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "6,99 €/mois ensuite",
-        "original_price": "0 € pour 1 mois",
-        "price_number": 6.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "19,99 €/mois",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "19,99 €/mois",
-        "price_number": 19.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Famille",
-        "primary_price": "23,99 €/mois",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "23,99 €/mois",
-        "price_number": 23.99,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:11:56",
-    "source_url": "https://www.spotify.com/lu/premium",
     "attempt": 1
   },
   "MT": {
@@ -7266,8 +7153,120 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:56",
+    "scraped_at": "2026-11-08 08:09:35",
     "source_url": "https://www.spotify.com/mt/premium",
+    "attempt": 1
+  },
+  "LU": {
+    "country_code": "LU",
+    "country_name": "Luxembourg",
+    "plans": [
+      {
+        "plan": "Premium Personnel",
+        "primary_price": "0 € pour 1 mois",
+        "secondary_price": "13,99 €/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "13,99 €/mois ensuite",
+        "original_price": "0 € pour 1 mois",
+        "price_number": 13.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Étudiants",
+        "primary_price": "0 € pour 1 mois",
+        "secondary_price": "6,99 €/mois ensuite",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "6,99 €/mois ensuite",
+        "original_price": "0 € pour 1 mois",
+        "price_number": 6.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "19,99 €/mois",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "19,99 €/mois",
+        "price_number": 19.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Famille",
+        "primary_price": "23,99 €/mois",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "23,99 €/mois",
+        "price_number": 23.99,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:09:35",
+    "source_url": "https://www.spotify.com/lu/premium",
+    "attempt": 1
+  },
+  "ME": {
+    "country_code": "ME",
+    "country_name": "Montenegro",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€5.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€5.99/month after",
+        "equivalent_monthly_number": 5.99,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "€0 for 1 month",
+        "secondary_price": "€3.29/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "€0 for 1 month",
+        "equivalent_monthly": "€3.29/month after",
+        "equivalent_monthly_number": 3.29,
+        "price_number": 0.0,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "€8.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€8.49 / month",
+        "price_number": 8.49,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "€10.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "€10.49 / month",
+        "price_number": 10.49,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:09:36",
+    "source_url": "https://www.spotify.com/me-en/premium",
     "attempt": 1
   },
   "NL": {
@@ -7323,7 +7322,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:11:58",
+    "scraped_at": "2026-11-08 08:09:37",
     "source_url": "https://www.spotify.com/nl-en/premium",
     "attempt": 1
   },
@@ -7378,65 +7377,8 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:01",
+    "scraped_at": "2026-11-08 08:09:37",
     "source_url": "https://www.spotify.com/mc/premium",
-    "attempt": 1
-  },
-  "NO": {
-    "country_code": "NO",
-    "country_name": "Norway",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "0 kr for 1 month",
-        "secondary_price": "139 kr/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "0 kr for 1 month",
-        "equivalent_monthly": "139 kr/month after",
-        "equivalent_monthly_number": 139.0,
-        "price_number": 0.0,
-        "currency": "NOK"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "0 kr for 1 month",
-        "secondary_price": "75 kr/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "0 kr for 1 month",
-        "equivalent_monthly": "75 kr/month after",
-        "equivalent_monthly_number": 75.0,
-        "price_number": 0.0,
-        "currency": "NOK"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "189 kr / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "189 kr / month",
-        "price_number": 189.0,
-        "currency": "NOK"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "219 kr / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "219 kr / month",
-        "price_number": 219.0,
-        "currency": "NOK"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:12:12",
-    "source_url": "https://www.spotify.com/no-en/premium",
     "attempt": 1
   },
   "RO": {
@@ -7492,7 +7434,7 @@
         "currency": "RON"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:12",
+    "scraped_at": "2026-11-08 08:09:48",
     "source_url": "https://www.spotify.com/ro-en/premium",
     "attempt": 1
   },
@@ -7560,8 +7502,65 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:13",
+    "scraped_at": "2026-11-08 08:09:48",
     "source_url": "https://www.spotify.com/pt-en/premium",
+    "attempt": 1
+  },
+  "NO": {
+    "country_code": "NO",
+    "country_name": "Norway",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "0 kr for 1 month",
+        "secondary_price": "139 kr/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "0 kr for 1 month",
+        "equivalent_monthly": "139 kr/month after",
+        "equivalent_monthly_number": 139.0,
+        "price_number": 0.0,
+        "currency": "NOK"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "0 kr for 1 month",
+        "secondary_price": "75 kr/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "0 kr for 1 month",
+        "equivalent_monthly": "75 kr/month after",
+        "equivalent_monthly_number": 75.0,
+        "price_number": 0.0,
+        "currency": "NOK"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "189 kr / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "189 kr / month",
+        "price_number": 189.0,
+        "currency": "NOK"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "219 kr / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "219 kr / month",
+        "price_number": 219.0,
+        "currency": "NOK"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:09:49",
+    "source_url": "https://www.spotify.com/no-en/premium",
     "attempt": 1
   },
   "MK": {
@@ -7617,8 +7616,63 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:19",
+    "scraped_at": "2026-11-08 08:09:54",
     "source_url": "https://www.spotify.com/mk/premium",
+    "attempt": 1
+  },
+  "PL": {
+    "country_code": "PL",
+    "country_name": "Poland",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "0 zł za 1 miesiąc",
+        "secondary_price": "Po tym okresie 26,99 zł/miesiąc.",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Po tym okresie 26,99 zł/miesiąc.",
+        "original_price": "0 zł za 1 miesiąc",
+        "price_number": 26.99,
+        "currency": "PLN"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "0 zł za 1 miesiąc",
+        "secondary_price": "Po tym okresie 14,49 zł/miesiąc.",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Po tym okresie 14,49 zł/miesiąc.",
+        "original_price": "0 zł za 1 miesiąc",
+        "price_number": 14.49,
+        "currency": "PLN"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "36,99 zł miesięcznie",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "36,99 zł miesięcznie",
+        "price_number": 36.99,
+        "currency": "PLN"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "45,99 zł miesięcznie",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "45,99 zł miesięcznie",
+        "price_number": 45.99,
+        "currency": "PLN"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:09:55",
+    "source_url": "https://www.spotify.com/pl/premium",
     "attempt": 1
   },
   "SM": {
@@ -7674,63 +7728,8 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:19",
+    "scraped_at": "2026-11-08 08:09:55",
     "source_url": "https://www.spotify.com/sm-en/premium",
-    "attempt": 1
-  },
-  "PL": {
-    "country_code": "PL",
-    "country_name": "Poland",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "0 zł za 1 miesiąc",
-        "secondary_price": "Po tym okresie 26,99 zł/miesiąc.",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Po tym okresie 26,99 zł/miesiąc.",
-        "original_price": "0 zł za 1 miesiąc",
-        "price_number": 26.99,
-        "currency": "PLN"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "0 zł za 1 miesiąc",
-        "secondary_price": "Po tym okresie 14,49 zł/miesiąc.",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Po tym okresie 14,49 zł/miesiąc.",
-        "original_price": "0 zł za 1 miesiąc",
-        "price_number": 14.49,
-        "currency": "PLN"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "36,99 zł miesięcznie",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "36,99 zł miesięcznie",
-        "price_number": 36.99,
-        "currency": "PLN"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "45,99 zł miesięcznie",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "45,99 zł miesięcznie",
-        "price_number": 45.99,
-        "currency": "PLN"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:12:20",
-    "source_url": "https://www.spotify.com/pl/premium",
     "attempt": 1
   },
   "RS": {
@@ -7782,7 +7781,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:20",
+    "scraped_at": "2026-11-08 08:09:56",
     "source_url": "https://www.spotify.com/rs-en/premium",
     "attempt": 1
   },
@@ -7850,7 +7849,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:20",
+    "scraped_at": "2026-11-08 08:09:56",
     "source_url": "https://www.spotify.com/sk-en/premium",
     "attempt": 1
   },
@@ -7907,7 +7906,7 @@
         "currency": "EUR"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:27",
+    "scraped_at": "2026-11-08 08:10:02",
     "source_url": "https://www.spotify.com/si-en/premium",
     "attempt": 1
   },
@@ -7964,63 +7963,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:28",
+    "scraped_at": "2026-11-08 08:10:04",
     "source_url": "https://www.spotify.com/ua-en/premium",
-    "attempt": 1
-  },
-  "ES": {
-    "country_code": "ES",
-    "country_name": "Spain",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "0 € durante 1 mes",
-        "secondary_price": "Después, 11,99 €/mes",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Después, 11,99 €/mes",
-        "original_price": "0 € durante 1 mes",
-        "price_number": 11.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium para Estudiantes",
-        "primary_price": "0 € durante 1 mes",
-        "secondary_price": "Después, 6,49 €/mes",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Después, 6,49 €/mes",
-        "original_price": "0 € durante 1 mes",
-        "price_number": 6.49,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "16,99 € al mes",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "16,99 € al mes",
-        "price_number": 16.99,
-        "currency": "EUR"
-      },
-      {
-        "plan": "Premium Familiar",
-        "primary_price": "20,99 € al mes",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "20,99 € al mes",
-        "price_number": 20.99,
-        "currency": "EUR"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:12:34",
-    "source_url": "https://www.spotify.com/es/premium",
     "attempt": 1
   },
   "SE": {
@@ -8074,8 +8018,63 @@
         "currency": "SEK"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:34",
+    "scraped_at": "2026-11-08 08:10:10",
     "source_url": "https://www.spotify.com/se/premium",
+    "attempt": 1
+  },
+  "ES": {
+    "country_code": "ES",
+    "country_name": "Spain",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "0 € durante 1 mes",
+        "secondary_price": "Después, 11,99 €/mes",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Después, 11,99 €/mes",
+        "original_price": "0 € durante 1 mes",
+        "price_number": 11.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium para Estudiantes",
+        "primary_price": "0 € durante 1 mes",
+        "secondary_price": "Después, 6,49 €/mes",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Después, 6,49 €/mes",
+        "original_price": "0 € durante 1 mes",
+        "price_number": 6.49,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "16,99 € al mes",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "16,99 € al mes",
+        "price_number": 16.99,
+        "currency": "EUR"
+      },
+      {
+        "plan": "Premium Familiar",
+        "primary_price": "20,99 € al mes",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "20,99 € al mes",
+        "price_number": 20.99,
+        "currency": "EUR"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:10:10",
+    "source_url": "https://www.spotify.com/es/premium",
     "attempt": 1
   },
   "CH": {
@@ -8129,7 +8128,7 @@
         "currency": "CHF"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:34",
+    "scraped_at": "2026-11-08 08:10:11",
     "source_url": "https://www.spotify.com/ch/premium",
     "attempt": 1
   },
@@ -8186,7 +8185,7 @@
         "currency": "GBP"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:41",
+    "scraped_at": "2026-11-08 08:10:17",
     "source_url": "https://www.spotify.com/gb/premium",
     "attempt": 1
   },
@@ -8243,65 +8242,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:43",
+    "scraped_at": "2026-11-08 08:10:18",
     "source_url": "https://www.spotify.com/ag/premium",
-    "attempt": 1
-  },
-  "BS": {
-    "country_code": "BS",
-    "country_name": "The Bahamas",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$6.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$6.49/month after",
-        "equivalent_monthly_number": 6.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.49/month after",
-        "equivalent_monthly_number": 3.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$8.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$8.99 / month",
-        "price_number": 8.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$11.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$11.49 / month",
-        "price_number": 11.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:12:48",
-    "source_url": "https://www.spotify.com/bs/premium",
     "attempt": 1
   },
   "BZ": {
@@ -8357,8 +8299,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:48",
+    "scraped_at": "2026-11-08 08:10:25",
     "source_url": "https://www.spotify.com/bz-en/premium",
+    "attempt": 1
+  },
+  "BS": {
+    "country_code": "BS",
+    "country_name": "The Bahamas",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$6.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$6.49/month after",
+        "equivalent_monthly_number": 6.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.49/month after",
+        "equivalent_monthly_number": 3.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$8.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$8.99 / month",
+        "price_number": 8.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$11.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$11.49 / month",
+        "price_number": 11.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:10:25",
+    "source_url": "https://www.spotify.com/bs/premium",
     "attempt": 1
   },
   "AR": {
@@ -8423,7 +8422,7 @@
         "currency": "ARS"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:49",
+    "scraped_at": "2026-11-08 08:10:25",
     "source_url": "https://www.spotify.com/ar/premium",
     "attempt": 1
   },
@@ -8480,7 +8479,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:53",
+    "scraped_at": "2026-11-08 08:10:26",
     "source_url": "https://www.spotify.com/bb/premium",
     "attempt": 1
   },
@@ -8535,7 +8534,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:12:58",
+    "scraped_at": "2026-11-08 08:10:32",
     "source_url": "https://www.spotify.com/bo/premium",
     "attempt": 1
   },
@@ -8592,7 +8591,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:09",
+    "scraped_at": "2026-11-08 08:10:42",
     "source_url": "https://www.spotify.com/cw-en/premium",
     "attempt": 1
   },
@@ -8758,7 +8757,7 @@
         "currency": "COP"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:09",
+    "scraped_at": "2026-11-08 08:10:43",
     "source_url": "https://www.spotify.com/co-en/premium",
     "attempt": 1
   },
@@ -8924,7 +8923,7 @@
         "currency": "BRL"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:10",
+    "scraped_at": "2026-11-08 08:10:43",
     "source_url": "https://www.spotify.com/br-en/premium",
     "attempt": 1
   },
@@ -8990,7 +8989,7 @@
         "currency": "CLP"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:16",
+    "scraped_at": "2026-11-08 08:10:49",
     "source_url": "https://www.spotify.com/cl/premium",
     "attempt": 1
   },
@@ -9056,120 +9055,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:16",
+    "scraped_at": "2026-11-08 08:10:50",
     "source_url": "https://www.spotify.com/cr/premium",
-    "attempt": 1
-  },
-  "EC": {
-    "country_code": "EC",
-    "country_name": "Ecuador",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "$0 por 1 mes",
-        "secondary_price": "Después, $6,99*** por mes",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Después, $6,99*** por mes",
-        "original_price": "$0 por 1 mes",
-        "price_number": 6.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium para Estudiantes",
-        "primary_price": "$0 por 1 mes",
-        "secondary_price": "Después, $3,99*** por mes",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "Después, $3,99*** por mes",
-        "original_price": "$0 por 1 mes",
-        "price_number": 3.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "$8,99*** al mes",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$8,99*** al mes",
-        "price_number": 8.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Familiar",
-        "primary_price": "$10,99*** al mes",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$10,99*** al mes",
-        "price_number": 10.99,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:13:24",
-    "source_url": "https://www.spotify.com/ec/premium",
-    "attempt": 1
-  },
-  "DM": {
-    "country_code": "DM",
-    "country_name": "Dominica",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$6.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$6.49/month after",
-        "equivalent_monthly_number": 6.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.49/month after",
-        "equivalent_monthly_number": 3.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$8.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$8.99 / month",
-        "price_number": 8.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$11.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$11.49 / month",
-        "price_number": 11.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:13:24",
-    "source_url": "https://www.spotify.com/dm/premium",
     "attempt": 1
   },
   "DO": {
@@ -9234,8 +9121,120 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:24",
+    "scraped_at": "2026-11-08 08:10:57",
     "source_url": "https://www.spotify.com/do/premium",
+    "attempt": 1
+  },
+  "DM": {
+    "country_code": "DM",
+    "country_name": "Dominica",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$6.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$6.49/month after",
+        "equivalent_monthly_number": 6.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.49/month after",
+        "equivalent_monthly_number": 3.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$8.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$8.99 / month",
+        "price_number": 8.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$11.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$11.49 / month",
+        "price_number": 11.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:10:57",
+    "source_url": "https://www.spotify.com/dm/premium",
+    "attempt": 1
+  },
+  "EC": {
+    "country_code": "EC",
+    "country_name": "Ecuador",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "$0 por 1 mes",
+        "secondary_price": "Después, $6,99*** por mes",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Después, $6,99*** por mes",
+        "original_price": "$0 por 1 mes",
+        "price_number": 6.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium para Estudiantes",
+        "primary_price": "$0 por 1 mes",
+        "secondary_price": "Después, $3,99*** por mes",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "Después, $3,99*** por mes",
+        "original_price": "$0 por 1 mes",
+        "price_number": 3.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "$8,99*** al mes",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$8,99*** al mes",
+        "price_number": 8.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Familiar",
+        "primary_price": "$10,99*** al mes",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$10,99*** al mes",
+        "price_number": 10.99,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:10:58",
+    "source_url": "https://www.spotify.com/ec/premium",
     "attempt": 1
   },
   "SV": {
@@ -9289,7 +9288,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:30",
+    "scraped_at": "2026-11-08 08:11:03",
     "source_url": "https://www.spotify.com/sv/premium",
     "attempt": 1
   },
@@ -9346,7 +9345,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:31",
+    "scraped_at": "2026-11-08 08:11:04",
     "source_url": "https://www.spotify.com/gd/premium",
     "attempt": 1
   },
@@ -9403,7 +9402,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:32",
+    "scraped_at": "2026-11-08 08:11:06",
     "source_url": "https://www.spotify.com/ht-en/premium",
     "attempt": 1
   },
@@ -9460,7 +9459,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:37",
+    "scraped_at": "2026-11-08 08:11:11",
     "source_url": "https://www.spotify.com/gy/premium",
     "attempt": 1
   },
@@ -9515,7 +9514,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:38",
+    "scraped_at": "2026-11-08 08:11:12",
     "source_url": "https://www.spotify.com/gt/premium",
     "attempt": 1
   },
@@ -9525,15 +9524,15 @@
     "plans": [
       {
         "plan": "Premium Individual",
-        "primary_price": "MX$19 for 2 months",
+        "primary_price": "MX$0 for 1 month",
         "secondary_price": "MX$139/month after",
         "is_prepaid": true,
         "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "MX$19 for 2 months",
+        "price": "MX$0 for 1 month",
         "equivalent_monthly": "MX$139/month after",
         "equivalent_monthly_number": 139.0,
-        "price_number": 19.0,
+        "price_number": 0.0,
         "currency": "MXN"
       },
       {
@@ -9681,7 +9680,7 @@
         "currency": "MXN"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:39",
+    "scraped_at": "2026-11-08 08:11:13",
     "source_url": "https://www.spotify.com/mx-en/premium",
     "attempt": 1
   },
@@ -9736,7 +9735,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:44",
+    "scraped_at": "2026-11-08 08:11:17",
     "source_url": "https://www.spotify.com/hn/premium",
     "attempt": 1
   },
@@ -9793,7 +9792,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:45",
+    "scraped_at": "2026-11-08 08:11:19",
     "source_url": "https://www.spotify.com/jm/premium",
     "attempt": 1
   },
@@ -9848,7 +9847,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:51",
+    "scraped_at": "2026-11-08 08:11:25",
     "source_url": "https://www.spotify.com/ni/premium",
     "attempt": 1
   },
@@ -9903,7 +9902,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:52",
+    "scraped_at": "2026-11-08 08:11:26",
     "source_url": "https://www.spotify.com/pa/premium",
     "attempt": 1
   },
@@ -9958,7 +9957,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:52",
+    "scraped_at": "2026-11-08 08:11:27",
     "source_url": "https://www.spotify.com/py/premium",
     "attempt": 1
   },
@@ -10024,7 +10023,7 @@
         "currency": "PEN"
       }
     ],
-    "scraped_at": "2026-11-01 08:13:58",
+    "scraped_at": "2026-11-08 08:11:32",
     "source_url": "https://www.spotify.com/pe/premium",
     "attempt": 1
   },
@@ -10081,7 +10080,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:09",
+    "scraped_at": "2026-11-08 08:11:43",
     "source_url": "https://www.spotify.com/sr-en/premium",
     "attempt": 1
   },
@@ -10138,8 +10137,65 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:16",
+    "scraped_at": "2026-11-08 08:11:49",
     "source_url": "https://www.spotify.com/tt/premium",
+    "attempt": 1
+  },
+  "KN": {
+    "country_code": "KN",
+    "country_name": "St. Kitts and Nevis",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$6.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$6.49/month after",
+        "equivalent_monthly_number": 6.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$3.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$3.49/month after",
+        "equivalent_monthly_number": 3.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$8.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$8.99 / month",
+        "price_number": 8.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$11.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$11.49 / month",
+        "price_number": 11.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:11:51",
+    "source_url": "https://www.spotify.com/kn/premium",
     "attempt": 1
   },
   "VC": {
@@ -10195,7 +10251,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:16",
+    "scraped_at": "2026-11-08 08:11:51",
     "source_url": "https://www.spotify.com/vc/premium",
     "attempt": 1
   },
@@ -10252,65 +10308,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:16",
+    "scraped_at": "2026-11-08 08:11:51",
     "source_url": "https://www.spotify.com/lc/premium",
-    "attempt": 1
-  },
-  "KN": {
-    "country_code": "KN",
-    "country_name": "St. Kitts and Nevis",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$6.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$6.49/month after",
-        "equivalent_monthly_number": 6.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$3.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$3.49/month after",
-        "equivalent_monthly_number": 3.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$8.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$8.99 / month",
-        "price_number": 8.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$11.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$11.49 / month",
-        "price_number": 11.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:14:17",
-    "source_url": "https://www.spotify.com/kn/premium",
     "attempt": 1
   },
   "UY": {
@@ -10364,7 +10363,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:23",
+    "scraped_at": "2026-11-08 08:11:56",
     "source_url": "https://www.spotify.com/uy/premium",
     "attempt": 1
   },
@@ -10421,7 +10420,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:23",
+    "scraped_at": "2026-11-08 08:11:57",
     "source_url": "https://www.spotify.com/ve-en/premium",
     "attempt": 1
   },
@@ -10431,12 +10430,12 @@
     "plans": [
       {
         "plan": "Premium Individual",
-        "primary_price": "$0 for 2 months",
+        "primary_price": "$0 for 1 month",
         "secondary_price": "$13.99 / month after. Cancel anytime.",
         "is_prepaid": true,
         "payment_type": "prepaid",
         "source": "structured_data",
-        "price": "$0 for 2 months",
+        "price": "$0 for 1 month",
         "equivalent_monthly": "$13.99 / month after. Cancel anytime.",
         "equivalent_monthly_number": 13.99,
         "price_number": 0.0,
@@ -10478,8 +10477,65 @@
         "currency": "CAD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:24",
+    "scraped_at": "2026-11-08 08:11:58",
     "source_url": "https://www.spotify.com/ca-en/premium",
+    "attempt": 1
+  },
+  "US": {
+    "country_code": "US",
+    "country_name": "USA",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "$0 for 1 month",
+        "secondary_price": "$12.99 / month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "$0 for 1 month",
+        "equivalent_monthly": "$12.99 / month after",
+        "equivalent_monthly_number": 12.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "$0 for 1 month",
+        "secondary_price": "$6.99 / month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "$0 for 1 month",
+        "equivalent_monthly": "$6.99 / month after",
+        "equivalent_monthly_number": 6.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "$18.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$18.99 / month",
+        "price_number": 18.99,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "$21.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "$21.99 / month",
+        "price_number": 21.99,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:12:05",
+    "source_url": "https://www.spotify.com/us/premium",
     "attempt": 1
   },
   "AU": {
@@ -10525,134 +10581,18 @@
       },
       {
         "plan": "Premium Family",
-        "primary_price": "$0 for 2 months",
-        "secondary_price": "$27.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
+        "primary_price": "$27.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
         "source": "structured_data",
-        "price": "$0 for 2 months",
-        "equivalent_monthly": "$27.99/month after",
-        "equivalent_monthly_number": 27.99,
-        "price_number": 0.0,
+        "price": "$27.99 / month",
+        "price_number": 27.99,
         "currency": "AUD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:31",
+    "scraped_at": "2026-11-08 08:12:06",
     "source_url": "https://www.spotify.com/au/premium",
-    "attempt": 1
-  },
-  "US": {
-    "country_code": "US",
-    "country_name": "USA",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "$0 for 2 months",
-        "secondary_price": "$12.99 / month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "$0 for 2 months",
-        "equivalent_monthly": "$12.99 / month after",
-        "equivalent_monthly_number": 12.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "$0 for 1 month",
-        "secondary_price": "$6.99 / month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "$0 for 1 month",
-        "equivalent_monthly": "$6.99 / month after",
-        "equivalent_monthly_number": 6.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "$18.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$18.99 / month",
-        "price_number": 18.99,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "$21.99 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "$21.99 / month",
-        "price_number": 21.99,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:14:31",
-    "source_url": "https://www.spotify.com/us/premium",
-    "attempt": 1
-  },
-  "FJ": {
-    "country_code": "FJ",
-    "country_name": "Fiji",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$5.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$5.49/month after",
-        "equivalent_monthly_number": 5.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$2.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$2.99/month after",
-        "equivalent_monthly_number": 2.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$7.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$7.49 / month",
-        "price_number": 7.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$9.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$9.49 / month",
-        "price_number": 9.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:14:37",
-    "source_url": "https://www.spotify.com/fj/premium",
     "attempt": 1
   },
   "KI": {
@@ -10708,8 +10648,65 @@
         "currency": "AUD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:37",
+    "scraped_at": "2026-11-08 08:12:12",
     "source_url": "https://www.spotify.com/ki/premium",
+    "attempt": 1
+  },
+  "FJ": {
+    "country_code": "FJ",
+    "country_name": "Fiji",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$5.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$5.49/month after",
+        "equivalent_monthly_number": 5.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$2.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$2.99/month after",
+        "equivalent_monthly_number": 2.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$7.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$7.49 / month",
+        "price_number": 7.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$9.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$9.49 / month",
+        "price_number": 9.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:12:12",
+    "source_url": "https://www.spotify.com/fj/premium",
     "attempt": 1
   },
   "MH": {
@@ -10765,7 +10762,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:38",
+    "scraped_at": "2026-11-08 08:12:14",
     "source_url": "https://www.spotify.com/mh/premium",
     "attempt": 1
   },
@@ -10822,7 +10819,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:46",
+    "scraped_at": "2026-11-08 08:12:20",
     "source_url": "https://www.spotify.com/fm/premium",
     "attempt": 1
   },
@@ -10879,7 +10876,7 @@
         "currency": "AUD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:46",
+    "scraped_at": "2026-11-08 08:12:21",
     "source_url": "https://www.spotify.com/nr/premium",
     "attempt": 1
   },
@@ -10926,19 +10923,17 @@
       },
       {
         "plan": "Premium Family",
-        "primary_price": "$0 for 2 months",
-        "secondary_price": "$33.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
+        "primary_price": "$33.99 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
         "source": "structured_data",
-        "price": "$0 for 2 months",
-        "equivalent_monthly": "$33.99/month after",
-        "equivalent_monthly_number": 33.99,
-        "price_number": 0.0,
+        "price": "$33.99 / month",
+        "price_number": 33.99,
         "currency": "NZD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:51",
+    "scraped_at": "2026-11-08 08:12:25",
     "source_url": "https://www.spotify.com/nz/premium",
     "attempt": 1
   },
@@ -10995,7 +10990,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:51",
+    "scraped_at": "2026-11-08 08:12:26",
     "source_url": "https://www.spotify.com/pw/premium",
     "attempt": 1
   },
@@ -11052,7 +11047,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:14:53",
+    "scraped_at": "2026-11-08 08:12:28",
     "source_url": "https://www.spotify.com/pg/premium",
     "attempt": 1
   },
@@ -11109,7 +11104,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:15:00",
+    "scraped_at": "2026-11-08 08:12:34",
     "source_url": "https://www.spotify.com/ws/premium",
     "attempt": 1
   },
@@ -11166,7 +11161,7 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:15:00",
+    "scraped_at": "2026-11-08 08:12:36",
     "source_url": "https://www.spotify.com/sb/premium",
     "attempt": 1
   },
@@ -11223,65 +11218,8 @@
         "currency": "USD"
       }
     ],
-    "scraped_at": "2026-11-01 08:15:10",
+    "scraped_at": "2026-11-08 08:12:48",
     "source_url": "https://www.spotify.com/vu-en/premium",
-    "attempt": 1
-  },
-  "TO": {
-    "country_code": "TO",
-    "country_name": "Tonga",
-    "plans": [
-      {
-        "plan": "Premium Individual",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$5.49/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$5.49/month after",
-        "equivalent_monthly_number": 5.49,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Student",
-        "primary_price": "US$0 for 1 month",
-        "secondary_price": "US$2.99/month after",
-        "is_prepaid": true,
-        "payment_type": "prepaid",
-        "source": "structured_data",
-        "price": "US$0 for 1 month",
-        "equivalent_monthly": "US$2.99/month after",
-        "equivalent_monthly_number": 2.99,
-        "price_number": 0.0,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Duo",
-        "primary_price": "US$7.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$7.49 / month",
-        "price_number": 7.49,
-        "currency": "USD"
-      },
-      {
-        "plan": "Premium Family",
-        "primary_price": "US$9.49 / month",
-        "secondary_price": "",
-        "is_prepaid": false,
-        "payment_type": "recurring",
-        "source": "structured_data",
-        "price": "US$9.49 / month",
-        "price_number": 9.49,
-        "currency": "USD"
-      }
-    ],
-    "scraped_at": "2026-11-01 08:15:17",
-    "source_url": "https://www.spotify.com/to/premium",
     "attempt": 1
   },
   "TV": {
@@ -11337,8 +11275,65 @@
         "currency": "AUD"
       }
     ],
-    "scraped_at": "2026-11-01 08:15:17",
+    "scraped_at": "2026-11-08 08:12:55",
     "source_url": "https://www.spotify.com/tv/premium",
+    "attempt": 1
+  },
+  "TO": {
+    "country_code": "TO",
+    "country_name": "Tonga",
+    "plans": [
+      {
+        "plan": "Premium Individual",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$5.49/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$5.49/month after",
+        "equivalent_monthly_number": 5.49,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Student",
+        "primary_price": "US$0 for 1 month",
+        "secondary_price": "US$2.99/month after",
+        "is_prepaid": true,
+        "payment_type": "prepaid",
+        "source": "structured_data",
+        "price": "US$0 for 1 month",
+        "equivalent_monthly": "US$2.99/month after",
+        "equivalent_monthly_number": 2.99,
+        "price_number": 0.0,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Duo",
+        "primary_price": "US$7.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$7.49 / month",
+        "price_number": 7.49,
+        "currency": "USD"
+      },
+      {
+        "plan": "Premium Family",
+        "primary_price": "US$9.49 / month",
+        "secondary_price": "",
+        "is_prepaid": false,
+        "payment_type": "recurring",
+        "source": "structured_data",
+        "price": "US$9.49 / month",
+        "price_number": 9.49,
+        "currency": "USD"
+      }
+    ],
+    "scraped_at": "2026-11-08 08:12:56",
+    "source_url": "https://www.spotify.com/to/premium",
     "attempt": 1
   }
 }
